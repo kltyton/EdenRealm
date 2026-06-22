@@ -13,6 +13,7 @@ import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
+import org.jspecify.annotations.NonNull;
 
 public final class ERModelProvider extends ModelProvider {
     public ERModelProvider(PackOutput output) {
@@ -20,7 +21,7 @@ public final class ERModelProvider extends ModelProvider {
     }
 
     @Override
-    protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+    protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
         for (ERWoodSet wood : ERWoodSet.values()) {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
             ERItems.WoodItems items = ERItems.woodItems(wood);

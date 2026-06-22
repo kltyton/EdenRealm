@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
+import org.jspecify.annotations.NonNull;
 
 public final class ERRecipeProvider extends RecipeProvider {
     private ERRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
@@ -69,12 +70,12 @@ public final class ERRecipeProvider extends RecipeProvider {
         }
 
         @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
+        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull RecipeOutput output) {
             return new ERRecipeProvider(registries, output);
         }
 
         @Override
-        public String getName() {
+        public @NonNull String getName() {
             return "Eden Realm Recipes";
         }
     }

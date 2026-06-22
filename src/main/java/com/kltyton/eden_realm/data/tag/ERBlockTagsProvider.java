@@ -9,6 +9,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import org.jspecify.annotations.NonNull;
 
 public final class ERBlockTagsProvider extends BlockTagsProvider {
     public ERBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -16,7 +17,7 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider registries) {
+    protected void addTags(HolderLookup.@NonNull Provider registries) {
         for (ERWoodSet wood : ERWoodSet.values()) {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
 
