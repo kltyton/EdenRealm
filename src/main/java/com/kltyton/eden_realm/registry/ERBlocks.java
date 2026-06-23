@@ -1,23 +1,34 @@
 package com.kltyton.eden_realm.registry;
 
 import com.kltyton.eden_realm.ERConstants;
+import com.kltyton.eden_realm.common.block.ERButtonBlock;
+import com.kltyton.eden_realm.common.block.ERPressurePlateBlock;
+import com.kltyton.eden_realm.common.block.ERStairBlock;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Optional;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -79,6 +90,42 @@ public final class ERBlocks {
                         .sound(SoundType.WOOD)
                         .strength(2.0F, 3.0F)
                         .ignitedByLava());
+        DeferredBlock<StairBlock> stairs = BLOCKS.registerBlock(
+                wood.stairsName(),
+                properties -> new ERStairBlock(planks.get().defaultBlockState(), properties),
+                ERBlocks::woodBlockProperties);
+        DeferredBlock<SlabBlock> slab = BLOCKS.registerBlock(
+                wood.slabName(),
+                SlabBlock::new,
+                ERBlocks::woodBlockProperties);
+        DeferredBlock<FenceBlock> fence = BLOCKS.registerBlock(
+                wood.fenceName(),
+                FenceBlock::new,
+                properties -> woodBlockProperties(properties)
+                        .forceSolidOn());
+        DeferredBlock<FenceGateBlock> fenceGate = BLOCKS.registerBlock(
+                wood.fenceGateName(),
+                properties -> new FenceGateBlock(wood.woodType(), properties),
+                properties -> woodBlockProperties(properties)
+                        .forceSolidOn());
+        DeferredBlock<ButtonBlock> button = BLOCKS.registerBlock(
+                wood.buttonName(),
+                properties -> new ERButtonBlock(wood.blockSetType(), 30, properties),
+                properties -> properties
+                        .noCollision()
+                        .strength(0.5F)
+                        .pushReaction(PushReaction.DESTROY));
+        DeferredBlock<PressurePlateBlock> pressurePlate = BLOCKS.registerBlock(
+                wood.pressurePlateName(),
+                properties -> new ERPressurePlateBlock(wood.blockSetType(), properties),
+                properties -> properties
+                        .mapColor(MapColor.WOOD)
+                        .forceSolidOn()
+                        .instrument(NoteBlockInstrument.BASS)
+                        .noCollision()
+                        .strength(0.5F)
+                        .ignitedByLava()
+                        .pushReaction(PushReaction.DESTROY));
         DeferredBlock<TintedParticleLeavesBlock> leaves = BLOCKS.registerBlock(
                 wood.leavesName(),
                 properties -> new TintedParticleLeavesBlock(0.01F, properties),
@@ -154,13 +201,29 @@ public final class ERBlocks {
                         .strength(1.0F)
                         .ignitedByLava());
 
-        return new WoodBlocks(log, strippedLog, planks, leaves, sapling, door, trapdoor, sign, wallSign, hangingSign, wallHangingSign);
+        return new WoodBlocks(log, strippedLog, planks, stairs, slab, fence, fenceGate, button, pressurePlate, leaves, sapling, door, trapdoor, sign, wallSign, hangingSign, wallHangingSign);
+    }
+
+    private static net.minecraft.world.level.block.state.BlockBehaviour.Properties woodBlockProperties(
+            net.minecraft.world.level.block.state.BlockBehaviour.Properties properties) {
+        return properties
+                .mapColor(MapColor.WOOD)
+                .instrument(NoteBlockInstrument.BASS)
+                .sound(SoundType.WOOD)
+                .strength(2.0F, 3.0F)
+                .ignitedByLava();
     }
 
     public record WoodBlocks(
             DeferredBlock<RotatedPillarBlock> log,
             DeferredBlock<RotatedPillarBlock> strippedLog,
             DeferredBlock<Block> planks,
+            DeferredBlock<StairBlock> stairs,
+            DeferredBlock<SlabBlock> slab,
+            DeferredBlock<FenceBlock> fence,
+            DeferredBlock<FenceGateBlock> fenceGate,
+            DeferredBlock<ButtonBlock> button,
+            DeferredBlock<PressurePlateBlock> pressurePlate,
             DeferredBlock<TintedParticleLeavesBlock> leaves,
             DeferredBlock<SaplingBlock> sapling,
             DeferredBlock<DoorBlock> door,

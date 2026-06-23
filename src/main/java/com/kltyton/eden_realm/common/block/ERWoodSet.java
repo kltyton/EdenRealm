@@ -78,6 +78,30 @@ public enum ERWoodSet {
         return id + "_planks";
     }
 
+    public String stairsName() {
+        return id + "_stairs";
+    }
+
+    public String slabName() {
+        return id + "_slab";
+    }
+
+    public String fenceName() {
+        return id + "_fence";
+    }
+
+    public String fenceGateName() {
+        return id + "_fence_gate";
+    }
+
+    public String buttonName() {
+        return id + "_button";
+    }
+
+    public String pressurePlateName() {
+        return id + "_pressure_plate";
+    }
+
     public String leavesName() {
         return id + "_leaves";
     }

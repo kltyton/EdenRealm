@@ -32,13 +32,19 @@ public final class ERModelProvider extends ModelProvider {
             blockModels.createDoor(blocks.door().get());
             blockModels.createCrossBlockWithDefaultItem(blocks.sapling().get(), BlockModelGenerators.PlantType.NOT_TINTED);
 
-            BlockFamily signFamily = new BlockFamily.Builder(blocks.planks().get())
+            BlockFamily woodFamily = new BlockFamily.Builder(blocks.planks().get())
                     .strippedLog(blocks.strippedLog().get())
+                    .stairs(blocks.stairs().get())
+                    .slab(blocks.slab().get())
+                    .fence(blocks.fence().get())
+                    .fenceGate(blocks.fenceGate().get())
+                    .button(blocks.button().get())
+                    .pressurePlate(blocks.pressurePlate().get())
                     .trapdoor(blocks.trapdoor().get())
                     .sign(blocks.sign().get(), blocks.wallSign().get())
                     .hangingSign(blocks.hangingSign().get(), blocks.wallHangingSign().get())
                     .getFamily();
-            blockModels.family(blocks.planks().get()).generateFor(signFamily);
+            blockModels.family(blocks.planks().get()).generateFor(woodFamily);
             blockModels.registerSimpleItemModel(blocks.planks().get(), ModelLocationUtils.getModelLocation(blocks.planks().get()));
 
             itemModels.generateFlatItem(items.boat().get(), ModelTemplates.FLAT_ITEM);

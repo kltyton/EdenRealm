@@ -48,6 +48,18 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
                     .add(items.strippedLog().getKey());
             tag(ItemTags.PLANKS)
                     .add(items.planks().getKey());
+            tag(ItemTags.WOODEN_STAIRS)
+                    .add(items.stairs().getKey());
+            tag(ItemTags.WOODEN_SLABS)
+                    .add(items.slab().getKey());
+            tag(ItemTags.WOODEN_FENCES)
+                    .add(items.fence().getKey());
+            tag(ItemTags.FENCE_GATES)
+                    .add(items.fenceGate().getKey());
+            tag(ItemTags.WOODEN_BUTTONS)
+                    .add(items.button().getKey());
+            tag(ItemTags.WOODEN_PRESSURE_PLATES)
+                    .add(items.pressurePlate().getKey());
             tag(ItemTags.LEAVES)
                     .add(items.leaves().getKey());
             tag(ItemTags.SAPLINGS)

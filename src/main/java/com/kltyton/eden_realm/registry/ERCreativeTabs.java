@@ -24,6 +24,12 @@ public final class ERCreativeTabs {
                             output.accept(items.log().get());
                             output.accept(items.strippedLog().get());
                             output.accept(items.planks().get());
+                            output.accept(items.stairs().get());
+                            output.accept(items.slab().get());
+                            output.accept(items.fence().get());
+                            output.accept(items.fenceGate().get());
+                            output.accept(items.button().get());
+                            output.accept(items.pressurePlate().get());
                             output.accept(items.leaves().get());
                             output.accept(items.sapling().get());
                             output.accept(items.door().get());

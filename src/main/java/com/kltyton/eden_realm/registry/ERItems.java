@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.function.Supplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
@@ -53,6 +52,12 @@ public final class ERItems {
         DeferredItem<BlockItem> log = registerBlockItem(wood.logName(), blocks.log());
         DeferredItem<BlockItem> strippedLog = registerBlockItem(wood.strippedLogName(), blocks.strippedLog());
         DeferredItem<BlockItem> planks = registerBlockItem(wood.planksName(), blocks.planks());
+        DeferredItem<BlockItem> stairs = registerBlockItem(wood.stairsName(), blocks.stairs());
+        DeferredItem<BlockItem> slab = registerBlockItem(wood.slabName(), blocks.slab());
+        DeferredItem<BlockItem> fence = registerBlockItem(wood.fenceName(), blocks.fence());
+        DeferredItem<BlockItem> fenceGate = registerBlockItem(wood.fenceGateName(), blocks.fenceGate());
+        DeferredItem<BlockItem> button = registerBlockItem(wood.buttonName(), blocks.button());
+        DeferredItem<BlockItem> pressurePlate = registerBlockItem(wood.pressurePlateName(), blocks.pressurePlate());
         DeferredItem<BlockItem> leaves = registerBlockItem(wood.leavesName(), blocks.leaves());
         DeferredItem<BlockItem> sapling = registerBlockItem(wood.saplingName(), blocks.sapling());
         DeferredItem<BlockItem> door = registerBlockItem(wood.doorName(), blocks.door());
@@ -70,7 +75,7 @@ public final class ERItems {
                 wood.chestBoatName(),
                 properties -> new ERBoatItem(() -> EREntityTypes.chestBoat(wood).get(), properties.stacksTo(1)));
 
-        return new WoodItems(log, strippedLog, planks, leaves, sapling, door, trapdoor, sign, hangingSign, boat, chestBoat);
+        return new WoodItems(log, strippedLog, planks, stairs, slab, fence, fenceGate, button, pressurePlate, leaves, sapling, door, trapdoor, sign, hangingSign, boat, chestBoat);
     }
 
     private static DeferredItem<BlockItem> registerBlockItem(String name, Supplier<? extends Block> block) {
@@ -81,6 +86,12 @@ public final class ERItems {
             DeferredItem<BlockItem> log,
             DeferredItem<BlockItem> strippedLog,
             DeferredItem<BlockItem> planks,
+            DeferredItem<BlockItem> stairs,
+            DeferredItem<BlockItem> slab,
+            DeferredItem<BlockItem> fence,
+            DeferredItem<BlockItem> fenceGate,
+            DeferredItem<BlockItem> button,
+            DeferredItem<BlockItem> pressurePlate,
             DeferredItem<BlockItem> leaves,
             DeferredItem<BlockItem> sapling,
             DeferredItem<BlockItem> door,

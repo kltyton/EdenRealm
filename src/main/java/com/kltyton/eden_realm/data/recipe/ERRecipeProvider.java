@@ -34,6 +34,47 @@ public final class ERRecipeProvider extends RecipeProvider {
                     .unlockedBy(getHasName(blocks.strippedLog().get()), has(blocks.strippedLog().get()))
                     .save(output, ERConstants.recipeKey(wood.planksName() + "_from_stripped_log"));
 
+            shaped(RecipeCategory.BUILDING_BLOCKS, blocks.stairs().get(), 4)
+                    .pattern("P  ")
+                    .pattern("PP ")
+                    .pattern("PPP")
+                    .define('P', blocks.planks().get())
+                    .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
+                    .save(output, ERConstants.recipeKey(wood.stairsName()));
+
+            shaped(RecipeCategory.BUILDING_BLOCKS, blocks.slab().get(), 6)
+                    .pattern("PPP")
+                    .define('P', blocks.planks().get())
+                    .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
+                    .save(output, ERConstants.recipeKey(wood.slabName()));
+
+            shaped(RecipeCategory.DECORATIONS, blocks.fence().get(), 3)
+                    .pattern("PSP")
+                    .pattern("PSP")
+                    .define('P', blocks.planks().get())
+                    .define('S', Items.STICK)
+                    .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
+                    .save(output, ERConstants.recipeKey(wood.fenceName()));
+
+            shaped(RecipeCategory.REDSTONE, blocks.fenceGate().get())
+                    .pattern("SPS")
+                    .pattern("SPS")
+                    .define('P', blocks.planks().get())
+                    .define('S', Items.STICK)
+                    .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
+                    .save(output, ERConstants.recipeKey(wood.fenceGateName()));
+
+            shapeless(RecipeCategory.REDSTONE, blocks.button().get())
+                    .requires(blocks.planks().get())
+                    .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
+                    .save(output, ERConstants.recipeKey(wood.buttonName()));
+
+            shaped(RecipeCategory.REDSTONE, blocks.pressurePlate().get())
+                    .pattern("PP")
+                    .define('P', blocks.planks().get())
+                    .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
+                    .save(output, ERConstants.recipeKey(wood.pressurePlateName()));
+
             shaped(RecipeCategory.REDSTONE, blocks.door().get(), 3)
                     .pattern("PP")
                     .pattern("PP")

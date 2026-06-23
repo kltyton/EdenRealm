@@ -22,6 +22,12 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
             dropSelf(blocks.log().get());
             dropSelf(blocks.strippedLog().get());
             dropSelf(blocks.planks().get());
+            dropSelf(blocks.stairs().get());
+            dropSelf(blocks.slab().get());
+            dropSelf(blocks.fence().get());
+            dropSelf(blocks.fenceGate().get());
+            dropSelf(blocks.button().get());
+            dropSelf(blocks.pressurePlate().get());
             add(blocks.leaves().get(), createLeavesDrops(blocks.leaves().get(), blocks.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
             dropSelf(blocks.sapling().get());
             add(blocks.door().get(), createDoorTable(blocks.door().get()));

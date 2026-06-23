@@ -38,6 +38,28 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                     .add(blocks.log().getKey());
             tag(BlockTags.PLANKS)
                     .add(blocks.planks().getKey());
+            tag(BlockTags.WOODEN_STAIRS)
+                    .add(blocks.stairs().getKey());
+            tag(BlockTags.STAIRS)
+                    .add(blocks.stairs().getKey());
+            tag(BlockTags.WOODEN_SLABS)
+                    .add(blocks.slab().getKey());
+            tag(BlockTags.SLABS)
+                    .add(blocks.slab().getKey());
+            tag(BlockTags.WOODEN_FENCES)
+                    .add(blocks.fence().getKey());
+            tag(BlockTags.FENCES)
+                    .add(blocks.fence().getKey());
+            tag(BlockTags.FENCE_GATES)
+                    .add(blocks.fenceGate().getKey());
+            tag(BlockTags.WOODEN_BUTTONS)
+                    .add(blocks.button().getKey());
+            tag(BlockTags.BUTTONS)
+                    .add(blocks.button().getKey());
+            tag(BlockTags.WOODEN_PRESSURE_PLATES)
+                    .add(blocks.pressurePlate().getKey());
+            tag(BlockTags.PRESSURE_PLATES)
+                    .add(blocks.pressurePlate().getKey());
             tag(BlockTags.LEAVES)
                     .add(blocks.leaves().getKey());
             tag(BlockTags.WOODEN_DOORS)
@@ -72,6 +94,12 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                     .add(blocks.log().getKey())
                     .add(blocks.strippedLog().getKey())
                     .add(blocks.planks().getKey())
+                    .add(blocks.stairs().getKey())
+                    .add(blocks.slab().getKey())
+                    .add(blocks.fence().getKey())
+                    .add(blocks.fenceGate().getKey())
+                    .add(blocks.button().getKey())
+                    .add(blocks.pressurePlate().getKey())
                     .add(blocks.door().getKey())
                     .add(blocks.trapdoor().getKey())
                     .add(blocks.sign().getKey())
