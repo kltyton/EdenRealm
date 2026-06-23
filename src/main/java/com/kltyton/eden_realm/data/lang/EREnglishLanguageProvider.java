@@ -33,6 +33,7 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
             addBlock(blocks.button(), name + " Button");
             addBlock(blocks.pressurePlate(), name + " Pressure Plate");
             addBlock(blocks.shelf(), name + " Shelf");
+            addItem(items.shelf(), name + " Shelf");
             addBlock(blocks.leaves(), name + " Leaves");
             addBlock(blocks.sapling(), name + " Sapling");
             addBlock(blocks.door(), name + " Door");

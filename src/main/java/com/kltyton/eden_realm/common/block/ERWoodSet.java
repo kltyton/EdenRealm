@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public enum ERWoodSet {
     ICE_CRYSTAL_PINE("ice_crystal_pine", "Ice Crystal Pine", "冰晶松"),
-    SILVER_FROST_FIR("silver_frost_fir", "Silver Frost Fir", "银霜杉"),
+    SILVER_FROST_FIR("silver_frost_fir", "Silver Frost Fir", "银霜松"),
     STARSHINE("starshine", "Starshine", "星辉树"),
     ANCIENT_SPIRIT("ancient_spirit", "Ancient Spirit", "古灵树"),
     BLAZING_FEATHER("blazing_feather", "Blazing Feather", "炽羽树"),
@@ -22,9 +22,11 @@ public enum ERWoodSet {
     CLOUD_CROWN("cloud_crown", "Cloud Crown", "云冠树"),
     GOLDEN_BEECH("golden_beech", "Golden Beech", "金叶榉树"),
     MOON_TIDE("moon_tide", "Moon Tide", "月潮树"),
-    TWILIGHT_POMEGRANATE("twilight_pomegranate", "Twilight Pomegranate", "暮光榴树"),
+    TWILIGHT_POMEGRANATE("twilight_pomegranate", "Twilight", "暮光树"),
     SACRED_LIGHT("sacred_light", "Sacred Light", "圣辉树"),
-    SKY_CYPRESS("sky_cypress", "Sky Cypress", "天穹柏树");
+    SKY_CYPRESS("sky_cypress", "Sky Cypress", "天穹柏"),
+    RIDGE_PINE("ridge_pine", "Ridge Pine", "岩脊松"),
+    HONEY_MAPLE("honey_maple", "Honey Maple", "蜜枫树");
 
     private final String id;
     private final String englishName;
