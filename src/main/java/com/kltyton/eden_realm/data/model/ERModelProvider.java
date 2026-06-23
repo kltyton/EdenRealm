@@ -30,11 +30,11 @@ public final class ERModelProvider extends ModelProvider {
             blockModels.woodProvider(blocks.strippedLog().get()).log(blocks.strippedLog().get());
             createCubeWithItem(blockModels, blocks.leaves().get(), TexturedModel.LEAVES);
             blockModels.createDoor(blocks.door().get());
-            blockModels.createTrapdoor(blocks.trapdoor().get());
             blockModels.createCrossBlockWithDefaultItem(blocks.sapling().get(), BlockModelGenerators.PlantType.NOT_TINTED);
 
             BlockFamily signFamily = new BlockFamily.Builder(blocks.planks().get())
                     .strippedLog(blocks.strippedLog().get())
+                    .trapdoor(blocks.trapdoor().get())
                     .sign(blocks.sign().get(), blocks.wallSign().get())
                     .hangingSign(blocks.hangingSign().get(), blocks.wallHangingSign().get())
                     .getFamily();
