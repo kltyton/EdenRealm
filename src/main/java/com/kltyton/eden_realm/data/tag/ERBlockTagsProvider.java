@@ -23,9 +23,13 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
 
             tag(ERTags.Blocks.EDEN_REALM_LOGS)
                     .add(blocks.log().getKey())
-                    .add(blocks.strippedLog().getKey());
+                    .add(blocks.wood().getKey())
+                    .add(blocks.strippedLog().getKey())
+                    .add(blocks.strippedWood().getKey());
             tag(ERTags.Blocks.EDEN_REALM_PLANKS)
                     .add(blocks.planks().getKey());
+            tag(ERTags.Blocks.EDEN_REALM_SHELVES)
+                    .add(blocks.shelf().getKey());
             tag(ERTags.Blocks.EDEN_REALM_LEAVES)
                     .add(blocks.leaves().getKey());
             tag(ERTags.Blocks.EDEN_REALM_SAPLINGS)
@@ -33,7 +37,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
 
             tag(BlockTags.LOGS)
                     .add(blocks.log().getKey())
-                    .add(blocks.strippedLog().getKey());
+                    .add(blocks.wood().getKey())
+                    .add(blocks.strippedLog().getKey())
+                    .add(blocks.strippedWood().getKey());
             tag(BlockTags.OVERWORLD_NATURAL_LOGS)
                     .add(blocks.log().getKey());
             tag(BlockTags.PLANKS)
@@ -60,6 +66,8 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                     .add(blocks.pressurePlate().getKey());
             tag(BlockTags.PRESSURE_PLATES)
                     .add(blocks.pressurePlate().getKey());
+            tag(BlockTags.WOODEN_SHELVES)
+                    .add(blocks.shelf().getKey());
             tag(BlockTags.LEAVES)
                     .add(blocks.leaves().getKey());
             tag(BlockTags.WOODEN_DOORS)
@@ -92,7 +100,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
 
             tag(BlockTags.MINEABLE_WITH_AXE)
                     .add(blocks.log().getKey())
+                    .add(blocks.wood().getKey())
                     .add(blocks.strippedLog().getKey())
+                    .add(blocks.strippedWood().getKey())
                     .add(blocks.planks().getKey())
                     .add(blocks.stairs().getKey())
                     .add(blocks.slab().getKey())
@@ -100,6 +110,7 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                     .add(blocks.fenceGate().getKey())
                     .add(blocks.button().getKey())
                     .add(blocks.pressurePlate().getKey())
+                    .add(blocks.shelf().getKey())
                     .add(blocks.door().getKey())
                     .add(blocks.trapdoor().getKey())
                     .add(blocks.sign().getKey())

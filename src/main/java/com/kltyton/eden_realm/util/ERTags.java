@@ -14,6 +14,7 @@ public final class ERTags {
     public static final class Blocks {
         public static final TagKey<Block> EDEN_REALM_LOGS = create("eden_realm_logs");
         public static final TagKey<Block> EDEN_REALM_PLANKS = create("eden_realm_planks");
+        public static final TagKey<Block> EDEN_REALM_SHELVES = create("eden_realm_shelves");
         public static final TagKey<Block> EDEN_REALM_LEAVES = create("eden_realm_leaves");
         public static final TagKey<Block> EDEN_REALM_SAPLINGS = create("eden_realm_saplings");
 
@@ -28,6 +29,7 @@ public final class ERTags {
     public static final class Items {
         public static final TagKey<Item> EDEN_REALM_LOGS = create("eden_realm_logs");
         public static final TagKey<Item> EDEN_REALM_PLANKS = create("eden_realm_planks");
+        public static final TagKey<Item> EDEN_REALM_SHELVES = create("eden_realm_shelves");
         public static final TagKey<Item> EDEN_REALM_LEAVES = create("eden_realm_leaves");
         public static final TagKey<Item> EDEN_REALM_SAPLINGS = create("eden_realm_saplings");
         public static final TagKey<Item> EDEN_REALM_BOATS = create("eden_realm_boats");

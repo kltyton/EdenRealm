@@ -24,15 +24,39 @@ public final class ERRecipeProvider extends RecipeProvider {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
             ERItems.WoodItems items = ERItems.woodItems(wood);
 
+            shaped(RecipeCategory.BUILDING_BLOCKS, blocks.wood().get(), 3)
+                    .pattern("LL")
+                    .pattern("LL")
+                    .define('L', blocks.log().get())
+                    .unlockedBy(getHasName(blocks.log().get()), has(blocks.log().get()))
+                    .save(output, ERConstants.recipeKey(wood.woodName()));
+
+            shaped(RecipeCategory.BUILDING_BLOCKS, blocks.strippedWood().get(), 3)
+                    .pattern("LL")
+                    .pattern("LL")
+                    .define('L', blocks.strippedLog().get())
+                    .unlockedBy(getHasName(blocks.strippedLog().get()), has(blocks.strippedLog().get()))
+                    .save(output, ERConstants.recipeKey(wood.strippedWoodName()));
+
             shapeless(RecipeCategory.BUILDING_BLOCKS, blocks.planks().get(), 4)
                     .requires(blocks.log().get())
                     .unlockedBy(getHasName(blocks.log().get()), has(blocks.log().get()))
                     .save(output, ERConstants.recipeKey(wood.planksName() + "_from_log"));
 
             shapeless(RecipeCategory.BUILDING_BLOCKS, blocks.planks().get(), 4)
+                    .requires(blocks.wood().get())
+                    .unlockedBy(getHasName(blocks.wood().get()), has(blocks.wood().get()))
+                    .save(output, ERConstants.recipeKey(wood.planksName() + "_from_wood"));
+
+            shapeless(RecipeCategory.BUILDING_BLOCKS, blocks.planks().get(), 4)
                     .requires(blocks.strippedLog().get())
                     .unlockedBy(getHasName(blocks.strippedLog().get()), has(blocks.strippedLog().get()))
                     .save(output, ERConstants.recipeKey(wood.planksName() + "_from_stripped_log"));
+
+            shapeless(RecipeCategory.BUILDING_BLOCKS, blocks.planks().get(), 4)
+                    .requires(blocks.strippedWood().get())
+                    .unlockedBy(getHasName(blocks.strippedWood().get()), has(blocks.strippedWood().get()))
+                    .save(output, ERConstants.recipeKey(wood.planksName() + "_from_stripped_wood"));
 
             shaped(RecipeCategory.BUILDING_BLOCKS, blocks.stairs().get(), 4)
                     .pattern("P  ")
@@ -74,6 +98,15 @@ public final class ERRecipeProvider extends RecipeProvider {
                     .define('P', blocks.planks().get())
                     .unlockedBy(getHasName(blocks.planks().get()), has(blocks.planks().get()))
                     .save(output, ERConstants.recipeKey(wood.pressurePlateName()));
+
+            shaped(RecipeCategory.DECORATIONS, blocks.shelf().get(), 6)
+                    .pattern("###")
+                    .pattern("   ")
+                    .pattern("###")
+                    .define('#', blocks.strippedLog().get())
+                    .group("shelf")
+                    .unlockedBy(getHasName(blocks.strippedLog().get()), has(blocks.strippedLog().get()))
+                    .save(output, ERConstants.recipeKey(wood.shelfName()));
 
             shaped(RecipeCategory.REDSTONE, blocks.door().get(), 3)
                     .pattern("PP")

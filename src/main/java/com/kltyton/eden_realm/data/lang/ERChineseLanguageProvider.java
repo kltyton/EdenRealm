@@ -22,7 +22,9 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
             String name = wood.chineseName();
 
             addBlock(blocks.log(), name + "原木");
+            addBlock(blocks.wood(), name + "木");
             addBlock(blocks.strippedLog(), "去皮" + name + "原木");
+            addBlock(blocks.strippedWood(), "去皮" + name + "木");
             addBlock(blocks.planks(), name + "木板");
             addBlock(blocks.stairs(), name + "木楼梯");
             addBlock(blocks.slab(), name + "木台阶");
@@ -30,6 +32,7 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
             addBlock(blocks.fenceGate(), name + "木栅栏门");
             addBlock(blocks.button(), name + "木按钮");
             addBlock(blocks.pressurePlate(), name + "木压力板");
+            addBlock(blocks.shelf(), name + "木架");
             addBlock(blocks.leaves(), name + "树叶");
             addBlock(blocks.sapling(), name + "树苗");
             addBlock(blocks.door(), name + "木门");

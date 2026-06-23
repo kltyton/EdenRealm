@@ -26,10 +26,11 @@ public final class ERModelProvider extends ModelProvider {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
             ERItems.WoodItems items = ERItems.woodItems(wood);
 
-            blockModels.woodProvider(blocks.log().get()).log(blocks.log().get());
-            blockModels.woodProvider(blocks.strippedLog().get()).log(blocks.strippedLog().get());
+            blockModels.woodProvider(blocks.log().get()).log(blocks.log().get()).wood(blocks.wood().get());
+            blockModels.woodProvider(blocks.strippedLog().get()).log(blocks.strippedLog().get()).wood(blocks.strippedWood().get());
             createCubeWithItem(blockModels, blocks.leaves().get(), TexturedModel.LEAVES);
             blockModels.createDoor(blocks.door().get());
+            blockModels.createShelf(blocks.shelf().get(), blocks.strippedLog().get());
             blockModels.createCrossBlockWithDefaultItem(blocks.sapling().get(), BlockModelGenerators.PlantType.NOT_TINTED);
 
             BlockFamily woodFamily = new BlockFamily.Builder(blocks.planks().get())

@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StandingSignBlock;
@@ -75,8 +76,24 @@ public final class ERBlocks {
                         .sound(SoundType.WOOD)
                         .strength(2.0F)
                         .ignitedByLava());
+        DeferredBlock<RotatedPillarBlock> woodBlock = BLOCKS.registerBlock(
+                wood.woodName(),
+                RotatedPillarBlock::new,
+                properties -> properties
+                        .mapColor(MapColor.WOOD)
+                        .sound(SoundType.WOOD)
+                        .strength(2.0F)
+                        .ignitedByLava());
         DeferredBlock<RotatedPillarBlock> strippedLog = BLOCKS.registerBlock(
                 wood.strippedLogName(),
+                RotatedPillarBlock::new,
+                properties -> properties
+                        .mapColor(MapColor.WOOD)
+                        .sound(SoundType.WOOD)
+                        .strength(2.0F)
+                        .ignitedByLava());
+        DeferredBlock<RotatedPillarBlock> strippedWood = BLOCKS.registerBlock(
+                wood.strippedWoodName(),
                 RotatedPillarBlock::new,
                 properties -> properties
                         .mapColor(MapColor.WOOD)
@@ -126,6 +143,15 @@ public final class ERBlocks {
                         .strength(0.5F)
                         .ignitedByLava()
                         .pushReaction(PushReaction.DESTROY));
+        DeferredBlock<ShelfBlock> shelf = BLOCKS.registerBlock(
+                wood.shelfName(),
+                ShelfBlock::new,
+                properties -> properties
+                        .mapColor(MapColor.WOOD)
+                        .instrument(NoteBlockInstrument.BASS)
+                        .sound(SoundType.SHELF)
+                        .strength(2.0F, 3.0F)
+                        .ignitedByLava());
         DeferredBlock<TintedParticleLeavesBlock> leaves = BLOCKS.registerBlock(
                 wood.leavesName(),
                 properties -> new TintedParticleLeavesBlock(0.01F, properties),
@@ -201,7 +227,7 @@ public final class ERBlocks {
                         .strength(1.0F)
                         .ignitedByLava());
 
-        return new WoodBlocks(log, strippedLog, planks, stairs, slab, fence, fenceGate, button, pressurePlate, leaves, sapling, door, trapdoor, sign, wallSign, hangingSign, wallHangingSign);
+        return new WoodBlocks(log, woodBlock, strippedLog, strippedWood, planks, stairs, slab, fence, fenceGate, button, pressurePlate, shelf, leaves, sapling, door, trapdoor, sign, wallSign, hangingSign, wallHangingSign);
     }
 
     private static net.minecraft.world.level.block.state.BlockBehaviour.Properties woodBlockProperties(
@@ -216,7 +242,9 @@ public final class ERBlocks {
 
     public record WoodBlocks(
             DeferredBlock<RotatedPillarBlock> log,
+            DeferredBlock<RotatedPillarBlock> wood,
             DeferredBlock<RotatedPillarBlock> strippedLog,
+            DeferredBlock<RotatedPillarBlock> strippedWood,
             DeferredBlock<Block> planks,
             DeferredBlock<StairBlock> stairs,
             DeferredBlock<SlabBlock> slab,
@@ -224,6 +252,7 @@ public final class ERBlocks {
             DeferredBlock<FenceGateBlock> fenceGate,
             DeferredBlock<ButtonBlock> button,
             DeferredBlock<PressurePlateBlock> pressurePlate,
+            DeferredBlock<ShelfBlock> shelf,
             DeferredBlock<TintedParticleLeavesBlock> leaves,
             DeferredBlock<SaplingBlock> sapling,
             DeferredBlock<DoorBlock> door,

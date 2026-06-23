@@ -70,8 +70,16 @@ public enum ERWoodSet {
         return id + "_log";
     }
 
+    public String woodName() {
+        return id + "_wood";
+    }
+
     public String strippedLogName() {
         return id + "_stripped_log";
+    }
+
+    public String strippedWoodName() {
+        return id + "_stripped_wood";
     }
 
     public String planksName() {
@@ -100,6 +108,10 @@ public enum ERWoodSet {
 
     public String pressurePlateName() {
         return id + "_pressure_plate";
+    }
+
+    public String shelfName() {
+        return id + "_shelf";
     }
 
     public String leavesName() {

@@ -28,9 +28,13 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
 
             tag(ERTags.Items.EDEN_REALM_LOGS)
                     .add(items.log().getKey())
-                    .add(items.strippedLog().getKey());
+                    .add(items.wood().getKey())
+                    .add(items.strippedLog().getKey())
+                    .add(items.strippedWood().getKey());
             tag(ERTags.Items.EDEN_REALM_PLANKS)
                     .add(items.planks().getKey());
+            tag(ERTags.Items.EDEN_REALM_SHELVES)
+                    .add(items.shelf().getKey());
             tag(ERTags.Items.EDEN_REALM_LEAVES)
                     .add(items.leaves().getKey());
             tag(ERTags.Items.EDEN_REALM_SAPLINGS)
@@ -42,10 +46,14 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
 
             tag(ItemTags.LOGS)
                     .add(items.log().getKey())
-                    .add(items.strippedLog().getKey());
+                    .add(items.wood().getKey())
+                    .add(items.strippedLog().getKey())
+                    .add(items.strippedWood().getKey());
             tag(ItemTags.LOGS_THAT_BURN)
                     .add(items.log().getKey())
-                    .add(items.strippedLog().getKey());
+                    .add(items.wood().getKey())
+                    .add(items.strippedLog().getKey())
+                    .add(items.strippedWood().getKey());
             tag(ItemTags.PLANKS)
                     .add(items.planks().getKey());
             tag(ItemTags.WOODEN_STAIRS)
@@ -60,6 +68,8 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
                     .add(items.button().getKey());
             tag(ItemTags.WOODEN_PRESSURE_PLATES)
                     .add(items.pressurePlate().getKey());
+            tag(ItemTags.WOODEN_SHELVES)
+                    .add(items.shelf().getKey());
             tag(ItemTags.LEAVES)
                     .add(items.leaves().getKey());
             tag(ItemTags.SAPLINGS)

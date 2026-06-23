@@ -20,7 +20,9 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
 
             dropSelf(blocks.log().get());
+            dropSelf(blocks.wood().get());
             dropSelf(blocks.strippedLog().get());
+            dropSelf(blocks.strippedWood().get());
             dropSelf(blocks.planks().get());
             dropSelf(blocks.stairs().get());
             dropSelf(blocks.slab().get());
@@ -28,6 +30,7 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
             dropSelf(blocks.fenceGate().get());
             dropSelf(blocks.button().get());
             dropSelf(blocks.pressurePlate().get());
+            dropSelf(blocks.shelf().get());
             add(blocks.leaves().get(), createLeavesDrops(blocks.leaves().get(), blocks.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
             dropSelf(blocks.sapling().get());
             add(blocks.door().get(), createDoorTable(blocks.door().get()));

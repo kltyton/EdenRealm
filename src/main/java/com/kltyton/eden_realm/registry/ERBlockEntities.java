@@ -24,6 +24,7 @@ public final class ERBlockEntities {
     private static void addBlocksToVanillaTypes(BlockEntityTypeAddBlocksEvent event) {
         event.modify(BlockEntityTypes.SIGN, signBlocks());
         event.modify(BlockEntityTypes.HANGING_SIGN, hangingSignBlocks());
+        event.modify(BlockEntityTypes.SHELF, shelfBlocks());
     }
 
     private static Block[] signBlocks() {
@@ -35,6 +36,12 @@ public final class ERBlockEntities {
     private static Block[] hangingSignBlocks() {
         return ERBlocks.woodEntries().stream()
                 .flatMap(blocks -> Stream.of(blocks.hangingSign().get(), blocks.wallHangingSign().get()))
+                .toArray(Block[]::new);
+    }
+
+    private static Block[] shelfBlocks() {
+        return ERBlocks.woodEntries().stream()
+                .map(blocks -> (Block) blocks.shelf().get())
                 .toArray(Block[]::new);
     }
 }
