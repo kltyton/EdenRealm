@@ -20,7 +20,11 @@ public enum ERWoodSet {
     WIND_CHIME_PINE("wind_chime_pine", "Wind Chime Pine", "风铃松"),
     FIRMAMENT("firmament", "Firmament", "苍穹树"),
     CLOUD_CROWN("cloud_crown", "Cloud Crown", "云冠树"),
-    GOLDEN_BEECH("golden_beech", "Golden Beech", "金叶榉树");
+    GOLDEN_BEECH("golden_beech", "Golden Beech", "金叶榉树"),
+    MOON_TIDE("moon_tide", "Moon Tide", "月潮树"),
+    TWILIGHT_POMEGRANATE("twilight_pomegranate", "Twilight Pomegranate", "暮光榴树"),
+    SACRED_LIGHT("sacred_light", "Sacred Light", "圣辉树"),
+    SKY_CYPRESS("sky_cypress", "Sky Cypress", "天穹柏树");
 
     private final String id;
     private final String englishName;
