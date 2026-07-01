@@ -29,19 +29,20 @@ public final class ERBlockEntities {
 
     private static Block[] signBlocks() {
         return ERBlocks.woodEntries().stream()
-                .flatMap(blocks -> Stream.of(blocks.sign().get(), blocks.wallSign().get()))
+                .flatMap(blocks -> Stream.<Block>of(blocks.sign().get(), blocks.wallSign().get()))
                 .toArray(Block[]::new);
     }
 
     private static Block[] hangingSignBlocks() {
         return ERBlocks.woodEntries().stream()
-                .flatMap(blocks -> Stream.of(blocks.hangingSign().get(), blocks.wallHangingSign().get()))
+                .flatMap(blocks -> Stream.<Block>of(blocks.hangingSign().get(), blocks.wallHangingSign().get()))
                 .toArray(Block[]::new);
     }
 
     private static Block[] shelfBlocks() {
         return ERBlocks.woodEntries().stream()
-                .map(blocks -> (Block) blocks.shelf().get())
+                .map(blocks -> blocks.shelf().get())
+                .map(Block.class::cast)
                 .toArray(Block[]::new);
     }
 }
