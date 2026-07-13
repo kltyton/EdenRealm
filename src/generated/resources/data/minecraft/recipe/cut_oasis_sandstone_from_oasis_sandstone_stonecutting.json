@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "eden_realm:oasis_sandstone",
+  "result": {
+    "id": "eden_realm:cut_oasis_sandstone"
+  }
+}

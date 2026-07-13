@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eden_realm:item/gloomlight_chest_boat"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "eden_realm:block/sacred_light_door_bottom",
+    "top": "eden_realm:block/sacred_light_door_top"
+  }
+}

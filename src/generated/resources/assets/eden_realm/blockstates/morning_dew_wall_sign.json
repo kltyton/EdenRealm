@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "eden_realm:block/morning_dew_wall_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "eden_realm:block/morning_dew_wall_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "eden_realm:block/morning_dew_wall_sign"
+    },
+    "facing=west": {
+      "model": "eden_realm:block/morning_dew_wall_sign",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "eden_realm:block/mossy_raw_rock_pillar_top",
+    "side": "eden_realm:block/mossy_raw_rock_pillar"
+  }
+}

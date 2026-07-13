@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_1",
+  "textures": {
+    "all": "eden_realm:block/blazing_feather_sign",
+    "particle": "eden_realm:block/blazing_feather_planks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/honey_maple_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/honey_maple_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/honey_maple_slab_top"
+    }
+  }
+}

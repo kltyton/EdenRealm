@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "eden_realm:block/silver_frost_fir_planks",
+    "side": "eden_realm:block/silver_frost_fir_planks",
+    "top": "eden_realm:block/silver_frost_fir_planks"
+  }
+}

@@ -3,13 +3,22 @@ package com.kltyton.eden_realm.registry;
 import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.common.item.ERBoatItem;
+import com.kltyton.eden_realm.registry.content.ERBlockEntry;
+import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import java.util.EnumMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.function.Supplier;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
@@ -19,10 +28,16 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ERItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ERConstants.MOD_ID);
     private static final EnumMap<ERWoodSet, WoodItems> WOOD_ITEMS = new EnumMap<>(ERWoodSet.class);
+    private static final Map<String, DeferredItem<BlockItem>> CONTENT_ITEMS = new LinkedHashMap<>();
 
     static {
         for (ERWoodSet wood : ERWoodSet.values()) {
             WOOD_ITEMS.put(wood, registerWoodItems(wood));
+        }
+        for (ERBlockEntry entry : ERBlocks.contentEntries()) {
+            if (entry.hasItem()) {
+                CONTENT_ITEMS.put(entry.id(), registerContentBlockItem(entry));
+            }
         }
     }
 
@@ -47,6 +62,18 @@ public final class ERItems {
 
     public static List<WoodItems> woodEntries() {
         return List.copyOf(WOOD_ITEMS.values());
+    }
+
+    public static DeferredItem<BlockItem> contentItem(String id) {
+        DeferredItem<BlockItem> item = CONTENT_ITEMS.get(id);
+        if (item == null) {
+            throw new IllegalArgumentException("Unknown Eden Realm content item: " + id);
+        }
+        return item;
+    }
+
+    public static List<DeferredItem<BlockItem>> contentEntries() {
+        return List.copyOf(CONTENT_ITEMS.values());
     }
 
     private static WoodItems registerWoodItems(ERWoodSet wood) {
@@ -87,6 +114,38 @@ public final class ERItems {
 
     private static DeferredItem<BlockItem> registerBlockItem(String name, Supplier<? extends Block> block) {
         return ITEMS.registerSimpleBlockItem(name, block);
+    }
+
+    private static DeferredItem<BlockItem> registerContentBlockItem(ERBlockEntry entry) {
+        if (entry.id().equals("duckweed")) {
+            return registerCustomBlockItem(
+                    entry.id(), properties -> new PlaceOnWaterBlockItem(entry.block().get(), properties));
+        }
+
+        for (ERCoralBlocks.CoralSpecies species : ERCoralBlocks.CoralSpecies.values()) {
+            ERCoralBlocks.CoralFamily family = ERCoralBlocks.family(species);
+            if (entry.id().equals(species.id() + "_coral_fan")) {
+                return registerStandingAndWallBlockItem(entry.id(), family.fan(), family.wallFan());
+            }
+            if (entry.id().equals("dead_" + species.id() + "_coral_fan")) {
+                return registerStandingAndWallBlockItem(entry.id(), family.deadFan(), family.deadWallFan());
+            }
+        }
+
+        return registerBlockItem(entry.id(), entry.block());
+    }
+
+    private static DeferredItem<BlockItem> registerCustomBlockItem(
+            String name, Function<Item.Properties, BlockItem> factory) {
+        return ITEMS.registerItem(name, factory, properties -> properties.useBlockDescriptionPrefix());
+    }
+
+    private static DeferredItem<BlockItem> registerStandingAndWallBlockItem(
+            String name, Supplier<? extends Block> floorBlock, Supplier<? extends Block> wallBlock) {
+        return registerCustomBlockItem(
+                name,
+                properties -> new StandingAndWallBlockItem(
+                        floorBlock.get(), wallBlock.get(), Direction.DOWN, properties));
     }
 
     public record WoodItems(

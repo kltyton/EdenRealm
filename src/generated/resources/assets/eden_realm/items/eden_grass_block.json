@@ -1,0 +1,13 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "eden_realm:block/eden_grass_block",
+    "tints": [
+      {
+        "type": "eden_realm:grass",
+        "downfall": 1.0,
+        "temperature": 0.5
+      }
+    ]
+  }
+}

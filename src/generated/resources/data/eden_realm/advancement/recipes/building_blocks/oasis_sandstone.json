@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oasis_sand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:oasis_sand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:oasis_sandstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oasis_sand"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:oasis_sandstone"
+    ]
+  }
+}

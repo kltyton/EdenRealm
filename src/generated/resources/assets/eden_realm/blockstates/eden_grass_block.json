@@ -1,0 +1,119 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "eden_realm:block/eden_grass_block",
+        "weight": 120
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block",
+        "weight": 120,
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block",
+        "weight": 120,
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block",
+        "weight": 120,
+        "y": 270
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_2",
+        "weight": 8
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_2",
+        "weight": 8,
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_2",
+        "weight": 8,
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_2",
+        "weight": 8,
+        "y": 270
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_3",
+        "weight": 12
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_3",
+        "weight": 12,
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_3",
+        "weight": 12,
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_top_3",
+        "weight": 12,
+        "y": 270
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_1"
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_1",
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_1",
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_1",
+        "y": 270
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_2",
+        "weight": 4
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_2",
+        "weight": 4,
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_2",
+        "weight": 4,
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_2",
+        "weight": 4,
+        "y": 270
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_3",
+        "weight": 2
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_3",
+        "weight": 2,
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_3",
+        "weight": 2,
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_grass_block_decoration_3",
+        "weight": 2,
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "eden_realm:block/eden_grass_block_snow"
+    }
+  }
+}

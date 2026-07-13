@@ -1,0 +1,145 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#bottom",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#side",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#side",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#side",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#top",
+          "tintindex": 0,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#side",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "cullface": "east",
+          "texture": "#overlay",
+          "tintindex": 0,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#overlay",
+          "tintindex": 0,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#overlay",
+          "tintindex": 0,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#overlay",
+          "tintindex": 0,
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "bottom": "eden_realm:block/eden_dirt",
+    "overlay": "eden_realm:block/eden_grass_block_side_overlay",
+    "particle": "eden_realm:block/eden_dirt",
+    "side": "eden_realm:block/eden_dirt",
+    "top": "eden_realm:block/eden_grass_block_top_1"
+  }
+}

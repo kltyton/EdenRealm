@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "eden_realm:block/dragon_scale_log_top",
+    "side": "eden_realm:block/dragon_scale_log"
+  }
+}

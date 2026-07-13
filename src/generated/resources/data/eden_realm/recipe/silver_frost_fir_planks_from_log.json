@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:silver_frost_fir_log"
+  ],
+  "result": {
+    "count": 4,
+    "id": "eden_realm:silver_frost_fir_planks"
+  }
+}

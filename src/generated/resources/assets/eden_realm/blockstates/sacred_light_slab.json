@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/sacred_light_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/sacred_light_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/sacred_light_slab_top"
+    }
+  }
+}

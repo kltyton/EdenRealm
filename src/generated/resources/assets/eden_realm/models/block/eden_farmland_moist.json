@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "eden_realm:block/eden_dirt",
+    "top": "eden_realm:block/eden_farmland_moist"
+  }
+}

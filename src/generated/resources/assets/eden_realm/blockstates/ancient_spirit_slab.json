@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/ancient_spirit_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/ancient_spirit_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/ancient_spirit_slab_top"
+    }
+  }
+}

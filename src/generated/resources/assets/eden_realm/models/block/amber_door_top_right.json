@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "eden_realm:block/amber_door_bottom",
+    "top": "eden_realm:block/amber_door_top"
+  }
+}

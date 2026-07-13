@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "eden_realm:sea_crown_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "eden_realm:sea_crown_pressure_plate"
+  }
+}

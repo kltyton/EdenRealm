@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "eden_realm:block/spring_stone_top",
+    "side": "eden_realm:block/spring_stone",
+    "top": "eden_realm:block/spring_stone_top"
+  }
+}

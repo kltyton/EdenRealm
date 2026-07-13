@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "eden_realm:twilight_pomegranate_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "eden_realm:twilight_pomegranate_pressure_plate"
+  }
+}

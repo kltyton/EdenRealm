@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_0",
+  "textures": {
+    "all": "eden_realm:block/sea_crown_sign",
+    "particle": "eden_realm:block/sea_crown_planks"
+  }
+}

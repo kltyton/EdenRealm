@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "eden_realm:block/mist_vine_planks",
+    "side": "eden_realm:block/mist_vine_planks",
+    "top": "eden_realm:block/mist_vine_planks"
+  }
+}

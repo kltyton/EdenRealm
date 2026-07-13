@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=1": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=2": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=3": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=4": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=5": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=6": {
+      "model": "eden_realm:block/eden_farmland"
+    },
+    "moisture=7": {
+      "model": "eden_realm:block/eden_farmland_moist"
+    }
+  }
+}

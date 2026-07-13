@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_2",
+  "textures": {
+    "all": "eden_realm:block/silver_frost_fir_sign",
+    "particle": "eden_realm:block/silver_frost_fir_planks"
+  }
+}

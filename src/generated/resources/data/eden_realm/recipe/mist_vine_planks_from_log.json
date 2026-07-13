@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:mist_vine_log"
+  ],
+  "result": {
+    "count": 4,
+    "id": "eden_realm:mist_vine_planks"
+  }
+}

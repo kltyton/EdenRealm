@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "eden_realm:block/eden_dirt_path"
+      },
+      {
+        "model": "eden_realm:block/eden_dirt_path",
+        "y": 90
+      },
+      {
+        "model": "eden_realm:block/eden_dirt_path",
+        "y": 180
+      },
+      {
+        "model": "eden_realm:block/eden_dirt_path",
+        "y": 270
+      }
+    ]
+  }
+}

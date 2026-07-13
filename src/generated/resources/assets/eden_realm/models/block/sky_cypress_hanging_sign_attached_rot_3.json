@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_attached_hanging_sign_rot_3",
+  "textures": {
+    "all": "eden_realm:block/sky_cypress_hanging_sign",
+    "particle": "eden_realm:block/sky_cypress_stripped_log"
+  }
+}

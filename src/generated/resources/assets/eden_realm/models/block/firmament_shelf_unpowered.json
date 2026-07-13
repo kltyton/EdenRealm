@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unpowered",
+  "textures": {
+    "all": "eden_realm:block/firmament_shelf",
+    "particle": "eden_realm:block/firmament_stripped_log"
+  }
+}

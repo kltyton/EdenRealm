@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "eden_realm:mist_vine_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "SPS",
+    "SPS"
+  ],
+  "result": {
+    "id": "eden_realm:mist_vine_fence_gate"
+  }
+}

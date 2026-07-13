@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "eden_realm:block/moon_tide_planks"
+  }
+}

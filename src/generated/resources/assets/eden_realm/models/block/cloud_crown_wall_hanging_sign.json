@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_hanging_sign",
+  "textures": {
+    "all": "eden_realm:block/cloud_crown_hanging_sign",
+    "particle": "eden_realm:block/cloud_crown_stripped_log"
+  }
+}

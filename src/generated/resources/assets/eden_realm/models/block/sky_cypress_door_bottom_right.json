@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "eden_realm:block/sky_cypress_door_bottom",
+    "top": "eden_realm:block/sky_cypress_door_top"
+  }
+}

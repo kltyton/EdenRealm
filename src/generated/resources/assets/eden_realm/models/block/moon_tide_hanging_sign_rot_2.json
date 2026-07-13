@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_hanging_sign_rot_2",
+  "textures": {
+    "all": "eden_realm:block/moon_tide_hanging_sign",
+    "particle": "eden_realm:block/moon_tide_stripped_log"
+  }
+}

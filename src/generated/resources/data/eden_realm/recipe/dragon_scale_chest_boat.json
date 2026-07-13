@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "eden_realm:dragon_scale_boat",
+    "minecraft:chest"
+  ],
+  "result": {
+    "id": "eden_realm:dragon_scale_chest_boat"
+  }
+}

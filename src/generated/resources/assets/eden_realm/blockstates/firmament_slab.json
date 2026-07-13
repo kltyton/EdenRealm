@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/firmament_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/firmament_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/firmament_slab_top"
+    }
+  }
+}

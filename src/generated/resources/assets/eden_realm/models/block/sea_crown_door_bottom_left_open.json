@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "eden_realm:block/sea_crown_door_bottom",
+    "top": "eden_realm:block/sea_crown_door_top"
+  }
+}

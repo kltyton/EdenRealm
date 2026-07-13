@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/gloomlight_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/gloomlight_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/gloomlight_slab_top"
+    }
+  }
+}

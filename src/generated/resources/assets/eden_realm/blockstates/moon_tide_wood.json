@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "eden_realm:block/moon_tide_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "eden_realm:block/moon_tide_wood"
+    },
+    "axis=z": {
+      "model": "eden_realm:block/moon_tide_wood",
+      "x": 90
+    }
+  }
+}

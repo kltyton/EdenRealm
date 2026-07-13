@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:twilight_pomegranate_door"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twilight_pomegranate_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:twilight_pomegranate_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_twilight_pomegranate_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:twilight_pomegranate_door"
+    ]
+  }
+}

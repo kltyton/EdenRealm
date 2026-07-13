@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "eden_realm:block/dragon_scale_door_bottom",
+    "top": "eden_realm:block/dragon_scale_door_top"
+  }
+}

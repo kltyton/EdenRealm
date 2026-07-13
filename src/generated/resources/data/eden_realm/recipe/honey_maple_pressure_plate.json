@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "eden_realm:honey_maple_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "eden_realm:honey_maple_pressure_plate"
+  }
+}

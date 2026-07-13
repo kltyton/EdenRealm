@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "P": "eden_realm:ridge_pine_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "PSP",
+    "PSP"
+  ],
+  "result": {
+    "count": 3,
+    "id": "eden_realm:ridge_pine_fence"
+  }
+}

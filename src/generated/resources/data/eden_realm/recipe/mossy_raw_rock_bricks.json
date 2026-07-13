@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:raw_rock_bricks",
+    "minecraft:vine"
+  ],
+  "result": {
+    "id": "eden_realm:mossy_raw_rock_bricks"
+  }
+}

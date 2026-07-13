@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/dragon_scale_sapling"
+  }
+}

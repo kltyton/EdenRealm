@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:ice_crystal_pine_stripped_wood"
+  ],
+  "result": {
+    "count": 4,
+    "id": "eden_realm:ice_crystal_pine_planks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "eden_realm:block/wind_chime_pine_door_bottom",
+    "top": "eden_realm:block/wind_chime_pine_door_top"
+  }
+}

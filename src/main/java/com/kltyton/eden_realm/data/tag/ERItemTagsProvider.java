@@ -3,6 +3,7 @@ package com.kltyton.eden_realm.data.tag;
 import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERItems;
+import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import com.kltyton.eden_realm.util.ERTags;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
@@ -87,5 +88,15 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
             tag(ItemTags.CHEST_BOATS)
                     .add(items.chestBoat().getKey());
         }
+
+        var dirt = tag(ItemTags.DIRT)
+                .add(ERItems.contentItem("eden_dirt").getKey())
+                .add(ERItems.contentItem("thin_cloud_soil").getKey())
+                .add(ERItems.contentItem("wet_swamp_soil").getKey());
+        dirt.add(ERItems.contentItem("eden_grass_block").getKey());
+        tag(ItemTags.SAND)
+                .add(ERItems.contentItem("coast_sand").getKey())
+                .add(ERItems.contentItem("amber_sand").getKey())
+                .add(ERItems.contentItem("oasis_sand").getKey());
     }
 }

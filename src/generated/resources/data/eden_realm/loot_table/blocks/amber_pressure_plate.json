@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "eden_realm:amber_pressure_plate"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "eden_realm:blocks/amber_pressure_plate"
+}

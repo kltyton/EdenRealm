@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "eden_realm:block/chiseled_amber_sandstone"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "eden_realm:block/twilight_pomegranate_log",
+    "side": "eden_realm:block/twilight_pomegranate_log"
+  }
+}

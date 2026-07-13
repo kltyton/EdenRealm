@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "eden_realm:raw_rock",
+  "result": {
+    "id": "eden_realm:mossy_raw_rock_pillar"
+  }
+}

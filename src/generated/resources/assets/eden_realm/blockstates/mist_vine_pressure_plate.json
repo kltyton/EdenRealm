@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "eden_realm:block/mist_vine_pressure_plate"
+    },
+    "powered=true": {
+      "model": "eden_realm:block/mist_vine_pressure_plate_down"
+    }
+  }
+}

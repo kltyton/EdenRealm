@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "eden_realm:block/ancient_spirit_planks"
+  }
+}

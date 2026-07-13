@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_right",
+  "textures": {
+    "all": "eden_realm:block/moon_tide_shelf",
+    "particle": "eden_realm:block/moon_tide_stripped_log"
+  }
+}

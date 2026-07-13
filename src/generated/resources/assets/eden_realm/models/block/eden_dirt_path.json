@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "bottom": "eden_realm:block/eden_dirt",
+    "particle": "eden_realm:block/eden_dirt",
+    "side": "eden_realm:block/eden_dirt_path_side",
+    "top": "eden_realm:block/eden_dirt_path_top"
+  }
+}

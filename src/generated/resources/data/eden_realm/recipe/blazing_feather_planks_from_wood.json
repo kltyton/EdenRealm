@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:blazing_feather_wood"
+  ],
+  "result": {
+    "count": 4,
+    "id": "eden_realm:blazing_feather_planks"
+  }
+}

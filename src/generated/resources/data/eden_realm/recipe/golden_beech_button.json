@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "eden_realm:golden_beech_planks"
+  ],
+  "result": {
+    "id": "eden_realm:golden_beech_button"
+  }
+}

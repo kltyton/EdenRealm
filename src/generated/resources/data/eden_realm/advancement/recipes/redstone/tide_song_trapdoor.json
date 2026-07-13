@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:tide_song_trapdoor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tide_song_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:tide_song_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tide_song_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:tide_song_trapdoor"
+    ]
+  }
+}

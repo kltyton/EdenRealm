@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/twilight_pomegranate_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/twilight_pomegranate_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/twilight_pomegranate_slab_top"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "eden_realm:spring_stone"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "eden_realm:blocks/spring_stone"
+}

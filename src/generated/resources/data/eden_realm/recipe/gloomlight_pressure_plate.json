@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "eden_realm:gloomlight_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "eden_realm:gloomlight_pressure_plate"
+  }
+}

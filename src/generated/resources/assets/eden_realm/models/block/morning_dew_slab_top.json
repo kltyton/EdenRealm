@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "eden_realm:block/morning_dew_planks",
+    "side": "eden_realm:block/morning_dew_planks",
+    "top": "eden_realm:block/morning_dew_planks"
+  }
+}

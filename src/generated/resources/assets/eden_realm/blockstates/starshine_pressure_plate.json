@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "eden_realm:block/starshine_pressure_plate"
+    },
+    "powered=true": {
+      "model": "eden_realm:block/starshine_pressure_plate_down"
+    }
+  }
+}

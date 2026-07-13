@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blazing_feather_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:blazing_feather_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:blazing_feather_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blazing_feather_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:blazing_feather_wood"
+    ]
+  }
+}

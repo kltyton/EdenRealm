@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "eden_realm:block/tide_song_planks",
+    "side": "eden_realm:block/tide_song_planks",
+    "top": "eden_realm:block/tide_song_planks"
+  }
+}

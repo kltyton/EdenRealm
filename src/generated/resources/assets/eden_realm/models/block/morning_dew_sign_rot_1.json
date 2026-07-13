@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_1",
+  "textures": {
+    "all": "eden_realm:block/morning_dew_sign",
+    "particle": "eden_realm:block/morning_dew_planks"
+  }
+}

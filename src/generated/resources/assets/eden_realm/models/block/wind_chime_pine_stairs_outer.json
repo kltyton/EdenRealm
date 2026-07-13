@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "eden_realm:block/wind_chime_pine_planks",
+    "side": "eden_realm:block/wind_chime_pine_planks",
+    "top": "eden_realm:block/wind_chime_pine_planks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/starshine_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/starshine_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/starshine_slab_top"
+    }
+  }
+}

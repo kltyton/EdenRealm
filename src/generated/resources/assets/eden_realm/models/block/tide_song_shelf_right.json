@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_right",
+  "textures": {
+    "all": "eden_realm:block/tide_song_shelf",
+    "particle": "eden_realm:block/tide_song_stripped_log"
+  }
+}

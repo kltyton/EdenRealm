@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "eden_realm:amber_boat",
+    "minecraft:chest"
+  ],
+  "result": {
+    "id": "eden_realm:amber_chest_boat"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": "eden_realm:oasis_sand"
+  },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "result": {
+    "id": "eden_realm:oasis_sandstone"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_sign",
+  "textures": {
+    "all": "eden_realm:block/moon_tide_sign",
+    "particle": "eden_realm:block/moon_tide_planks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/moon_tide_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/moon_tide_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/moon_tide_slab_top"
+    }
+  }
+}

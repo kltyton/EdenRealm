@@ -4,6 +4,7 @@ import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.ERItems;
+import com.kltyton.eden_realm.registry.content.ERBlockEntry;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -47,6 +48,10 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
             addBlock(blocks.wallHangingSign(), "墙上的" + name + "悬挂告示牌");
             addItem(items.boat(), name + "船");
             addItem(items.chestBoat(), name + "运输船");
+        }
+
+        for (ERBlockEntry entry : ERBlocks.contentEntries()) {
+            addBlock(entry.block(), entry.chineseName());
         }
     }
 

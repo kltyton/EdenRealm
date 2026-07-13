@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "eden_realm_coal",
+  "ingredient": "eden_realm:raw_rock_coal_ore",
+  "result": {
+    "id": "minecraft:coal"
+  }
+}

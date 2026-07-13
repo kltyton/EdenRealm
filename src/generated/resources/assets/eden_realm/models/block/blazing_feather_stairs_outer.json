@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "eden_realm:block/blazing_feather_planks",
+    "side": "eden_realm:block/blazing_feather_planks",
+    "top": "eden_realm:block/blazing_feather_planks"
+  }
+}

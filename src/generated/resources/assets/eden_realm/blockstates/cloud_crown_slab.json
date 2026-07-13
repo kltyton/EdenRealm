@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/cloud_crown_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/cloud_crown_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/cloud_crown_slab_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_left",
+  "textures": {
+    "all": "eden_realm:block/starshine_shelf",
+    "particle": "eden_realm:block/starshine_stripped_log"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "P": "eden_realm:silver_frost_fir_planks"
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "id": "eden_realm:silver_frost_fir_pressure_plate"
+  }
+}

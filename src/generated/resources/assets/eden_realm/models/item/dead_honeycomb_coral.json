@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eden_realm:block/dead_honeycomb_coral"
+  }
+}

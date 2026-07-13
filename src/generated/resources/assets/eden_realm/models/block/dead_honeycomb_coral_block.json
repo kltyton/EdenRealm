@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "eden_realm:block/dead_honeycomb_coral_block"
+  }
+}

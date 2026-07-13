@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_attached_hanging_sign_rot_0",
+  "textures": {
+    "all": "eden_realm:block/sacred_light_hanging_sign",
+    "particle": "eden_realm:block/sacred_light_stripped_log"
+  }
+}

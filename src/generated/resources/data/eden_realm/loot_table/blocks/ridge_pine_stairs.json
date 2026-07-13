@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "eden_realm:ridge_pine_stairs"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "eden_realm:blocks/ridge_pine_stairs"
+}

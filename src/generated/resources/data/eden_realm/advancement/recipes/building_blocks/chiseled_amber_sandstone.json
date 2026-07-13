@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cut_amber_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:cut_amber_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:chiseled_amber_sandstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cut_amber_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:chiseled_amber_sandstone"
+    ]
+  }
+}

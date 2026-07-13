@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "eden_realm:block/morning_dew_leaves"
+  }
+}

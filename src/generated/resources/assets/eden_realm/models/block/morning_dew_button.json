@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "eden_realm:block/morning_dew_planks"
+  }
+}

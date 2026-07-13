@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/blazing_feather_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/blazing_feather_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/blazing_feather_slab_top"
+    }
+  }
+}

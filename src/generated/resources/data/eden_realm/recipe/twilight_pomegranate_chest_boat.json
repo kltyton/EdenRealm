@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "eden_realm:twilight_pomegranate_boat",
+    "minecraft:chest"
+  ],
+  "result": {
+    "id": "eden_realm:twilight_pomegranate_chest_boat"
+  }
+}

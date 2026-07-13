@@ -51,6 +51,8 @@ public final class ERModelProvider extends ModelProvider {
             itemModels.generateFlatItem(items.boat().get(), ModelTemplates.FLAT_ITEM);
             itemModels.generateFlatItem(items.chestBoat().get(), ModelTemplates.FLAT_ITEM);
         }
+
+        ERContentModelGenerators.generate(blockModels);
     }
 
     private static void createCubeWithItem(BlockModelGenerators blockModels, Block block, TexturedModel.Provider modelProvider) {

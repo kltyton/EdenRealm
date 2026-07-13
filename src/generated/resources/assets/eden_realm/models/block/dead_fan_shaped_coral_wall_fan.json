@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/coral_wall_fan",
+  "textures": {
+    "fan": "eden_realm:block/dead_fan_shaped_coral_fan"
+  }
+}

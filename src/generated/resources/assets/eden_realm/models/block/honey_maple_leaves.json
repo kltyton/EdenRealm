@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "eden_realm:block/honey_maple_leaves"
+  }
+}

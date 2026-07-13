@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "eden_realm:ice_crystal_pine_planks"
+  ],
+  "result": {
+    "id": "eden_realm:ice_crystal_pine_button"
+  }
+}

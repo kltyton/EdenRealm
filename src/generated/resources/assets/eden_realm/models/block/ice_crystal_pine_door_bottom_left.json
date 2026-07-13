@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "eden_realm:block/ice_crystal_pine_door_bottom",
+    "top": "eden_realm:block/ice_crystal_pine_door_top"
+  }
+}

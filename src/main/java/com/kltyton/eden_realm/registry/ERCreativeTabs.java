@@ -42,6 +42,7 @@ public final class ERCreativeTabs {
                             output.accept(items.boat().get());
                             output.accept(items.chestBoat().get());
                         }
+                        ERItems.contentEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
 

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "eden_realm:block/golden_beech_stripped_log_top",
+    "side": "eden_realm:block/golden_beech_stripped_log"
+  }
+}

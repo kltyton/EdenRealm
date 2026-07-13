@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "eden_realm:block/rotting_wood_fungus_mat"
+  }
+}

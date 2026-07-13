@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:moon_tide_log"
+  ],
+  "result": {
+    "count": 4,
+    "id": "eden_realm:moon_tide_planks"
+  }
+}

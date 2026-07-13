@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "eden_realm:coast_sandstone",
+  "result": {
+    "id": "eden_realm:cut_coast_sandstone"
+  }
+}

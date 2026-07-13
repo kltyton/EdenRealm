@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/tide_song_sapling"
+  }
+}

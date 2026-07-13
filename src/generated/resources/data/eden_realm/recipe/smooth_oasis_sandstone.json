@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "experience": 0.1,
+  "ingredient": "eden_realm:oasis_sandstone",
+  "result": {
+    "id": "eden_realm:smooth_oasis_sandstone"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "eden_realm:block/ancient_spirit_planks",
+    "side": "eden_realm:block/ancient_spirit_planks",
+    "top": "eden_realm:block/ancient_spirit_planks"
+  }
+}

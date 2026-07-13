@@ -3,7 +3,11 @@ package com.kltyton.eden_realm.data.tag;
 import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
+import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import com.kltyton.eden_realm.util.ERTags;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -119,6 +123,93 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                     .add(blocks.wallHangingSign().getKey());
             tag(BlockTags.MINEABLE_WITH_HOE)
                     .add(blocks.leaves().getKey());
+        }
+
+        var pickaxe = tag(BlockTags.MINEABLE_WITH_PICKAXE);
+        List.of(
+                        ERTerrainBlocks.WEATHERED_ROCK,
+                        ERTerrainBlocks.ROOTED_ROCK,
+                        ERTerrainBlocks.BOUNDARY_ROCK,
+                        ERTerrainBlocks.RUBBLE,
+                        ERTerrainBlocks.TUNDRA_ROCK,
+                        ERTerrainBlocks.SHALE,
+                        ERTerrainBlocks.RAW_ROCK,
+                        ERTerrainBlocks.CHISELED_RAW_ROCK_BRICKS,
+                        ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR,
+                        ERTerrainBlocks.MOSSY_RAW_ROCK_BRICKS,
+                        ERTerrainBlocks.RAW_ROCK_BRICKS,
+                        ERTerrainBlocks.RAW_ROCK_COAL_ORE,
+                        ERTerrainBlocks.RAW_ROCK_IRON_ORE,
+                        ERTerrainBlocks.FLOATING_ISLAND_ROCK,
+                        ERTerrainBlocks.SKY_PLATFORM_STONE,
+                        ERTerrainBlocks.ICE_CRYSTAL_ROCK,
+                        ERTerrainBlocks.FROST_PATTERN_STONE,
+                        ERTerrainBlocks.AMBER_CRYSTAL_BLOCK,
+                        ERTerrainBlocks.SUN_ROCK,
+                        ERTerrainBlocks.SPRING_STONE,
+                        ERTerrainBlocks.ERODED_SANDSTONE)
+                .forEach(holder -> pickaxe.add(holder.getKey()));
+        for (ERTerrainBlocks.SandstoneSet set : List.of(
+                ERTerrainBlocks.COAST, ERTerrainBlocks.AMBER, ERTerrainBlocks.OASIS)) {
+            pickaxe.add(set.sandstone().getKey())
+                    .add(set.smoothSandstone().getKey())
+                    .add(set.cutSandstone().getKey())
+                    .add(set.chiseledSandstone().getKey());
+        }
+
+        var shovel = tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ERTerrainBlocks.EDEN_DIRT.getKey())
+                .add(ERTerrainBlocks.EDEN_DIRT_PATH.getKey())
+                .add(ERTerrainBlocks.EDEN_FARMLAND.getKey())
+                .add(ERTerrainBlocks.THIN_CLOUD_SOIL.getKey())
+                .add(ERTerrainBlocks.SEDIMENTARY_SILT.getKey())
+                .add(ERTerrainBlocks.PEAT_BLOCK.getKey())
+                .add(ERTerrainBlocks.WET_SWAMP_SOIL.getKey())
+                .add(ERTerrainBlocks.COAST.sand().getKey())
+                .add(ERTerrainBlocks.AMBER.sand().getKey())
+                .add(ERTerrainBlocks.OASIS.sand().getKey());
+        shovel.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
+
+        tag(BlockTags.MINEABLE_WITH_HOE)
+                .add(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.getKey());
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(ERTerrainBlocks.RAW_ROCK_IRON_ORE.getKey());
+        tag(BlockTags.IRON_ORES)
+                .add(ERTerrainBlocks.RAW_ROCK_IRON_ORE.getKey());
+
+        var dirt = tag(BlockTags.DIRT)
+                .add(ERTerrainBlocks.EDEN_DIRT.getKey())
+                .add(ERTerrainBlocks.THIN_CLOUD_SOIL.getKey())
+                .add(ERTerrainBlocks.WET_SWAMP_SOIL.getKey());
+        var vegetationSupport = tag(BlockTags.SUPPORTS_VEGETATION)
+                .add(ERTerrainBlocks.EDEN_DIRT.getKey())
+                .add(ERTerrainBlocks.THIN_CLOUD_SOIL.getKey())
+                .add(ERTerrainBlocks.WET_SWAMP_SOIL.getKey())
+                .add(ERTerrainBlocks.EDEN_FARMLAND.getKey());
+        dirt.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
+        vegetationSupport.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
+        tag(BlockTags.SUPPORTS_CROPS)
+                .add(ERTerrainBlocks.EDEN_FARMLAND.getKey());
+        tag(BlockTags.SAND)
+                .add(ERTerrainBlocks.COAST.sand().getKey())
+                .add(ERTerrainBlocks.AMBER.sand().getKey())
+                .add(ERTerrainBlocks.OASIS.sand().getKey());
+        tag(BlockTags.SUPPORTS_DRY_VEGETATION)
+                .add(ERTerrainBlocks.COAST.sand().getKey())
+                .add(ERTerrainBlocks.AMBER.sand().getKey())
+                .add(ERTerrainBlocks.OASIS.sand().getKey())
+                .add(ERTerrainBlocks.EDEN_DIRT.getKey());
+
+        var coralBlocks = tag(BlockTags.CORAL_BLOCKS);
+        var coralPlants = tag(BlockTags.CORAL_PLANTS);
+        var corals = tag(BlockTags.CORALS);
+        var wallCorals = tag(BlockTags.WALL_CORALS);
+        for (ERCoralBlocks.CoralFamily family : ERCoralBlocks.families()) {
+            coralBlocks.add(family.block().getKey());
+            coralPlants.add(family.plant().getKey());
+            corals.add(family.plant().getKey()).add(family.fan().getKey());
+            wallCorals.add(family.wallFan().getKey());
+            pickaxe.add(family.block().getKey()).add(family.deadBlock().getKey());
         }
     }
 }

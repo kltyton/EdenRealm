@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "eden_realm:block/cloud_crown_leaves"
+  }
+}

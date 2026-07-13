@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unconnected",
+  "textures": {
+    "all": "eden_realm:block/sea_crown_shelf",
+    "particle": "eden_realm:block/sea_crown_stripped_log"
+  }
+}
