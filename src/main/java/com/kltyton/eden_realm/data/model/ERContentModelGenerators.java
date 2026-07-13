@@ -127,8 +127,19 @@ final class ERContentModelGenerators {
                 "smooth_" + prefix + "_sandstone",
                 prefix + "_sandstone_bottom");
         createCubeWithItem(blockModels, set.smoothSandstone().get());
-        createCubeWithItem(blockModels, set.cutSandstone().get());
-        createCubeWithItem(blockModels, set.chiseledSandstone().get());
+        String endTexture = "smooth_" + prefix + "_sandstone";
+        generateTopBottom(
+                blockModels,
+                set.cutSandstone().get(),
+                "cut_" + prefix + "_sandstone",
+                endTexture,
+                endTexture);
+        generateTopBottom(
+                blockModels,
+                set.chiseledSandstone().get(),
+                "chiseled_" + prefix + "_sandstone",
+                endTexture,
+                endTexture);
     }
 
     private static void generateTopBottom(

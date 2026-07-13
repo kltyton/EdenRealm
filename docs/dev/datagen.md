@@ -36,6 +36,7 @@
 - `src/main/resources/assets/eden_realm/textures/colormap/grass.png` 来自 `参考资料/SaturatedGrass!(1.2v)`，是运行时使用的专用 256x256 色图。
 - `参考资料/方块` 中已有的地形、植物和珊瑚 PNG 已同步到 `textures/block`。
 - 目前仍有 13 张临时占位图：`eden_grass_block_snow.png`，以及 6 种珊瑚的活体/失活 `*_coral_fan.png`。
+- 海岸、琥珀、绿洲三套切制/雕纹砂岩暂不复制新的占位 PNG：模型由 datagen 保留各自的切制/雕纹侧面，并引用本模组对应的 `smooth_<系列>_sandstone` 作为顶/底端面；后续六个正式端面贴图完成后再替换。平滑、普通和水蚀砂岩模型保持原样。
 - `eden_grass_block_decoration_2.png` 含 4 个半透明像素；若需要完全 cutout 的硬边装饰，应在最终美术阶段将其 alpha 修正为 0 或 255。
 - `参考资料/Simple Grass Flowers v1.9.6` 只作为单方块加权模型逻辑参考；其包内没有独立积雪草侧面 PNG，也没有任何珊瑚纹理。原包 `snowy=true` 直接引用原版 `minecraft:block/grass_block_snow` 模型。
 
