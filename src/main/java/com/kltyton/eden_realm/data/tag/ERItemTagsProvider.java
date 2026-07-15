@@ -98,5 +98,8 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
                 .add(ERItems.contentItem("coast_sand").getKey())
                 .add(ERItems.contentItem("amber_sand").getKey())
                 .add(ERItems.contentItem("oasis_sand").getKey());
+        tag(ItemTags.TURTLE_FOOD)
+                .add(ERItems.contentItem("bubble_grass").getKey())
+                .add(ERItems.contentItem("blue_court_seagrass").getKey());
     }
 }

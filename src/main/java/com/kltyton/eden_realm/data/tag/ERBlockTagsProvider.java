@@ -199,6 +199,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                 .add(ERTerrainBlocks.AMBER.sand().getKey())
                 .add(ERTerrainBlocks.OASIS.sand().getKey())
                 .add(ERTerrainBlocks.EDEN_DIRT.getKey());
+        tag(BlockTags.UNDERWATER_BONEMEALS)
+                .add(ERPlantBlocks.BUBBLE_GRASS.getKey())
+                .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey());
 
         var coralBlocks = tag(BlockTags.CORAL_BLOCKS);
         var coralPlants = tag(BlockTags.CORAL_PLANTS);

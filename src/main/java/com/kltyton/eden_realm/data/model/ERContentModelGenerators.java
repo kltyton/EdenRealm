@@ -170,6 +170,10 @@ final class ERContentModelGenerators {
                         holder.get(), BlockModelGenerators.PlantType.NOT_TINTED));
 
         generateDuckweed(blockModels);
+        List.of(ERPlantBlocks.BUBBLE_GRASS, ERPlantBlocks.BLUE_COURT_SEAGRASS).forEach(holder -> {
+            blockModels.createTrivialBlock(holder.get(), TexturedModel.SEAGRASS);
+            blockModels.registerSimpleFlatItemModel(holder.get());
+        });
         blockModels.createTrivialBlock(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(), TexturedModel.CARPET);
         blockModels.registerSimpleItemModel(
                 ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(),

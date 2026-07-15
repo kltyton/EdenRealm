@@ -1,6 +1,7 @@
 package com.kltyton.eden_realm.registry.content;
 
 import com.kltyton.eden_realm.ERConstants;
+import com.kltyton.eden_realm.common.block.ERSeagrassBlock;
 import com.kltyton.eden_realm.common.block.ERShapedBushBlock;
 import com.kltyton.eden_realm.common.block.ERShapedDryVegetationBlock;
 import java.util.ArrayList;
@@ -35,6 +36,18 @@ public final class ERPlantBlocks {
             copyOf(Blocks.DANDELION));
     public static final DeferredBlock<LilyPadBlock> DUCKWEED = register(
             "duckweed", "Duckweed", "浮萍", LilyPadBlock::new, copyOf(Blocks.LILY_PAD));
+    public static final DeferredBlock<ERSeagrassBlock> BUBBLE_GRASS = register(
+            "bubble_grass",
+            "Bubble Grass",
+            "泡泡草",
+            properties -> new ERSeagrassBlock(13.0, 5.0, properties),
+            copyOf(Blocks.SEAGRASS));
+    public static final DeferredBlock<ERSeagrassBlock> BLUE_COURT_SEAGRASS = register(
+            "blue_court_seagrass",
+            "Blue Court Seagrass",
+            "蓝庭海草",
+            properties -> new ERSeagrassBlock(14.0, 15.0, properties),
+            copyOf(Blocks.SEAGRASS));
     public static final DeferredBlock<CarpetBlock> ROTTING_WOOD_FUNGUS_MAT = register(
             "rotting_wood_fungus_mat",
             "Rotting Wood Fungus Mat",

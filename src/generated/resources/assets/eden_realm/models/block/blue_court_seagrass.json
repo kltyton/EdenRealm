@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_seagrass",
+  "textures": {
+    "texture": "eden_realm:block/blue_court_seagrass"
+  }
+}

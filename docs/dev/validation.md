@@ -35,6 +35,18 @@
 
 ## 本轮验证记录
 
+日期：2026-07-15
+
+- 快进同步远端 `master`：`c012935..1e37f2e`，包含 `8e818fd` 与 `1e37f2e` 两次美术资源提交；远端净变化为 12 张新增珊瑚扇、12 张重绘失活珊瑚/珊瑚块和 2 张新增海草贴图。
+- 将 12 张活体/失活珊瑚扇替换进运行时资源；SHA-256 审计确认它们均不再等于 `参考资料/通用占位符纹理.png`。同步 6 种失活珊瑚及其珊瑚块的重绘版本。
+- 注册 `bubble_grass`（泡泡草）与 `blue_court_seagrass`（蓝庭海草），补齐方块物品、创造标签页、双语名称、海草模型、剪刀掉落、`minecraft:underwater_bonemeals` 方块标签和 `minecraft:turtle_food` 物品标签。两者只允许完整水源放置，并按贴图透明范围使用 13x5 与 14x15 的选择轮廓。
+- `ERSeagrassBlock` 复用本地 26.2 原版 `SeagrassBlock` 的水源、支撑和流体更新语义；当前没有对应高株贴图，因此不实现骨粉长成原版高海草。
+- `.\gradlew.bat --no-daemon --console=plain compileJava`：成功。
+- `.\gradlew.bat --no-daemon --console=plain runData`：成功；补齐海龟食物标签后的最终 HashCache 为 3989 个文件、最后一次写入 1 个文件。生成资源包含 541 个 blockstate 与 529 个 client item definition。
+- `.\gradlew.bat --no-daemon --console=plain build`：成功。
+- `runClient`：按用户明确要求不再由自动流程验证，保留给人工客户端验收。
+- 通用占位图哈希审计只剩 `eden_grass_block_snow.png`；珊瑚扇不再使用占位图。
+
 日期：2026-07-13
 
 - 只修正用户最终确认的六个端面模型：海岸、琥珀、绿洲三套切制/雕纹砂岩的顶面和底面引用本模组对应的平滑砂岩纹理，各自的切制/雕纹侧面保持不变；三个平滑砂岩自身、普通砂岩和水蚀砂岩模型不改。

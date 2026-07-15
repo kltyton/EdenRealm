@@ -28,7 +28,7 @@ Registry 按概念拆分到 `registry` 包：
 - `ERMenuTypes`
 - `ERDataComponents`
 
-当前注册 22 套树木基础内容，并通过 `registry/content` 注册 99 个地形、植物和珊瑚方块，其中 87 个具有独立方块物品。`ERWoodSet` 是树木单一数据源；`ERBlockEntry` 统一保存新增内容的 registry id、双语名称、方块 holder 和物品策略。菜单、音效、粒子等 registry 目前保留为空入口。
+当前注册 22 套树木基础内容，并通过 `registry/content` 注册 101 个地形、植物和珊瑚方块，其中 89 个具有独立方块物品。`ERWoodSet` 是树木单一数据源；`ERBlockEntry` 统一保存新增内容的 registry id、双语名称、方块 holder 和物品策略。菜单、音效、粒子等 registry 目前保留为空入口。
 
 当前木材基础链路：
 
@@ -43,12 +43,13 @@ Registry 按概念拆分到 `registry` 包：
 地形与生态内容链路：
 
 - `registry/content/ERTerrainBlocks`：44 个基础岩石、矿石、泥土/草地、天空、寒地、沼泽、沙与砂岩方块。
-- `registry/content/ERPlantBlocks`：7 个基础植物方块。
+- `registry/content/ERPlantBlocks`：9 个基础植物方块，包含水面浮萍和两种水下海草。
 - `registry/content/ERCoralBlocks`：6 个珊瑚种类，每种 8 个活体/失活及落地/墙上变体，共 48 个方块。
-- `registry/ERItems`：从 `ERBlockEntry` 集中派生 87 个方块物品。浮萍使用原版 `PlaceOnWaterBlockItem`；12 个活体/失活珊瑚扇使用 `StandingAndWallBlockItem`，在同一物品内选择落地扇或已有墙扇方块。所有自定义 `BlockItem` 注册统一调用 `Item.Properties#useBlockDescriptionPrefix()`，继续使用 `block.<modid>.*` 双语名称。
+- `registry/ERItems`：从 `ERBlockEntry` 集中派生 89 个方块物品。浮萍使用原版 `PlaceOnWaterBlockItem`；12 个活体/失活珊瑚扇使用 `StandingAndWallBlockItem`，在同一物品内选择落地扇或已有墙扇方块。所有自定义 `BlockItem` 注册统一调用 `Item.Properties#useBlockDescriptionPrefix()`，继续使用 `block.<modid>.*` 双语名称。
 - `common/event/ERBlockToolEvents`：通过公开的 `BlockToolModificationEvent` 处理伊甸泥土/草地的铲平和锄耕。
 - `common/block/ERGrassBlock`、`ERDirtPathBlock`、`ERFarmlandBlock`：保持退化、草地扩散、骨粉、湿度和踩踏行为落回伊甸泥土，不混入原版泥土链。
 - `common/block/ERShapedBushBlock`、`ERShapedDryVegetationBlock`：为五种直立植物提供与贴图非透明范围一致的选择轮廓，并跟随方块随机模型偏移；方块仍沿用原版植物的无物理碰撞属性。
+- `common/block/ERSeagrassBlock`：基于 26.2 原版 `SeagrassBlock` 的水源放置、支撑与水流体更新逻辑，为泡泡草和蓝庭海草提供独立轮廓；因未提供高株贴图，不继承原版骨粉长成高海草的行为。
 - 腐木菌毯沿用原版 `CarpetBlock` 的 1 像素高度和支撑规则，但设置 `noOcclusion`，避免透明纹理区域错误遮掉下方方块顶面。
 
 ## 草色系统

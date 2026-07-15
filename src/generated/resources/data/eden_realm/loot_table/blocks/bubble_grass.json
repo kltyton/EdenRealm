@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "items": "minecraft:shears"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "eden_realm:bubble_grass"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "eden_realm:blocks/bubble_grass"
+}
