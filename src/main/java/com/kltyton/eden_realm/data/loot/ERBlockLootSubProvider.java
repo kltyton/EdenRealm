@@ -57,6 +57,7 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         specialized.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.get());
         specialized.add(ERPlantBlocks.BUBBLE_GRASS.get());
         specialized.add(ERPlantBlocks.BLUE_COURT_SEAGRASS.get());
+        specialized.add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get());
         ERCoralBlocks.families().forEach(family -> {
             specialized.add(family.block().get());
             specialized.add(family.deadBlock().get());
@@ -92,6 +93,9 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         add(
                 ERPlantBlocks.BLUE_COURT_SEAGRASS.get(),
                 createShearsOnlyDrop(ERPlantBlocks.BLUE_COURT_SEAGRASS.get()));
+        add(
+                ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get(),
+                createDoublePlantShearsDrop(ERPlantBlocks.BLUE_COURT_SEAGRASS.get()));
 
         for (ERCoralBlocks.CoralFamily family : ERCoralBlocks.families()) {
             add(family.block().get(), createSingleItemTableWithSilkTouch(family.block().get(), family.deadBlock().get()));

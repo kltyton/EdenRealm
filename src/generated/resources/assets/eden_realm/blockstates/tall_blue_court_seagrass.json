@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "eden_realm:block/tall_blue_court_seagrass_bottom"
+    },
+    "half=upper": {
+      "model": "eden_realm:block/tall_blue_court_seagrass_top"
+    }
+  }
+}

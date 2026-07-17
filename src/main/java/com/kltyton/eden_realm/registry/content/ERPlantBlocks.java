@@ -4,6 +4,7 @@ import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERSeagrassBlock;
 import com.kltyton.eden_realm.common.block.ERShapedBushBlock;
 import com.kltyton.eden_realm.common.block.ERShapedDryVegetationBlock;
+import com.kltyton.eden_realm.common.block.ERTallSeagrassBlock;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.DryVegetationBlock;
 import net.minecraft.world.level.block.LilyPadBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -46,8 +48,16 @@ public final class ERPlantBlocks {
             "blue_court_seagrass",
             "Blue Court Seagrass",
             "蓝庭海草",
-            properties -> new ERSeagrassBlock(14.0, 15.0, properties),
+            properties -> new ERSeagrassBlock(
+                    16.0, 16.0, ERPlantBlocks::tallBlueCourtSeagrassState, properties),
             copyOf(Blocks.SEAGRASS));
+    public static final DeferredBlock<ERTallSeagrassBlock> TALL_BLUE_COURT_SEAGRASS = registerWithoutItem(
+            "tall_blue_court_seagrass",
+            "Tall Blue Court Seagrass",
+            "高蓝庭海草",
+            properties -> new ERTallSeagrassBlock(
+                    16.0, 16.0, ERPlantBlocks::blueCourtSeagrassState, properties),
+            copyOf(Blocks.TALL_SEAGRASS));
     public static final DeferredBlock<CarpetBlock> ROTTING_WOOD_FUNGUS_MAT = register(
             "rotting_wood_fungus_mat",
             "Rotting Wood Fungus Mat",
@@ -98,8 +108,35 @@ public final class ERPlantBlocks {
             String chineseName,
             Function<BlockBehaviour.Properties, ? extends T> factory,
             Supplier<BlockBehaviour.Properties> properties) {
+        return register(id, englishName, chineseName, factory, properties, true);
+    }
+
+    private static <T extends Block> DeferredBlock<T> registerWithoutItem(
+            String id,
+            String englishName,
+            String chineseName,
+            Function<BlockBehaviour.Properties, ? extends T> factory,
+            Supplier<BlockBehaviour.Properties> properties) {
+        return register(id, englishName, chineseName, factory, properties, false);
+    }
+
+    private static <T extends Block> DeferredBlock<T> register(
+            String id,
+            String englishName,
+            String chineseName,
+            Function<BlockBehaviour.Properties, ? extends T> factory,
+            Supplier<BlockBehaviour.Properties> properties,
+            boolean hasItem) {
         DeferredBlock<T> block = BLOCKS.registerBlock(id, factory, properties);
-        ENTRIES.add(new ERBlockEntry(id, englishName, chineseName, block, true));
+        ENTRIES.add(new ERBlockEntry(id, englishName, chineseName, block, hasItem));
         return block;
+    }
+
+    private static BlockState blueCourtSeagrassState() {
+        return BLUE_COURT_SEAGRASS.get().defaultBlockState();
+    }
+
+    private static BlockState tallBlueCourtSeagrassState() {
+        return TALL_BLUE_COURT_SEAGRASS.get().defaultBlockState();
     }
 }

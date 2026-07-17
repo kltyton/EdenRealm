@@ -202,6 +202,15 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.UNDERWATER_BONEMEALS)
                 .add(ERPlantBlocks.BUBBLE_GRASS.getKey())
                 .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey());
+        tag(BlockTags.REPLACEABLE)
+                .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey())
+                .add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.getKey());
+        tag(BlockTags.REPLACEABLE_BY_TREES)
+                .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey())
+                .add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.getKey());
+        tag(BlockTags.REPLACEABLE_BY_MUSHROOMS)
+                .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey())
+                .add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.getKey());
 
         var coralBlocks = tag(BlockTags.CORAL_BLOCKS);
         var coralPlants = tag(BlockTags.CORAL_PLANTS);

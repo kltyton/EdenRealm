@@ -170,14 +170,35 @@ final class ERContentModelGenerators {
                         holder.get(), BlockModelGenerators.PlantType.NOT_TINTED));
 
         generateDuckweed(blockModels);
-        List.of(ERPlantBlocks.BUBBLE_GRASS, ERPlantBlocks.BLUE_COURT_SEAGRASS).forEach(holder -> {
-            blockModels.createTrivialBlock(holder.get(), TexturedModel.SEAGRASS);
-            blockModels.registerSimpleFlatItemModel(holder.get());
-        });
+        blockModels.createTrivialBlock(ERPlantBlocks.BUBBLE_GRASS.get(), TexturedModel.SEAGRASS);
+        blockModels.registerSimpleFlatItemModel(ERPlantBlocks.BUBBLE_GRASS.get());
+        blockModels.createTrivialBlock(ERPlantBlocks.BLUE_COURT_SEAGRASS.get(), TexturedModel.SEAGRASS);
+        blockModels.registerSimpleFlatItemModel(ERPlantBlocks.BLUE_COURT_SEAGRASS.get());
+        generateBlueCourtSeagrass(blockModels);
         blockModels.createTrivialBlock(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(), TexturedModel.CARPET);
         blockModels.registerSimpleItemModel(
                 ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(),
                 ModelLocationUtils.getModelLocation(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get()));
+    }
+
+    private static void generateBlueCourtSeagrass(BlockModelGenerators blockModels) {
+        Block tallBlock = ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get();
+        TextureMapping bottomTextures = new TextureMapping()
+                .put(TextureSlot.TEXTURE, material("tall_blue_court_seagrass_bottom"));
+        TextureMapping topTextures = new TextureMapping()
+                .put(TextureSlot.TEXTURE, material("tall_blue_court_seagrass_top"));
+        Identifier bottomModel = ModelTemplates.SEAGRASS.create(
+                ModelLocationUtils.getModelLocation(tallBlock, "_bottom"),
+                bottomTextures,
+                blockModels.modelOutput);
+        Identifier topModel = ModelTemplates.SEAGRASS.create(
+                ModelLocationUtils.getModelLocation(tallBlock, "_top"),
+                topTextures,
+                blockModels.modelOutput);
+        blockModels.createDoubleBlock(
+                tallBlock,
+                BlockModelGenerators.plainVariant(topModel),
+                BlockModelGenerators.plainVariant(bottomModel));
     }
 
     private static void generateDuckweed(BlockModelGenerators blockModels) {
