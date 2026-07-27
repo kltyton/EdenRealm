@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "eden_realm:block/cloud_court_stone_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "eden_realm:block/cloud_court_stone_pillar"
+    },
+    "axis=z": {
+      "model": "eden_realm:block/cloud_court_stone_pillar",
+      "x": 90
+    }
+  }
+}

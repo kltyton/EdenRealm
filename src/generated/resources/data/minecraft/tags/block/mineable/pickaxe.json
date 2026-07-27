@@ -21,6 +21,9 @@
     "eden_realm:sun_rock",
     "eden_realm:spring_stone",
     "eden_realm:eroded_sandstone",
+    "eden_realm:cloud_court_stone",
+    "eden_realm:cloud_court_stone_pillar",
+    "eden_realm:sky_pool_stone",
     "eden_realm:coast_sandstone",
     "eden_realm:smooth_coast_sandstone",
     "eden_realm:cut_coast_sandstone",
@@ -44,6 +47,8 @@
     "eden_realm:branching_coral_block",
     "eden_realm:dead_branching_coral_block",
     "eden_realm:fan_shaped_coral_block",
-    "eden_realm:dead_fan_shaped_coral_block"
+    "eden_realm:dead_fan_shaped_coral_block",
+    "eden_realm:silver_whisker_coral_block",
+    "eden_realm:dead_silver_whisker_coral_block"
   ]
 }

@@ -64,6 +64,36 @@ public final class ERPlantBlocks {
             "腐木菌毯",
             CarpetBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).noOcclusion());
+    public static final DeferredBlock<ERShapedBushBlock> DUSKY_PURPLE_FOREST_FLOWER = register(
+            "dusky_purple_forest_flower",
+            "Dusky Purple Forest Flower",
+            "幽紫林花",
+            properties -> new ERShapedBushBlock(14.0, 10.0, properties),
+            copyOf(Blocks.DANDELION));
+    public static final DeferredBlock<ERShapedBushBlock> SPIKE_GRASS_FLOWER = register(
+            "spike_grass_flower",
+            "Spike Grass Flower",
+            "穗草花",
+            properties -> new ERShapedBushBlock(9.0, 14.0, properties),
+            copyOf(Blocks.DANDELION));
+    public static final DeferredBlock<ERShapedBushBlock> MOSSBORN_FLOWER = register(
+            "mossborn_flower",
+            "Mossborn Flower",
+            "苔生花",
+            properties -> new ERShapedBushBlock(14.0, 5.0, properties),
+            copyOf(Blocks.DANDELION));
+    public static final DeferredBlock<ERShapedBushBlock> BLUEBELL = register(
+            "bluebell",
+            "Bluebell",
+            "蓝铃花",
+            properties -> new ERShapedBushBlock(9.0, 14.0, properties),
+            copyOf(Blocks.DANDELION));
+    public static final DeferredBlock<ERShapedBushBlock> GOLDEN_STAMEN_FLOWER = register(
+            "golden_stamen_flower",
+            "Golden Stamen Flower",
+            "金蕊花",
+            properties -> new ERShapedBushBlock(10.0, 13.0, properties),
+            copyOf(Blocks.DANDELION));
     public static final DeferredBlock<DryVegetationBlock> DROUGHT_RESISTANT_SHORT_GRASS = register(
             "drought_resistant_short_grass",
             "Drought-Resistant Short Grass",

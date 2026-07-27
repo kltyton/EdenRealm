@@ -45,7 +45,7 @@ final class ERGrassModelGenerator {
         TextureMapping snowyTextures = new TextureMapping()
                 .put(TextureSlot.PARTICLE, ERContentModelGenerators.material("eden_dirt"))
                 .put(TextureSlot.BOTTOM, ERContentModelGenerators.material("eden_dirt"))
-                .put(TextureSlot.TOP, ERContentModelGenerators.material("eden_grass_block_top_1"))
+                .put(TextureSlot.TOP, ERContentModelGenerators.material("eden_grass_block_snow_top"))
                 .put(TextureSlot.SIDE, ERContentModelGenerators.material("eden_grass_block_snow"));
         Identifier snowyModel = ModelTemplates.CUBE_BOTTOM_TOP.createWithSuffix(
                 block, "_snow", snowyTextures, blockModels.modelOutput);

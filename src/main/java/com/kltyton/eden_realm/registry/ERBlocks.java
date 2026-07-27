@@ -8,6 +8,7 @@ import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.content.ERBlockEntry;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -55,6 +56,7 @@ public final class ERBlocks {
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
         ERTerrainBlocks.register(modEventBus);
+        ERSkyBlocks.register(modEventBus);
         ERPlantBlocks.register(modEventBus);
         ERCoralBlocks.register(modEventBus);
     }
@@ -63,6 +65,7 @@ public final class ERBlocks {
         List<Block> entries = new ArrayList<>();
         BLOCKS.getEntries().forEach(holder -> entries.add((Block) holder.get()));
         entries.addAll(ERTerrainBlocks.blocks());
+        entries.addAll(ERSkyBlocks.blocks());
         entries.addAll(ERPlantBlocks.blocks());
         entries.addAll(ERCoralBlocks.blocks());
         return List.copyOf(entries);
@@ -71,6 +74,7 @@ public final class ERBlocks {
     public static List<ERBlockEntry> contentEntries() {
         List<ERBlockEntry> entries = new ArrayList<>();
         entries.addAll(ERTerrainBlocks.entries());
+        entries.addAll(ERSkyBlocks.entries());
         entries.addAll(ERPlantBlocks.entries());
         entries.addAll(ERCoralBlocks.entries());
         return List.copyOf(entries);

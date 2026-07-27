@@ -5,6 +5,7 @@ import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.content.ERBlockEntry;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import java.util.HashSet;
 import java.util.Set;
@@ -58,6 +59,7 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         specialized.add(ERPlantBlocks.BUBBLE_GRASS.get());
         specialized.add(ERPlantBlocks.BLUE_COURT_SEAGRASS.get());
         specialized.add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get());
+        specialized.add(ERSkyBlocks.TALL_SKY_WIND_GRASS.get());
         ERCoralBlocks.families().forEach(family -> {
             specialized.add(family.block().get());
             specialized.add(family.deadBlock().get());
@@ -96,6 +98,9 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         add(
                 ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get(),
                 createDoublePlantShearsDrop(ERPlantBlocks.BLUE_COURT_SEAGRASS.get()));
+        add(
+                ERSkyBlocks.TALL_SKY_WIND_GRASS.get(),
+                createDoublePlantShearsDrop(ERSkyBlocks.SKY_WIND_GRASS.get()));
 
         for (ERCoralBlocks.CoralFamily family : ERCoralBlocks.families()) {
             add(family.block().get(), createSingleItemTableWithSilkTouch(family.block().get(), family.deadBlock().get()));

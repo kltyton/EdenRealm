@@ -10,6 +10,10 @@
     "eden_realm:coast_sand",
     "eden_realm:amber_sand",
     "eden_realm:oasis_sand",
+    "eden_realm:cloud",
+    "eden_realm:dense_cloud",
+    "eden_realm:rosy_cloud",
+    "eden_realm:dense_rosy_cloud",
     "eden_realm:eden_grass_block"
   ]
 }

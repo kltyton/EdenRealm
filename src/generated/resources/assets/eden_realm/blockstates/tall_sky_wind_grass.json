@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "eden_realm:block/tall_sky_wind_grass_bottom"
+    },
+    "half=upper": {
+      "model": "eden_realm:block/tall_sky_wind_grass_top"
+    }
+  }
+}

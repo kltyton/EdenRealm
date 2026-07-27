@@ -3,12 +3,16 @@ package com.kltyton.eden_realm.data.tag;
 import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERItems;
+import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import com.kltyton.eden_realm.util.ERTags;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
@@ -101,5 +105,18 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.TURTLE_FOOD)
                 .add(ERItems.contentItem("bubble_grass").getKey())
                 .add(ERItems.contentItem("blue_court_seagrass").getKey());
+
+        var smallFlowers = tag(BlockItemTags.SMALL_FLOWERS.item());
+        var flowers = tag(BlockItemTags.FLOWERS.item());
+        for (String id : List.of(
+                ERSkyBlocks.CLOUD_CROWN_FLOWER.getKey().identifier().getPath(),
+                ERPlantBlocks.DUSKY_PURPLE_FOREST_FLOWER.getKey().identifier().getPath(),
+                ERPlantBlocks.SPIKE_GRASS_FLOWER.getKey().identifier().getPath(),
+                ERPlantBlocks.MOSSBORN_FLOWER.getKey().identifier().getPath(),
+                ERPlantBlocks.BLUEBELL.getKey().identifier().getPath(),
+                ERPlantBlocks.GOLDEN_STAMEN_FLOWER.getKey().identifier().getPath())) {
+            smallFlowers.add(ERItems.contentItem(id).getKey());
+            flowers.add(ERItems.contentItem(id).getKey());
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.kltyton.eden_realm.data.model;
 import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +35,7 @@ final class ERContentModelGenerators {
 
     static void generate(BlockModelGenerators blockModels) {
         generateTerrain(blockModels);
+        generateSky(blockModels);
         generatePlants(blockModels);
         generateCorals(blockModels);
     }
@@ -82,6 +84,45 @@ final class ERContentModelGenerators {
                 "spring_stone",
                 "spring_stone_top",
                 "spring_stone_top");
+    }
+
+    private static void generateSky(BlockModelGenerators blockModels) {
+        List.of(
+                        ERSkyBlocks.CLOUD_COURT_STONE,
+                        ERSkyBlocks.CLOUD,
+                        ERSkyBlocks.SKY_POOL_STONE,
+                        ERSkyBlocks.DENSE_CLOUD,
+                        ERSkyBlocks.ROSY_CLOUD,
+                        ERSkyBlocks.DENSE_ROSY_CLOUD)
+                .forEach(holder -> createCubeWithItem(blockModels, holder.get()));
+
+        blockModels.woodProvider(ERSkyBlocks.CLOUD_COURT_STONE_PILLAR.get())
+                .log(ERSkyBlocks.CLOUD_COURT_STONE_PILLAR.get());
+
+        List.of(
+                        ERSkyBlocks.CLOUD_EDGE_GRASS,
+                        ERSkyBlocks.SKY_WIND_GRASS,
+                        ERSkyBlocks.CLOUD_CROWN_FLOWER,
+                        ERSkyBlocks.CLOUD_FLEECE_VINE)
+                .forEach(holder -> blockModels.createCrossBlockWithDefaultItem(
+                        holder.get(), BlockModelGenerators.PlantType.NOT_TINTED));
+        generateTallSkyWindGrass(blockModels);
+    }
+
+    private static void generateTallSkyWindGrass(BlockModelGenerators blockModels) {
+        Block tallBlock = ERSkyBlocks.TALL_SKY_WIND_GRASS.get();
+        Identifier bottomModel = ModelTemplates.CROSS.create(
+                ModelLocationUtils.getModelLocation(tallBlock, "_bottom"),
+                TextureMapping.cross(material("tall_sky_wind_grass_bottom")),
+                blockModels.modelOutput);
+        Identifier topModel = ModelTemplates.CROSS.create(
+                ModelLocationUtils.getModelLocation(tallBlock, "_top"),
+                TextureMapping.cross(material("tall_sky_wind_grass_top")),
+                blockModels.modelOutput);
+        blockModels.createDoubleBlock(
+                tallBlock,
+                BlockModelGenerators.plainVariant(topModel),
+                BlockModelGenerators.plainVariant(bottomModel));
     }
 
     private static void generateDirtPath(BlockModelGenerators blockModels) {
@@ -163,6 +204,11 @@ final class ERContentModelGenerators {
         List.of(
                         ERPlantBlocks.FROST_CRYSTAL_GRASS,
                         ERPlantBlocks.FROST_DOWN_FLOWER,
+                        ERPlantBlocks.DUSKY_PURPLE_FOREST_FLOWER,
+                        ERPlantBlocks.SPIKE_GRASS_FLOWER,
+                        ERPlantBlocks.MOSSBORN_FLOWER,
+                        ERPlantBlocks.BLUEBELL,
+                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER,
                         ERPlantBlocks.DROUGHT_RESISTANT_SHORT_GRASS,
                         ERPlantBlocks.THORN_BRANCH_BUSH,
                         ERPlantBlocks.SANDLAND_SHORT_GRASS)

@@ -147,7 +147,8 @@ public final class ERCoralBlocks {
         SPHERICAL("spherical", "Spherical", "球状"),
         SEA_FLOWER("sea_flower", "Sea Flower", "海花"),
         BRANCHING("branching", "Branching", "枝状"),
-        FAN_SHAPED("fan_shaped", "Fan-Shaped", "扇形");
+        FAN_SHAPED("fan_shaped", "Fan-Shaped", "扇形"),
+        SILVER_WHISKER("silver_whisker", "Silver Whisker", "银须");
 
         private final String id;
         private final String englishName;

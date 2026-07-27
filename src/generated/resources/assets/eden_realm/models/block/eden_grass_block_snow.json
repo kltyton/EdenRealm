@@ -3,6 +3,6 @@
   "textures": {
     "bottom": "eden_realm:block/eden_dirt",
     "side": "eden_realm:block/eden_grass_block_snow",
-    "top": "eden_realm:block/eden_grass_block_top_1"
+    "top": "eden_realm:block/eden_grass_block_snow_top"
   }
 }

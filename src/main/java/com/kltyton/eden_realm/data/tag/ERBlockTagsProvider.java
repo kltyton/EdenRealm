@@ -5,6 +5,7 @@ import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import com.kltyton.eden_realm.util.ERTags;
 import java.util.List;
@@ -149,6 +150,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                         ERTerrainBlocks.SPRING_STONE,
                         ERTerrainBlocks.ERODED_SANDSTONE)
                 .forEach(holder -> pickaxe.add(holder.getKey()));
+        pickaxe.add(ERSkyBlocks.CLOUD_COURT_STONE.getKey())
+                .add(ERSkyBlocks.CLOUD_COURT_STONE_PILLAR.getKey())
+                .add(ERSkyBlocks.SKY_POOL_STONE.getKey());
         for (ERTerrainBlocks.SandstoneSet set : List.of(
                 ERTerrainBlocks.COAST, ERTerrainBlocks.AMBER, ERTerrainBlocks.OASIS)) {
             pickaxe.add(set.sandstone().getKey())
@@ -168,6 +172,10 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                 .add(ERTerrainBlocks.COAST.sand().getKey())
                 .add(ERTerrainBlocks.AMBER.sand().getKey())
                 .add(ERTerrainBlocks.OASIS.sand().getKey());
+        shovel.add(ERSkyBlocks.CLOUD.getKey())
+                .add(ERSkyBlocks.DENSE_CLOUD.getKey())
+                .add(ERSkyBlocks.ROSY_CLOUD.getKey())
+                .add(ERSkyBlocks.DENSE_ROSY_CLOUD.getKey());
         shovel.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
 
         tag(BlockTags.MINEABLE_WITH_HOE)
@@ -211,6 +219,40 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.REPLACEABLE_BY_MUSHROOMS)
                 .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey())
                 .add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.getKey());
+
+        var replaceable = tag(BlockTags.REPLACEABLE);
+        var replaceableByTrees = tag(BlockTags.REPLACEABLE_BY_TREES);
+        var replaceableByMushrooms = tag(BlockTags.REPLACEABLE_BY_MUSHROOMS);
+        List.of(
+                        ERSkyBlocks.CLOUD_EDGE_GRASS,
+                        ERSkyBlocks.SKY_WIND_GRASS,
+                        ERSkyBlocks.TALL_SKY_WIND_GRASS,
+                        ERSkyBlocks.CLOUD_CROWN_FLOWER,
+                        ERSkyBlocks.CLOUD_FLEECE_VINE,
+                        ERPlantBlocks.DUSKY_PURPLE_FOREST_FLOWER,
+                        ERPlantBlocks.SPIKE_GRASS_FLOWER,
+                        ERPlantBlocks.MOSSBORN_FLOWER,
+                        ERPlantBlocks.BLUEBELL,
+                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER)
+                .forEach(holder -> {
+                    replaceable.add(holder.getKey());
+                    replaceableByTrees.add(holder.getKey());
+                    replaceableByMushrooms.add(holder.getKey());
+                });
+
+        var smallFlowers = tag(BlockTags.SMALL_FLOWERS);
+        var flowers = tag(BlockTags.FLOWERS);
+        List.of(
+                        ERSkyBlocks.CLOUD_CROWN_FLOWER,
+                        ERPlantBlocks.DUSKY_PURPLE_FOREST_FLOWER,
+                        ERPlantBlocks.SPIKE_GRASS_FLOWER,
+                        ERPlantBlocks.MOSSBORN_FLOWER,
+                        ERPlantBlocks.BLUEBELL,
+                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER)
+                .forEach(holder -> {
+                    smallFlowers.add(holder.getKey());
+                    flowers.add(holder.getKey());
+                });
 
         var coralBlocks = tag(BlockTags.CORAL_BLOCKS);
         var coralPlants = tag(BlockTags.CORAL_PLANTS);
