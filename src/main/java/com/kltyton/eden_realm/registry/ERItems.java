@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -132,7 +134,12 @@ public final class ERItems {
             }
         }
 
-        return registerBlockItem(entry.id(), entry.block());
+        return registerCustomBlockItem(entry.id(), properties -> {
+            Block block = entry.block().get();
+            return block instanceof DoublePlantBlock
+                    ? new DoubleHighBlockItem(block, properties)
+                    : new BlockItem(block, properties);
+        });
     }
 
     private static DeferredItem<BlockItem> registerCustomBlockItem(

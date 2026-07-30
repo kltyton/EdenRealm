@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "eden_realm:block/twilight_pomegranate_planks",
-    "side": "eden_realm:block/twilight_pomegranate_planks",
-    "top": "eden_realm:block/twilight_pomegranate_planks"
-  }
-}

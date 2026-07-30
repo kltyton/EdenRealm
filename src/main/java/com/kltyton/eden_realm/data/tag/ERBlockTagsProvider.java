@@ -209,7 +209,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                 .add(ERTerrainBlocks.EDEN_DIRT.getKey());
         tag(BlockTags.UNDERWATER_BONEMEALS)
                 .add(ERPlantBlocks.BUBBLE_GRASS.getKey())
-                .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey());
+                .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey())
+                .add(ERPlantBlocks.WATER_FERN.getKey())
+                .add(ERPlantBlocks.UMBRELLA_HYGROPHILA.getKey());
         tag(BlockTags.REPLACEABLE)
                 .add(ERPlantBlocks.BLUE_COURT_SEAGRASS.getKey())
                 .add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.getKey());
@@ -233,7 +235,19 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                         ERPlantBlocks.SPIKE_GRASS_FLOWER,
                         ERPlantBlocks.MOSSBORN_FLOWER,
                         ERPlantBlocks.BLUEBELL,
-                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER)
+                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER,
+                        ERPlantBlocks.MOONWHITE_ORCHID,
+                        ERPlantBlocks.WATER_FERN,
+                        ERPlantBlocks.LONGLEAF_SEDGE,
+                        ERPlantBlocks.GREEN_SPIKE_GRASS,
+                        ERPlantBlocks.GOLDEN_SPIKE_GRASS,
+                        ERPlantBlocks.PURPLE_GLOW_CATTAIL,
+                        ERPlantBlocks.GRAY_SPIKE_REED,
+                        ERPlantBlocks.WATER_SCALLION,
+                        ERPlantBlocks.UMBRELLA_HYGROPHILA,
+                        ERPlantBlocks.SMALL_PARASOL_MUSHROOM,
+                        ERPlantBlocks.CRUMBLY_MUSHROOM,
+                        ERPlantBlocks.BLUE_GLOW_MUSHROOM)
                 .forEach(holder -> {
                     replaceable.add(holder.getKey());
                     replaceableByTrees.add(holder.getKey());
@@ -248,7 +262,8 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                         ERPlantBlocks.SPIKE_GRASS_FLOWER,
                         ERPlantBlocks.MOSSBORN_FLOWER,
                         ERPlantBlocks.BLUEBELL,
-                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER)
+                        ERPlantBlocks.GOLDEN_STAMEN_FLOWER,
+                        ERPlantBlocks.MOONWHITE_ORCHID)
                 .forEach(holder -> {
                     smallFlowers.add(holder.getKey());
                     flowers.add(holder.getKey());

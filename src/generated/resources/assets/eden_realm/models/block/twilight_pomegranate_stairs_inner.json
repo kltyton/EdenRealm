@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "eden_realm:block/twilight_pomegranate_planks",
-    "side": "eden_realm:block/twilight_pomegranate_planks",
-    "top": "eden_realm:block/twilight_pomegranate_planks"
-  }
-}

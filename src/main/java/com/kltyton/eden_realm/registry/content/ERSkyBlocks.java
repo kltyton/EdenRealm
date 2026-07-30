@@ -5,6 +5,7 @@ import com.kltyton.eden_realm.common.block.ERGrowableGrassBlock;
 import com.kltyton.eden_realm.common.block.ERHangingPlantBlock;
 import com.kltyton.eden_realm.common.block.ERShapedBushBlock;
 import com.kltyton.eden_realm.common.block.ERTallGrassBlock;
+import com.kltyton.eden_realm.common.block.cloud.ERSinkingCloudBlock;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -30,14 +31,22 @@ public final class ERSkyBlocks {
             "云庭石柱",
             RotatedPillarBlock::new,
             copyOf(Blocks.QUARTZ_PILLAR));
-    public static final DeferredBlock<Block> CLOUD = simple(
-            "cloud", "Cloud", "云朵", Blocks.SNOW_BLOCK);
+    public static final DeferredBlock<ERSinkingCloudBlock> CLOUD = register(
+            "cloud",
+            "Cloud",
+            "云朵",
+            ERSinkingCloudBlock::new,
+            transparentCopyOf(Blocks.SNOW_BLOCK));
     public static final DeferredBlock<Block> SKY_POOL_STONE = simple(
             "sky_pool_stone", "Sky Pool Stone", "天池石", Blocks.STONE);
     public static final DeferredBlock<Block> DENSE_CLOUD = simple(
             "dense_cloud", "Dense Cloud", "致密云朵", Blocks.SNOW_BLOCK);
-    public static final DeferredBlock<Block> ROSY_CLOUD = simple(
-            "rosy_cloud", "Rosy Cloud", "霞云朵", Blocks.SNOW_BLOCK);
+    public static final DeferredBlock<ERSinkingCloudBlock> ROSY_CLOUD = register(
+            "rosy_cloud",
+            "Rosy Cloud",
+            "霞云朵",
+            ERSinkingCloudBlock::new,
+            transparentCopyOf(Blocks.SNOW_BLOCK));
     public static final DeferredBlock<Block> DENSE_ROSY_CLOUD = simple(
             "dense_rosy_cloud", "Dense Rosy Cloud", "致密霞云朵", Blocks.SNOW_BLOCK);
 
@@ -95,6 +104,13 @@ public final class ERSkyBlocks {
 
     private static Supplier<BlockBehaviour.Properties> copyOf(Block source) {
         return () -> BlockBehaviour.Properties.ofFullCopy(source);
+    }
+
+    private static Supplier<BlockBehaviour.Properties> transparentCopyOf(Block source) {
+        return () -> BlockBehaviour.Properties.ofFullCopy(source)
+                .noOcclusion()
+                .dynamicShape()
+                .forceSolidOn();
     }
 
     private static <T extends Block> DeferredBlock<T> register(

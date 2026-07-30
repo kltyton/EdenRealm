@@ -4,6 +4,7 @@ import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.client.color.ERGrassColorReloadListener;
 import com.kltyton.eden_realm.client.color.ERGrassColorSource;
 import com.kltyton.eden_realm.client.color.ERGrassColors;
+import com.kltyton.eden_realm.client.renderer.block.AutoWholeShapeOutlineRenderer;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.EREntityTypes;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
@@ -16,6 +17,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.AddClientReloadListenersEvent;
+import net.neoforged.neoforge.client.event.ExtractBlockOutlineRenderStateEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
 @EventBusSubscriber(modid = ERConstants.MOD_ID, value = Dist.CLIENT)
@@ -57,6 +59,11 @@ public final class ERClientEvents {
     @SubscribeEvent
     public static void addReloadListeners(AddClientReloadListenersEvent event) {
         event.addListener(ERConstants.id("grass_colormap"), new ERGrassColorReloadListener());
+    }
+
+    @SubscribeEvent
+    public static void extractBlockOutline(ExtractBlockOutlineRenderStateEvent event) {
+        AutoWholeShapeOutlineRenderer.extract(event);
     }
 
     private static ModelLayerLocation boatLayer(ERWoodSet wood) {

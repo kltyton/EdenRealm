@@ -209,6 +209,9 @@ final class ERContentModelGenerators {
                         ERPlantBlocks.MOSSBORN_FLOWER,
                         ERPlantBlocks.BLUEBELL,
                         ERPlantBlocks.GOLDEN_STAMEN_FLOWER,
+                        ERPlantBlocks.MOONWHITE_ORCHID,
+                        ERPlantBlocks.LONGLEAF_SEDGE,
+                        ERPlantBlocks.GREEN_SPIKE_GRASS,
                         ERPlantBlocks.DROUGHT_RESISTANT_SHORT_GRASS,
                         ERPlantBlocks.THORN_BRANCH_BUSH,
                         ERPlantBlocks.SANDLAND_SHORT_GRASS)
@@ -220,11 +223,14 @@ final class ERContentModelGenerators {
         blockModels.registerSimpleFlatItemModel(ERPlantBlocks.BUBBLE_GRASS.get());
         blockModels.createTrivialBlock(ERPlantBlocks.BLUE_COURT_SEAGRASS.get(), TexturedModel.SEAGRASS);
         blockModels.registerSimpleFlatItemModel(ERPlantBlocks.BLUE_COURT_SEAGRASS.get());
+        blockModels.createTrivialBlock(ERPlantBlocks.WATER_FERN.get(), TexturedModel.SEAGRASS);
+        blockModels.registerSimpleFlatItemModel(ERPlantBlocks.WATER_FERN.get());
         generateBlueCourtSeagrass(blockModels);
         blockModels.createTrivialBlock(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(), TexturedModel.CARPET);
         blockModels.registerSimpleItemModel(
                 ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(),
                 ModelLocationUtils.getModelLocation(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get()));
+        ERPlantModelGenerator.generate(blockModels);
     }
 
     private static void generateBlueCourtSeagrass(BlockModelGenerators blockModels) {

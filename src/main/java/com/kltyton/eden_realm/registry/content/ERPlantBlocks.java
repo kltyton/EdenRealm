@@ -5,10 +5,19 @@ import com.kltyton.eden_realm.common.block.ERSeagrassBlock;
 import com.kltyton.eden_realm.common.block.ERShapedBushBlock;
 import com.kltyton.eden_realm.common.block.ERShapedDryVegetationBlock;
 import com.kltyton.eden_realm.common.block.ERTallSeagrassBlock;
+import com.kltyton.eden_realm.common.block.plant.ERModelPlantBlock;
+import com.kltyton.eden_realm.common.block.plant.ERPlantShapes;
+import com.kltyton.eden_realm.common.block.plant.ERShapedDoublePlantBlock;
+import com.kltyton.eden_realm.common.block.plant.ERTallWaterPlantBlock;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarpetBlock;
@@ -63,7 +72,7 @@ public final class ERPlantBlocks {
             "Rotting Wood Fungus Mat",
             "腐木菌毯",
             CarpetBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).noOcclusion());
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).noCollision().noOcclusion());
     public static final DeferredBlock<ERShapedBushBlock> DUSKY_PURPLE_FOREST_FLOWER = register(
             "dusky_purple_forest_flower",
             "Dusky Purple Forest Flower",
@@ -112,6 +121,95 @@ public final class ERPlantBlocks {
             "沙原短草",
             properties -> new ERShapedDryVegetationBlock(14.0, 5.0, properties),
             copyOf(Blocks.SHORT_DRY_GRASS));
+    public static final DeferredBlock<ERShapedBushBlock> MOONWHITE_ORCHID = register(
+            "moonwhite_orchid",
+            "Moonwhite Orchid",
+            "月白兰",
+            properties -> new ERShapedBushBlock(10.0, 12.0, properties),
+            copyOf(Blocks.DANDELION));
+    public static final DeferredBlock<ERSeagrassBlock> WATER_FERN = register(
+            "water_fern",
+            "Water Fern",
+            "水蕨",
+            properties -> new ERSeagrassBlock(14.0, 10.0, properties),
+            copyOf(Blocks.SEAGRASS));
+    public static final DeferredBlock<ERShapedBushBlock> LONGLEAF_SEDGE = register(
+            "longleaf_sedge",
+            "Longleaf Sedge",
+            "长叶莎草",
+            properties -> new ERShapedBushBlock(12.0, 14.0, properties),
+            copyOf(Blocks.SHORT_GRASS));
+    public static final DeferredBlock<ERShapedBushBlock> GREEN_SPIKE_GRASS = register(
+            "green_spike_grass",
+            "Green Spike Grass",
+            "青穗草",
+            properties -> new ERShapedBushBlock(12.0, 13.0, properties),
+            copyOf(Blocks.SHORT_GRASS));
+
+    public static final DeferredBlock<ERShapedDoublePlantBlock> GOLDEN_SPIKE_GRASS = register(
+            "golden_spike_grass",
+            "Golden Spike Grass",
+            "金穗草",
+            properties -> new ERShapedDoublePlantBlock(ERPlantShapes.GOLDEN_SPIKE_GRASS, properties),
+            copyOf(Blocks.TALL_GRASS));
+    public static final DeferredBlock<ERTallWaterPlantBlock> PURPLE_GLOW_CATTAIL = register(
+            "purple_glow_cattail",
+            "Purple Glow Cattail",
+            "紫光香蒲",
+            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.PURPLE_GLOW_CATTAIL, properties),
+            copyOf(Blocks.TALL_GRASS));
+    public static final DeferredBlock<ERTallWaterPlantBlock> GRAY_SPIKE_REED = register(
+            "gray_spike_reed",
+            "Gray Spike Reed",
+            "灰穗芦苇",
+            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.GRAY_SPIKE_REED, properties),
+            copyOf(Blocks.TALL_GRASS));
+    public static final DeferredBlock<ERTallWaterPlantBlock> WATER_SCALLION = register(
+            "water_scallion",
+            "Water Scallion",
+            "水葱",
+            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.WATER_SCALLION, properties),
+            copyOf(Blocks.TALL_GRASS));
+    public static final DeferredBlock<ERTallWaterPlantBlock> UMBRELLA_HYGROPHILA = register(
+            "umbrella_hygrophila",
+            "Umbrella Hygrophila",
+            "伞花水蓑衣",
+            properties -> new ERTallWaterPlantBlock(true, ERPlantShapes.UMBRELLA_HYGROPHILA, properties),
+            copyOf(Blocks.TALL_SEAGRASS));
+
+    public static final DeferredBlock<ERModelPlantBlock> SMALL_PARASOL_MUSHROOM = register(
+            "small_parasol_mushroom",
+            "Small Parasol Mushroom",
+            "小伞菇",
+            properties -> new ERModelPlantBlock(
+                    models(
+                            "small_parasol_mushroom_1",
+                            "small_parasol_mushroom_2",
+                            "small_parasol_mushroom_3"),
+                    properties),
+            collidableFungusProperties(MapColor.COLOR_BROWN));
+    public static final DeferredBlock<ERModelPlantBlock> CRUMBLY_MUSHROOM = register(
+            "crumbly_mushroom",
+            "Crumbly Mushroom",
+            "掉渣菇",
+            properties -> new ERModelPlantBlock(
+                    models(
+                            "crumbly_mushroom_1",
+                            "crumbly_mushroom_2",
+                            "crumbly_mushroom_3"),
+                    properties),
+            collidableFungusProperties(MapColor.COLOR_BROWN));
+    public static final DeferredBlock<ERModelPlantBlock> BLUE_GLOW_MUSHROOM = register(
+            "blue_glow_mushroom",
+            "Blue Glow Mushroom",
+            "蓝荧菇",
+            properties -> new ERModelPlantBlock(
+                    models(
+                            "blue_glow_mushroom_1",
+                            "blue_glow_mushroom_2",
+                            "blue_glow_mushroom_3"),
+                    properties),
+            collidableFungusProperties(MapColor.COLOR_BLUE));
 
     private ERPlantBlocks() {
     }
@@ -130,6 +228,21 @@ public final class ERPlantBlocks {
 
     private static Supplier<BlockBehaviour.Properties> copyOf(Block source) {
         return () -> BlockBehaviour.Properties.ofFullCopy(source);
+    }
+
+    private static Supplier<BlockBehaviour.Properties> collidableFungusProperties(MapColor mapColor) {
+        return () -> BlockBehaviour.Properties.of()
+                .mapColor(mapColor)
+                .noOcclusion()
+                .instabreak()
+                .sound(SoundType.GRASS)
+                .pushReaction(PushReaction.DESTROY);
+    }
+
+    private static List<Identifier> models(String... names) {
+        return Arrays.stream(names)
+                .map(name -> ERConstants.id("block/" + name))
+                .toList();
     }
 
     private static <T extends Block> DeferredBlock<T> register(

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "eden_realm:block/mossborn_flower"
-  }
-}

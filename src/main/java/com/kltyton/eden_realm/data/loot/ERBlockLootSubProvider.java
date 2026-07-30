@@ -59,6 +59,14 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         specialized.add(ERPlantBlocks.BUBBLE_GRASS.get());
         specialized.add(ERPlantBlocks.BLUE_COURT_SEAGRASS.get());
         specialized.add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get());
+        specialized.add(ERPlantBlocks.LONGLEAF_SEDGE.get());
+        specialized.add(ERPlantBlocks.GREEN_SPIKE_GRASS.get());
+        specialized.add(ERPlantBlocks.GOLDEN_SPIKE_GRASS.get());
+        specialized.add(ERPlantBlocks.PURPLE_GLOW_CATTAIL.get());
+        specialized.add(ERPlantBlocks.GRAY_SPIKE_REED.get());
+        specialized.add(ERPlantBlocks.WATER_SCALLION.get());
+        specialized.add(ERPlantBlocks.WATER_FERN.get());
+        specialized.add(ERPlantBlocks.UMBRELLA_HYGROPHILA.get());
         specialized.add(ERSkyBlocks.TALL_SKY_WIND_GRASS.get());
         ERCoralBlocks.families().forEach(family -> {
             specialized.add(family.block().get());
@@ -98,6 +106,28 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         add(
                 ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get(),
                 createDoublePlantShearsDrop(ERPlantBlocks.BLUE_COURT_SEAGRASS.get()));
+        add(ERPlantBlocks.LONGLEAF_SEDGE.get(), createGrassDrops(ERPlantBlocks.LONGLEAF_SEDGE.get()));
+        add(ERPlantBlocks.GREEN_SPIKE_GRASS.get(), createGrassDrops(ERPlantBlocks.GREEN_SPIKE_GRASS.get()));
+        add(
+                ERPlantBlocks.GOLDEN_SPIKE_GRASS.get(),
+                createDoublePlantWithSeedDrops(
+                        ERPlantBlocks.GOLDEN_SPIKE_GRASS.get(),
+                        ERPlantBlocks.GOLDEN_SPIKE_GRASS.get()));
+        add(
+                ERPlantBlocks.PURPLE_GLOW_CATTAIL.get(),
+                createDoublePlantShearsDrop(ERPlantBlocks.PURPLE_GLOW_CATTAIL.get()));
+        add(
+                ERPlantBlocks.GRAY_SPIKE_REED.get(),
+                createDoublePlantShearsDrop(ERPlantBlocks.GRAY_SPIKE_REED.get()));
+        add(
+                ERPlantBlocks.WATER_SCALLION.get(),
+                createDoublePlantShearsDrop(ERPlantBlocks.WATER_SCALLION.get()));
+        add(
+                ERPlantBlocks.WATER_FERN.get(),
+                createShearsOnlyDrop(ERPlantBlocks.WATER_FERN.get()));
+        add(
+                ERPlantBlocks.UMBRELLA_HYGROPHILA.get(),
+                createDoublePlantShearsDrop(ERPlantBlocks.UMBRELLA_HYGROPHILA.get()));
         add(
                 ERSkyBlocks.TALL_SKY_WIND_GRASS.get(),
                 createDoublePlantShearsDrop(ERSkyBlocks.SKY_WIND_GRASS.get()));

@@ -104,7 +104,8 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
                 .add(ERItems.contentItem("oasis_sand").getKey());
         tag(ItemTags.TURTLE_FOOD)
                 .add(ERItems.contentItem("bubble_grass").getKey())
-                .add(ERItems.contentItem("blue_court_seagrass").getKey());
+                .add(ERItems.contentItem("blue_court_seagrass").getKey())
+                .add(ERItems.contentItem("water_fern").getKey());
 
         var smallFlowers = tag(BlockItemTags.SMALL_FLOWERS.item());
         var flowers = tag(BlockItemTags.FLOWERS.item());
@@ -114,7 +115,8 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
                 ERPlantBlocks.SPIKE_GRASS_FLOWER.getKey().identifier().getPath(),
                 ERPlantBlocks.MOSSBORN_FLOWER.getKey().identifier().getPath(),
                 ERPlantBlocks.BLUEBELL.getKey().identifier().getPath(),
-                ERPlantBlocks.GOLDEN_STAMEN_FLOWER.getKey().identifier().getPath())) {
+                ERPlantBlocks.GOLDEN_STAMEN_FLOWER.getKey().identifier().getPath(),
+                ERPlantBlocks.MOONWHITE_ORCHID.getKey().identifier().getPath())) {
             smallFlowers.add(ERItems.contentItem(id).getKey());
             flowers.add(ERItems.contentItem(id).getKey());
         }

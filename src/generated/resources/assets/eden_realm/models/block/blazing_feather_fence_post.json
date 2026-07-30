@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/fence_post",
-  "textures": {
-    "texture": "eden_realm:block/blazing_feather_planks"
-  }
-}
