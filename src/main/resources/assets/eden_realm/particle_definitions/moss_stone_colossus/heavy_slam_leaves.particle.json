@@ -1,0 +1,70 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "eden_realm:moss_stone_colossus/heavy_slam_leaves",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "eden_realm:moss_stone_colossus/heavy_slam_leaves"
+      }
+    },
+    "components": {
+      "minecraft:emitter_rate_instant": {
+        "num_particles": 80
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 1
+      },
+      "minecraft:emitter_shape_sphere": {
+        "radius": 7,
+        "surface_only": true,
+        "direction": "outwards"
+      },
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": "math.random(0.4,0.6)"
+      },
+      "minecraft:particle_initial_spin": {
+        "rotation": "math.random(-180, 180)",
+        "rotation_rate": 20
+      },
+      "minecraft:particle_initial_speed": 5,
+      "minecraft:particle_motion_dynamic": {
+        "linear_acceleration": [
+          0,
+          -8,
+          0
+        ],
+        "linear_drag_coefficient": 4
+      },
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          0.6,
+          0.6
+        ],
+        "facing_camera_mode": "rotate_xyz",
+        "uv": {
+          "texture_width": 32,
+          "texture_height": 256,
+          "flipbook": {
+            "base_UV": [
+              0,
+              0
+            ],
+            "size_UV": [
+              32,
+              32
+            ],
+            "step_UV": [
+              0,
+              32
+            ],
+            "frames_per_second": 15,
+            "max_frame": 8,
+            "stretch_to_lifetime": true
+          }
+        }
+      },
+      "minecraft:particle_motion_collision": {}
+    }
+  }
+}

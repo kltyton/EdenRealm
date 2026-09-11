@@ -1,0 +1,57 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "eden_realm:moss_stone_colossus/charge_shockwave",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "eden_realm:moss_stone_colossus/charge_shockwave"
+      }
+    },
+    "components": {
+      "minecraft:emitter_local_space": {
+        "position": true,
+        "rotation": false
+      },
+      "minecraft:emitter_rate_instant": {
+        "num_particles": 1
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 1
+      },
+      "minecraft:emitter_shape_point": {},
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": "math.random(0.4,0.6)"
+      },
+      "minecraft:particle_initial_speed": 3,
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          1.5,
+          4
+        ],
+        "facing_camera_mode": "emitter_transform_yz",
+        "uv": {
+          "texture_width": 32,
+          "texture_height": 371,
+          "flipbook": {
+            "base_UV": [
+              0,
+              0
+            ],
+            "size_UV": [
+              32,
+              53
+            ],
+            "step_UV": [
+              0,
+              53
+            ],
+            "frames_per_second": 15,
+            "max_frame": 7,
+            "stretch_to_lifetime": true
+          }
+        }
+      }
+    }
+  }
+}

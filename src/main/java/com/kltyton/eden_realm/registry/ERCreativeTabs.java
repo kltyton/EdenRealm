@@ -43,6 +43,9 @@ public final class ERCreativeTabs {
                             output.accept(items.chestBoat().get());
                         }
                         ERItems.contentEntries().forEach(item -> output.accept(item.get()));
+                        ERItems.harvestEntries().forEach(item -> output.accept(item.get()));
+                        output.accept(ERItems.DEWSPIKE_GRAIN_SEEDS.get());
+                        output.accept(ERItems.MOSS_STONE_COLOSSUS_SPAWN_EGG.get());
                     })
                     .build());
 

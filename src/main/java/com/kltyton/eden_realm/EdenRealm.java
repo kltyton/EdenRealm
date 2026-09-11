@@ -12,6 +12,7 @@ import com.kltyton.eden_realm.registry.ERMenuTypes;
 import com.kltyton.eden_realm.registry.ERMobEffects;
 import com.kltyton.eden_realm.registry.ERParticleTypes;
 import com.kltyton.eden_realm.registry.ERSoundEvents;
+import com.kltyton.eden_realm.network.ERNetwork;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -36,6 +37,8 @@ public final class EdenRealm {
         ERDataComponents.register(modEventBus);
         NeoForge.EVENT_BUS.addListener(ERBlockToolEvents::onBlockToolModification);
 
+        modEventBus.addListener(EREntityTypes::registerAttributes);
+        modEventBus.addListener(ERNetwork::registerPayloads);
         modEventBus.addListener(ERDataGenerators::gatherClientData);
         modEventBus.addListener(ERDataGenerators::gatherServerData);
     }

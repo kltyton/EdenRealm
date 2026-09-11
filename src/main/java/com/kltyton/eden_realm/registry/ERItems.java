@@ -5,6 +5,7 @@ import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.common.item.ERBoatItem;
 import com.kltyton.eden_realm.registry.content.ERBlockEntry;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +33,19 @@ public final class ERItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ERConstants.MOD_ID);
     private static final EnumMap<ERWoodSet, WoodItems> WOOD_ITEMS = new EnumMap<>(ERWoodSet.class);
     private static final Map<String, DeferredItem<BlockItem>> CONTENT_ITEMS = new LinkedHashMap<>();
+    private static final Map<String, DeferredItem<Item>> HARVEST_ITEMS = new LinkedHashMap<>();
+    public static final DeferredItem<Item> TIDE_SONG_COCONUT = harvest("tide_song_coconut");
+    public static final DeferredItem<Item> SACRED_LIGHT_FRUIT = harvest("sacred_light_fruit");
+    public static final DeferredItem<Item> CLOUD_CROWN_FRUIT = harvest("cloud_crown_fruit");
+    public static final DeferredItem<Item> TWILIGHT_POMEGRANATE = harvest("twilight_pomegranate");
+    public static final DeferredItem<Item> DEWSPIKE_GRAIN = harvest("dewspike_grain");
+    public static final DeferredItem<BlockItem> DEWSPIKE_GRAIN_SEEDS = ITEMS.registerItem(
+            "dewspike_grain_seeds", properties -> new DoubleHighBlockItem(ERHarvestBlocks.DEWSPIKE_GRAIN.get(), properties));
+
+    public static final DeferredItem<SpawnEggItem> MOSS_STONE_COLOSSUS_SPAWN_EGG = ITEMS.registerItem(
+            "moss_stone_colossus_spawn_egg",
+            SpawnEggItem::new,
+            properties -> properties.spawnEgg(EREntityTypes.MOSS_STONE_COLOSSUS.get()));
 
     static {
         for (ERWoodSet wood : ERWoodSet.values()) {
@@ -76,6 +91,20 @@ public final class ERItems {
 
     public static List<DeferredItem<BlockItem>> contentEntries() {
         return List.copyOf(CONTENT_ITEMS.values());
+    }
+
+    public static List<DeferredItem<Item>> harvestEntries() {
+        return List.copyOf(HARVEST_ITEMS.values());
+    }
+
+    public static DeferredItem<Item> harvestItem(String id) {
+        return java.util.Objects.requireNonNull(HARVEST_ITEMS.get(id), id);
+    }
+
+    private static DeferredItem<Item> harvest(String id) {
+        DeferredItem<Item> item = ITEMS.registerSimpleItem(id);
+        HARVEST_ITEMS.put(id, item);
+        return item;
     }
 
     private static WoodItems registerWoodItems(ERWoodSet wood) {

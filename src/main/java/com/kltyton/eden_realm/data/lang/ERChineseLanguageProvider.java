@@ -16,6 +16,18 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.eden_realm.eden_realm", "伊甸之境");
+        add("entity.eden_realm.moss_stone_colossus", "苔石巨像");
+        addItem(ERItems.MOSS_STONE_COLOSSUS_SPAWN_EGG, "苔石巨像刷怪蛋");
+        addItem(ERItems.TIDE_SONG_COCONUT, "潮歌椰");
+        addItem(ERItems.SACRED_LIGHT_FRUIT, "圣辉果");
+        addItem(ERItems.CLOUD_CROWN_FRUIT, "云冠果");
+        addItem(ERItems.TWILIGHT_POMEGRANATE, "暮光榴果");
+        addItem(ERItems.DEWSPIKE_GRAIN, "露穗谷");
+        addItem(ERItems.DEWSPIKE_GRAIN_SEEDS, "露穗谷种子");
+        add("subtitles.eden_realm.entity.moss_stone_colossus.step", "苔石巨像的脚步声");
+        add("subtitles.eden_realm.entity.moss_stone_colossus.ambient", "苔石巨像发出低鸣");
+        add("subtitles.eden_realm.entity.moss_stone_colossus.hurt", "苔石巨像受伤");
+        add("subtitles.eden_realm.entity.moss_stone_colossus.death", "苔石巨像死亡");
 
         for (ERWoodSet wood : ERWoodSet.values()) {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);

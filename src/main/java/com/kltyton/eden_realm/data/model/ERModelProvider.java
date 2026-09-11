@@ -52,7 +52,10 @@ public final class ERModelProvider extends ModelProvider {
             itemModels.generateFlatItem(items.chestBoat().get(), ModelTemplates.FLAT_ITEM);
         }
 
+        itemModels.generateFlatItem(ERItems.MOSS_STONE_COLOSSUS_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+
         ERContentModelGenerators.generate(blockModels);
+        ERHarvestModelGenerator.generate(blockModels, itemModels);
     }
 
     private static void createCubeWithItem(BlockModelGenerators blockModels, Block block, TexturedModel.Provider modelProvider) {

@@ -4,6 +4,7 @@ import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
 import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
@@ -23,6 +24,14 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider registries) {
+        for (var leaves : ERHarvestBlocks.floweringLeaves()) {
+            tag(BlockTags.LEAVES).add(leaves.getKey());
+            tag(ERTags.Blocks.EDEN_REALM_LEAVES).add(leaves.getKey());
+        }
+        tag(BlockTags.CROPS).add(ERHarvestBlocks.DEWSPIKE_GRAIN.getKey());
+        for (var fruit : ERHarvestBlocks.fruits()) {
+            tag(BlockTags.CROPS).add(fruit.getKey());
+        }
         for (ERWoodSet wood : ERWoodSet.values()) {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
 

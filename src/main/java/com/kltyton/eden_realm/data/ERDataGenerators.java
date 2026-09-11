@@ -4,7 +4,9 @@ import com.kltyton.eden_realm.data.lang.EREnglishLanguageProvider;
 import com.kltyton.eden_realm.data.lang.ERChineseLanguageProvider;
 import com.kltyton.eden_realm.data.loot.ERLootTableProvider;
 import com.kltyton.eden_realm.data.model.ERModelProvider;
+import com.kltyton.eden_realm.data.particle.ERParticleDescriptionProvider;
 import com.kltyton.eden_realm.data.recipe.ERRecipeProvider;
+import com.kltyton.eden_realm.data.sound.ERSoundDefinitionsProvider;
 import com.kltyton.eden_realm.data.tag.ERBlockTagsProvider;
 import com.kltyton.eden_realm.data.tag.EREntityTypeTagsProvider;
 import com.kltyton.eden_realm.data.tag.ERItemTagsProvider;
@@ -28,6 +30,8 @@ public final class ERDataGenerators {
         event.createProvider(EREnglishLanguageProvider::new);
         event.createProvider(ERChineseLanguageProvider::new);
         event.createProvider(ERModelProvider::new);
+        event.createProvider(ERParticleDescriptionProvider::new);
+        event.createProvider(ERSoundDefinitionsProvider::new);
     }
 
     private static void addServerProviders(GatherDataEvent event) {

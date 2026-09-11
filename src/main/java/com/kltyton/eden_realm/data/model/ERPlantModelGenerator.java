@@ -21,8 +21,8 @@ final class ERPlantModelGenerator {
         createTall(blockModels, ERPlantBlocks.GOLDEN_SPIKE_GRASS.get(), "golden_spike_grass");
         createTall(blockModels, ERPlantBlocks.PURPLE_GLOW_CATTAIL.get(), "purple_glow_cattail");
         createTallVariants(blockModels, ERPlantBlocks.GRAY_SPIKE_REED.get(), "gray_spike_reed", 3);
-        createTall(blockModels, ERPlantBlocks.WATER_SCALLION.get(), "water_scallion");
-        createTall(blockModels, ERPlantBlocks.UMBRELLA_HYGROPHILA.get(), "umbrella_hygrophila");
+        createTallWithItemTexture(blockModels, ERPlantBlocks.WATER_SCALLION.get(), "water_scallion");
+        createTallWithItemTexture(blockModels, ERPlantBlocks.UMBRELLA_HYGROPHILA.get(), "umbrella_hygrophila");
 
         createRandomFungus(blockModels, ERPlantBlocks.SMALL_PARASOL_MUSHROOM.get(), "small_parasol_mushroom", 3);
         createRandomFungus(blockModels, ERPlantBlocks.CRUMBLY_MUSHROOM.get(), "crumbly_mushroom", 3);
@@ -30,13 +30,22 @@ final class ERPlantModelGenerator {
     }
 
     private static void createTall(BlockModelGenerators blockModels, Block block, String modelName) {
+        createTallBlockState(blockModels, block, modelName);
+        blockModels.registerSimpleFlatItemModel(block, "_item");
+    }
+
+    private static void createTallWithItemTexture(BlockModelGenerators blockModels, Block block, String modelName) {
+        createTallBlockState(blockModels, block, modelName);
+        blockModels.registerSimpleFlatItemModel(block.asItem());
+    }
+
+    private static void createTallBlockState(BlockModelGenerators blockModels, Block block, String modelName) {
         Identifier bottom = model(modelName + "_bottom");
         Identifier top = model(modelName + "_top");
         blockModels.createDoubleBlock(
                 block,
                 BlockModelGenerators.plainVariant(top),
                 BlockModelGenerators.plainVariant(bottom));
-        blockModels.registerSimpleFlatItemModel(block, "_item");
     }
 
     private static void createTallVariants(

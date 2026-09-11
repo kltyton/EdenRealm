@@ -4,6 +4,7 @@ import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERItems;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
 import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import com.kltyton.eden_realm.util.ERTags;
@@ -16,6 +17,7 @@ import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
+import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 
 public final class ERItemTagsProvider extends ItemTagsProvider {
@@ -28,6 +30,15 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider registries) {
+        tag(Tags.Items.SEEDS).add(ERItems.DEWSPIKE_GRAIN_SEEDS.getKey());
+        for (var harvest : ERItems.harvestEntries()) {
+            tag(Tags.Items.CROPS).add(harvest.getKey());
+        }
+        for (var leaves : ERHarvestBlocks.floweringLeaves()) {
+            var item = ERItems.contentItem(leaves.getId().getPath());
+            tag(ItemTags.LEAVES).add(item.getKey());
+            tag(ERTags.Items.EDEN_REALM_LEAVES).add(item.getKey());
+        }
         for (ERWoodSet wood : ERWoodSet.values()) {
             ERItems.WoodItems items = ERItems.woodItems(wood);
 

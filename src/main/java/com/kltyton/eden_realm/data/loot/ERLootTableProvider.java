@@ -10,6 +10,8 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 public final class ERLootTableProvider extends LootTableProvider {
     public ERLootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, Set.of(), List.of(new SubProviderEntry(ERBlockLootSubProvider::new, LootContextParamSets.BLOCK)), registries);
+        super(output, Set.of(), List.of(
+                new SubProviderEntry(ERBlockLootSubProvider::new, LootContextParamSets.BLOCK),
+                new SubProviderEntry(EREntityLootSubProvider::new, LootContextParamSets.ENTITY)), registries);
     }
 }

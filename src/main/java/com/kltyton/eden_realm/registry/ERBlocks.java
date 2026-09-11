@@ -5,6 +5,9 @@ import com.kltyton.eden_realm.common.block.ERButtonBlock;
 import com.kltyton.eden_realm.common.block.ERPressurePlateBlock;
 import com.kltyton.eden_realm.common.block.ERStairBlock;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERParticleLeavesBlock;
+import com.kltyton.eden_realm.common.block.tree.ERFruitLogBlock;
+import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
 import com.kltyton.eden_realm.registry.content.ERBlockEntry;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
@@ -28,7 +31,6 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
@@ -59,6 +61,7 @@ public final class ERBlocks {
         ERSkyBlocks.register(modEventBus);
         ERPlantBlocks.register(modEventBus);
         ERCoralBlocks.register(modEventBus);
+        ERHarvestBlocks.register(modEventBus);
     }
 
     public static List<Block> entries() {
@@ -68,6 +71,7 @@ public final class ERBlocks {
         entries.addAll(ERSkyBlocks.blocks());
         entries.addAll(ERPlantBlocks.blocks());
         entries.addAll(ERCoralBlocks.blocks());
+        entries.addAll(ERHarvestBlocks.blocks());
         return List.copyOf(entries);
     }
 
@@ -77,6 +81,7 @@ public final class ERBlocks {
         entries.addAll(ERSkyBlocks.entries());
         entries.addAll(ERPlantBlocks.entries());
         entries.addAll(ERCoralBlocks.entries());
+        entries.addAll(ERHarvestBlocks.entries());
         return List.copyOf(entries);
     }
 
@@ -91,7 +96,8 @@ public final class ERBlocks {
     private static WoodBlocks registerWoodBlocks(ERWoodSet wood) {
         DeferredBlock<RotatedPillarBlock> log = BLOCKS.registerBlock(
                 wood.logName(),
-                RotatedPillarBlock::new,
+                properties -> wood == ERWoodSet.TWILIGHT_POMEGRANATE
+                        ? new ERFruitLogBlock(properties.randomTicks()) : new RotatedPillarBlock(properties),
                 properties -> properties
                         .mapColor(state -> state.getValue(RotatedPillarBlock.AXIS) == net.minecraft.core.Direction.Axis.Y
                                 ? MapColor.WOOD
@@ -175,9 +181,9 @@ public final class ERBlocks {
                         .sound(SoundType.SHELF)
                         .strength(2.0F, 3.0F)
                         .ignitedByLava());
-        DeferredBlock<TintedParticleLeavesBlock> leaves = BLOCKS.registerBlock(
+        DeferredBlock<ERParticleLeavesBlock> leaves = BLOCKS.registerBlock(
                 wood.leavesName(),
-                properties -> new TintedParticleLeavesBlock(0.01F, properties),
+                properties -> new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()), properties),
                 properties -> properties
                         .mapColor(MapColor.PLANT)
                         .strength(0.2F)
@@ -276,7 +282,7 @@ public final class ERBlocks {
             DeferredBlock<ButtonBlock> button,
             DeferredBlock<PressurePlateBlock> pressurePlate,
             DeferredBlock<ShelfBlock> shelf,
-            DeferredBlock<TintedParticleLeavesBlock> leaves,
+            DeferredBlock<ERParticleLeavesBlock> leaves,
             DeferredBlock<SaplingBlock> sapling,
             DeferredBlock<DoorBlock> door,
             DeferredBlock<TrapDoorBlock> trapdoor,
