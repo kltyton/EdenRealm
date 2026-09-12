@@ -2,6 +2,10 @@ package com.kltyton.eden_realm.data.loot;
 
 import com.kltyton.eden_realm.common.block.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
+import com.kltyton.eden_realm.registry.ERItems;
+import com.kltyton.eden_realm.common.block.plant.ERHangingFruitBlock;
+import com.kltyton.eden_realm.common.block.plant.ERDewspikeGrainBlock;
+import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
 import com.kltyton.eden_realm.registry.content.ERBlockEntry;
 import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
@@ -14,6 +18,13 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import org.jspecify.annotations.NonNull;
 
 public final class ERBlockLootSubProvider extends BlockLootSubProvider {
@@ -49,6 +60,7 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         }
 
         Set<Block> specialized = new HashSet<>();
+        specialized.addAll(ERHarvestBlocks.blocks());
         specialized.add(ERTerrainBlocks.BOUNDARY_ROCK.get());
         specialized.add(ERTerrainBlocks.RAW_ROCK.get());
         specialized.add(ERTerrainBlocks.RAW_ROCK_COAL_ORE.get());
@@ -139,6 +151,35 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
             add(family.deadPlant().get(), createSilkTouchOnlyTable(family.deadPlant().get()));
             add(family.fan().get(), createSilkTouchOnlyTable(family.fan().get()));
             add(family.deadFan().get(), createSilkTouchOnlyTable(family.deadFan().get()));
+        }
+        generateHarvestDrops();
+    }
+
+    private void generateHarvestDrops() {
+        for (var fruit : ERHarvestBlocks.fruits()) {
+            String id = fruit.getId().getPath().replace("_hanging", "");
+            add(fruit.get(), LootTable.lootTable().withPool(applyExplosionCondition(fruit.get(), LootPool.lootPool()
+                    .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(fruit.get())
+                            .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ERHangingFruitBlock.AGE, 4)))
+                    .add(LootItem.lootTableItem(ERItems.harvestItem(id).get())))));
+        }
+        for (var leaves : ERHarvestBlocks.floweringLeaves()) {
+            String name = leaves.getId().getPath().replace("_flowering_leaves", "");
+            ERWoodSet wood = java.util.Arrays.stream(ERWoodSet.values())
+                    .filter(value -> value.id().equals(name)).findFirst().orElseThrow();
+            add(leaves.get(), createLeavesDrops(leaves.get(), ERBlocks.woodBlocks(wood).sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        }
+        Block grain = ERHarvestBlocks.DEWSPIKE_GRAIN.get();
+        var lower = LootItemBlockStatePropertyCondition.hasBlockStateProperties(grain)
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+        var mature = LootItemBlockStatePropertyCondition.hasBlockStateProperties(grain)
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ERDewspikeGrainBlock.AGE, 7));
+        add(grain, applyExplosionDecay(grain, LootTable.lootTable()
+                .withPool(LootPool.lootPool().when(lower).add(LootItem.lootTableItem(ERItems.DEWSPIKE_GRAIN_SEEDS.get())))
+                .withPool(LootPool.lootPool().when(lower).when(mature).add(LootItem.lootTableItem(ERItems.DEWSPIKE_GRAIN.get())))));
+        dropSelf(ERHarvestBlocks.WILD_STAR_PATTERN_YAM.get());
+        for (var plant : ERHarvestBlocks.tallWildPlants()) {
+            add(plant.get(), createSinglePropConditionTable(plant.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         }
     }
 

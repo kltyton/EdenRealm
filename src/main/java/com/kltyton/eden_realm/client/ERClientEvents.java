@@ -4,12 +4,19 @@ import com.kltyton.eden_realm.ERConstants;
 import com.kltyton.eden_realm.client.color.ERGrassColorReloadListener;
 import com.kltyton.eden_realm.client.color.ERGrassColorSource;
 import com.kltyton.eden_realm.client.color.ERGrassColors;
+import com.kltyton.eden_realm.client.particle.ERFallingLeavesParticle;
 import com.kltyton.eden_realm.client.renderer.block.AutoWholeShapeOutlineRenderer;
+import com.kltyton.eden_realm.client.renderer.entity.MossStoneColossusRenderer;
+import com.kltyton.eden_realm.client.skill.KeyframeSkillClientBridge;
+import com.kltyton.eden_realm.client.skill.KeyframeSkillClientTicker;
 import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.skill.keyframe.KeyframeSkillHooks;
 import com.kltyton.eden_realm.registry.EREntityTypes;
+import com.kltyton.eden_realm.registry.ERParticleTypes;
 import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
 import java.util.List;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.neoforged.api.distmarker.Dist;
@@ -19,12 +26,24 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.AddClientReloadListenersEvent;
 import net.neoforged.neoforge.client.event.ExtractBlockOutlineRenderStateEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 @EventBusSubscriber(modid = ERConstants.MOD_ID, value = Dist.CLIENT)
 public final class ERClientEvents {
+    static {
+        KeyframeSkillHooks.installClientForwarder(KeyframeSkillClientBridge::forward);
+    }
+
     private ERClientEvents() {
     }
 
+    @SubscribeEvent
+    public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+        for (ERWoodSet wood : ERWoodSet.values()) {
+            event.registerSpriteSet(ERParticleTypes.fallingLeaves(wood).get(), ERFallingLeavesParticle.Provider::new);
+        }
+    }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         for (ERWoodSet wood : ERWoodSet.values()) {
@@ -35,10 +54,18 @@ public final class ERClientEvents {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(
+                EREntityTypes.MOSS_STONE_COLOSSUS.get(),
+                MossStoneColossusRenderer::new);
         for (ERWoodSet wood : ERWoodSet.values()) {
             event.registerEntityRenderer(EREntityTypes.boat(wood).get(), context -> new BoatRenderer(context, boatLayer(wood)));
             event.registerEntityRenderer(EREntityTypes.chestBoat(wood).get(), context -> new BoatRenderer(context, chestBoatLayer(wood)));
         }
+    }
+
+    @SubscribeEvent
+    public static void clientTick(ClientTickEvent.Post event) {
+        KeyframeSkillClientTicker.tick(Minecraft.getInstance());
     }
 
     @SubscribeEvent

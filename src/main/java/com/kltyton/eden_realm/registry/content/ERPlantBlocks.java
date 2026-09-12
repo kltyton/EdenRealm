@@ -9,6 +9,7 @@ import com.kltyton.eden_realm.common.block.plant.ERModelPlantBlock;
 import com.kltyton.eden_realm.common.block.plant.ERPlantShapes;
 import com.kltyton.eden_realm.common.block.plant.ERShapedDoublePlantBlock;
 import com.kltyton.eden_realm.common.block.plant.ERTallWaterPlantBlock;
+import com.kltyton.eden_realm.common.block.plant.ERWaterFernBlock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -127,11 +128,11 @@ public final class ERPlantBlocks {
             "月白兰",
             properties -> new ERShapedBushBlock(10.0, 12.0, properties),
             copyOf(Blocks.DANDELION));
-    public static final DeferredBlock<ERSeagrassBlock> WATER_FERN = register(
+    public static final DeferredBlock<ERWaterFernBlock> WATER_FERN = register(
             "water_fern",
             "Water Fern",
             "水蕨",
-            properties -> new ERSeagrassBlock(14.0, 10.0, properties),
+            ERWaterFernBlock::new,
             copyOf(Blocks.SEAGRASS));
     public static final DeferredBlock<ERShapedBushBlock> LONGLEAF_SEDGE = register(
             "longleaf_sedge",
@@ -156,25 +157,25 @@ public final class ERPlantBlocks {
             "purple_glow_cattail",
             "Purple Glow Cattail",
             "紫光香蒲",
-            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.PURPLE_GLOW_CATTAIL, properties),
+            properties -> new ERTallWaterPlantBlock(false, true, ERPlantShapes.PURPLE_GLOW_CATTAIL, properties),
             copyOf(Blocks.TALL_GRASS));
     public static final DeferredBlock<ERTallWaterPlantBlock> GRAY_SPIKE_REED = register(
             "gray_spike_reed",
             "Gray Spike Reed",
             "灰穗芦苇",
-            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.GRAY_SPIKE_REED, properties),
+            properties -> new ERTallWaterPlantBlock(false, true, ERPlantShapes.GRAY_SPIKE_REED, properties),
             copyOf(Blocks.TALL_GRASS));
     public static final DeferredBlock<ERTallWaterPlantBlock> WATER_SCALLION = register(
             "water_scallion",
             "Water Scallion",
             "水葱",
-            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.WATER_SCALLION, properties),
+            properties -> new ERTallWaterPlantBlock(false, true, ERPlantShapes.WATER_SCALLION, properties),
             copyOf(Blocks.TALL_GRASS));
     public static final DeferredBlock<ERTallWaterPlantBlock> UMBRELLA_HYGROPHILA = register(
             "umbrella_hygrophila",
             "Umbrella Hygrophila",
             "伞花水蓑衣",
-            properties -> new ERTallWaterPlantBlock(true, ERPlantShapes.UMBRELLA_HYGROPHILA, properties),
+            properties -> new ERTallWaterPlantBlock(false, ERPlantShapes.UMBRELLA_HYGROPHILA, properties),
             copyOf(Blocks.TALL_SEAGRASS));
 
     public static final DeferredBlock<ERModelPlantBlock> SMALL_PARASOL_MUSHROOM = register(

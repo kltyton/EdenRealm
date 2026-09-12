@@ -26,7 +26,8 @@ public enum ERWoodSet {
     SACRED_LIGHT("sacred_light", "Sacred Light", "圣辉树"),
     SKY_CYPRESS("sky_cypress", "Sky Cypress", "天穹柏"),
     RIDGE_PINE("ridge_pine", "Ridge Pine", "岩脊松"),
-    HONEY_MAPLE("honey_maple", "Honey Maple", "蜜枫树");
+    HONEY_MAPLE("honey_maple", "Honey Maple", "蜜枫树"),
+    KING_TREE("king_tree", "King Tree", "王树");
 
     private final String id;
     private final String englishName;

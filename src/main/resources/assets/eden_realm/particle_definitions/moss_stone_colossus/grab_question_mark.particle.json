@@ -1,0 +1,57 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "eden_realm:moss_stone_colossus/grab_question_mark",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "eden_realm:moss_stone_colossus/grab_question_mark"
+      }
+    },
+    "components": {
+      "minecraft:emitter_local_space": {
+        "position": true,
+        "rotation": false
+      },
+      "minecraft:emitter_rate_manual": {
+        "max_particles": 100
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 3
+      },
+      "minecraft:emitter_shape_point": {},
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": 0.5
+      },
+      "minecraft:particle_initial_speed": 5,
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          2,
+          2
+        ],
+        "facing_camera_mode": "emitter_transform_xy",
+        "uv": {
+          "texture_width": 32,
+          "texture_height": 384,
+          "flipbook": {
+            "base_UV": [
+              0,
+              0
+            ],
+            "size_UV": [
+              32,
+              32
+            ],
+            "step_UV": [
+              0,
+              32
+            ],
+            "frames_per_second": 15,
+            "max_frame": 12,
+            "stretch_to_lifetime": true
+          }
+        }
+      }
+    }
+  }
+}
