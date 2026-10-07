@@ -24,7 +24,7 @@ final class IcyPreviewBiomes implements BiomeResolver {
     IcyPreviewBiomes(RegistryAccess.Frozen registries, RandomState randomState, boolean sky) {
         regions = randomState.router().temperature();
         var lookup = registries.lookupOrThrow(Registries.BIOME);
-        biomes = (sky ? SkyLandformDensity.BIOMES : IcyLandformDensity.BIOMES).stream().map(id ->
+        biomes = (sky ? SkyLandformDensity.ALL_BIOMES : IcyLandformDensity.BIOMES).stream().map(id ->
                 lookup.getOrThrow(ResourceKey.create(Registries.BIOME, ERConstants.id(id)))).toList();
     }
 

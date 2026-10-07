@@ -74,7 +74,7 @@ final class SkyTerrainPreview {
                         }
                     }
                 }
-                snapshot.setBiome(x, z, session.skyBiomes.get(value.biome()), wx, wz);
+                snapshot.setBiome(x, z, session.skyBiomes.get(value.biomeIndex()), wx, wz);
             }
         }
         return new TerrainQuickPreview.Sample(snapshot.build(), center);

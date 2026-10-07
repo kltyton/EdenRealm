@@ -15,6 +15,9 @@ import net.minecraft.world.level.levelgen.DensityFunction;
 public final class SkyLandformDensity implements DensityFunction.SimpleFunction {
     public static final List<String> BIOMES = List.of("cloud_sea_flatlands", "star_stream_plateau",
             "sky_mirror_lake", "cloud_island_chain", "rosy_cloud_terraces", "flower_mirror_lake");
+    public static final String AIRSPACE = "sky_airspace";
+    public static final List<String> ALL_BIOMES = java.util.stream.Stream.concat(
+            BIOMES.stream(), java.util.stream.Stream.of(AIRSPACE)).toList();
     public static final int REGION = 0, SURFACE = 1, SOLID = 2;
     public static final int MIN_Y = -64, HEIGHT = 576;
     private static final double MAX_ISLAND_SCALE = 1.5;
@@ -45,6 +48,9 @@ public final class SkyLandformDensity implements DensityFunction.SimpleFunction 
                          int rockTop, int rockBottom, boolean waterfall,
                          int dirtBottom, int cloudBottom, boolean smallIslandRim, boolean rockRim,
                          List<SolidSpan> solidSpans, double verticalScale) {
+        public int biomeIndex() {
+            return land || rockTop > rockBottom || waterfall ? biome : BIOMES.size();
+        }
         public int scaledDepth(int depth) { return SkyLandformDensity.scaledDepth(depth, verticalScale); }
         private Column withoutWater() {
             return new Column(biome, top, bottom, 0, land, rockTop, rockBottom, false,
@@ -87,7 +93,7 @@ public final class SkyLandformDensity implements DensityFunction.SimpleFunction 
 
     @Override public double compute(FunctionContext context) {
         Column column = sample(context.blockX(), context.blockZ());
-        if (mode == REGION) return IcyLandformDensity.climate(column.biome(), BIOMES.size());
+        if (mode == REGION) return IcyLandformDensity.climate(column.biomeIndex(), ALL_BIOMES.size());
         if (mode == SURFACE) return Math.max(column.land() ? column.top() : cloudTop(context.blockX(), context.blockZ()),
                 column.rockTop() > 0 ? column.rockTop() : -64);
         double foundation = cloudTop(context.blockX(), context.blockZ()) - 0.5 - context.blockY();

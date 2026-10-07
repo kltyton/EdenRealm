@@ -36,6 +36,7 @@ public record TerrainPack(String format, int version, Target target, long seed,
     public static TerrainPack official(long seed, Collection<String> biomeIds) {
         Map<String, TerrainProfile> profiles = new LinkedHashMap<>();
         for (String biomeId : biomeIds) {
+            if (SkyLandformDensity.AIRSPACE.equals(biomeId)) continue;
             profiles.put(biomeId, TerrainProfile.official(biomeId));
         }
         return new TerrainPack(FORMAT, VERSION,

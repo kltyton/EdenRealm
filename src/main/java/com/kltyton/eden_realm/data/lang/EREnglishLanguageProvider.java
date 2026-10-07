@@ -76,6 +76,7 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
         add("biome.eden_realm.snow_ridge_valley", "Snow Ridge Valley");
         add("biome.eden_realm.silver_frost_basin", "Silver Frost Basin");
         add("biome.eden_realm.cloud_sea_flatlands", "Cloud Sea Flatlands");
+        add("biome.eden_realm.sky_airspace", "Sky Airspace");
         add("biome.eden_realm.star_stream_plateau", "Star Stream Plateau");
         add("biome.eden_realm.sky_mirror_lake", "Sky Mirror Lake Plateau");
         add("biome.eden_realm.cloud_island_chain", "Cloud Island Chain");

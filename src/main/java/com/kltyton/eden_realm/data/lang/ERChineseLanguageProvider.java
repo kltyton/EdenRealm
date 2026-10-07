@@ -76,6 +76,7 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
         add("biome.eden_realm.snow_ridge_valley", "雪岭松谷");
         add("biome.eden_realm.silver_frost_basin", "银霜盆地");
         add("biome.eden_realm.cloud_sea_flatlands", "云海平顶");
+        add("biome.eden_realm.sky_airspace", "天穹空域");
         add("biome.eden_realm.star_stream_plateau", "星溪台地");
         add("biome.eden_realm.sky_mirror_lake", "天镜湖台");
         add("biome.eden_realm.cloud_island_chain", "云间岛群");

@@ -80,7 +80,7 @@ public final class SkyBiomeWorldgen {
         PlacementUtils.register(context, WATER_PLACED, context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(WATER), BiomeFilter.biome());
     }
     static void biomes(BootstrapContext<Biome> context) {
-        for (String id : SkyLandformDensity.BIOMES) {
+        for (String id : SkyLandformDensity.ALL_BIOMES) {
             var generation = new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE),
                     context.lookup(Registries.CONFIGURED_CARVER));
             generation.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, WATER_PLACED);
@@ -128,9 +128,12 @@ public final class SkyBiomeWorldgen {
             String id = SkyLandformDensity.BIOMES.get(i);
             if (pack != null && pack.biomes().getOrDefault(id, TerrainProfile.official(id)).generationChancePercent() == 0) continue;
             entries.add(Pair.of(Climate.parameters(Climate.Parameter.point((float) IcyLandformDensity.climate(i,
-                    SkyLandformDensity.BIOMES.size())), any, any, any, any, any, 0), lookup.getOrThrow(biome(id))));
+                    SkyLandformDensity.ALL_BIOMES.size())), any, any, any, any, any, 0), lookup.getOrThrow(biome(id))));
         }
         if (entries.isEmpty()) throw new IllegalArgumentException("At least one sky biome must be enabled");
+        entries.add(Pair.of(Climate.parameters(Climate.Parameter.point((float) IcyLandformDensity.climate(
+                SkyLandformDensity.BIOMES.size(), SkyLandformDensity.ALL_BIOMES.size())), any, any, any, any, any, 0),
+                lookup.getOrThrow(biome(SkyLandformDensity.AIRSPACE))));
         return MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(entries));
     }
     static void dimensions(BootstrapContext<LevelStem> context) {

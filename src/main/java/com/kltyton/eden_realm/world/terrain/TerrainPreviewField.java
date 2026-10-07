@@ -27,7 +27,7 @@ public final class TerrainPreviewField {
         var lookup = registries.lookupOrThrow(Registries.BIOME);
         biomes = IcyLandformDensity.BIOMES.stream().map(id ->
                 lookup.getOrThrow(ResourceKey.create(Registries.BIOME, ERConstants.id(id)))).toList();
-        skyBiomes = SkyLandformDensity.BIOMES.stream().map(id ->
+        skyBiomes = SkyLandformDensity.ALL_BIOMES.stream().map(id ->
                 lookup.getOrThrow(ResourceKey.create(Registries.BIOME, ERConstants.id(id)))).toList();
         noises = CompletableFuture.supplyAsync(() -> {
             var parameters = registries.lookupOrThrow(Registries.NOISE);

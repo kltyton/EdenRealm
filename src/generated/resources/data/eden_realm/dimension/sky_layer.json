@@ -52,7 +52,7 @@
               2.0
             ],
             "offset": 0.0,
-            "temperature": -0.54,
+            "temperature": -0.6,
             "weirdness": [
               -2.0,
               2.0
@@ -79,7 +79,7 @@
               2.0
             ],
             "offset": 0.0,
-            "temperature": -0.18,
+            "temperature": -0.3,
             "weirdness": [
               -2.0,
               2.0
@@ -106,7 +106,7 @@
               2.0
             ],
             "offset": 0.0,
-            "temperature": 0.18,
+            "temperature": 0.0,
             "weirdness": [
               -2.0,
               2.0
@@ -133,7 +133,7 @@
               2.0
             ],
             "offset": 0.0,
-            "temperature": 0.54,
+            "temperature": 0.3,
             "weirdness": [
               -2.0,
               2.0
@@ -142,6 +142,33 @@
         },
         {
           "biome": "eden_realm:flower_mirror_lake",
+          "parameters": {
+            "continentalness": [
+              -2.0,
+              2.0
+            ],
+            "depth": [
+              -2.0,
+              2.0
+            ],
+            "erosion": [
+              -2.0,
+              2.0
+            ],
+            "humidity": [
+              -2.0,
+              2.0
+            ],
+            "offset": 0.0,
+            "temperature": 0.6,
+            "weirdness": [
+              -2.0,
+              2.0
+            ]
+          }
+        },
+        {
+          "biome": "eden_realm:sky_airspace",
           "parameters": {
             "continentalness": [
               -2.0,
