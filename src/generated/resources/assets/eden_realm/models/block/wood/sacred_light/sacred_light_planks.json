@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "eden_realm:block/wood/sacred_light/sacred_light_planks"
+  }
+}

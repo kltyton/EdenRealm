@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "eden_realm:mist_vine_planks"
+  ],
+  "result": {
+    "id": "eden_realm:mist_vine_button"
+  }
+}

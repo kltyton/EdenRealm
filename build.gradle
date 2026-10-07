@@ -2,14 +2,34 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'idea'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.147'
 }
 
 version = mod_version
 group = mod_group_id
 
 repositories {
+    exclusiveContent {
+        forRepository { flatDir { dirs 'libs/kui' } }
+        filter { includeGroup('io.github.kltyton.kltytonui') }
+    }
     mavenLocal()
+    maven {
+        name = 'Latvian'
+        url = 'https://maven.latvian.dev/releases'
+        content { includeGroup('dev.latvian.mods') }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Fuzs Mod Resources'
+                url = uri('https://raw.githubusercontent.com/Fuzss/modresources/main/maven/')
+            }
+        }
+        filter {
+            includeGroupAndSubgroups('fuzs.forgeconfigapiport')
+        }
+    }
     exclusiveContent {
         forRepository {
             maven {
@@ -28,6 +48,10 @@ base {
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
 
 def dataGenerationArguments = [
         '--mod', project.mod_id,
@@ -111,12 +135,32 @@ sourceSets.test {
     runtimeClasspath += output + compileClasspath + sourceSets.main.runtimeClasspath
 }
 
-
 dependencies {
-    jarJar(implementation('org.mesdag:particlestorm-neoforge-26.2')) {
+    jarJar(implementation("io.github.kltyton.kltytonui:KltytonUI-neoforge-26.2:${kltytonui_version}")) {
+        version {
+            strictly "[${kltytonui_version}]"
+            prefer kltytonui_version
+        }
+    }
+
+    jarJar(implementation("dev.latvian.mods:rhino:${rhino_version}")) {
+        version {
+            strictly "[${rhino_version}]"
+            prefer rhino_version
+        }
+    }
+
+    jarJar(implementation("org.mesdag:ParticleStorm-neoforge-${minecraft_version}")) {
         version {
             strictly "[${particle_storm_version}]"
             prefer particle_storm_version
+        }
+    }
+
+    jarJar(implementation("com.kltyton:bonehitboxlib-neoforge-26.2")) {
+        version {
+            strictly "[${bonehitboxlib_version}]"
+            prefer bonehitboxlib_version
         }
     }
 
@@ -196,7 +240,44 @@ if (providers.gradleProperty('harvestTests').isPresent()) {
         dependsOn testClasses
     }
 }
+// Opt-in OBB integration checks run with real server collision and Mixin application.
+if (providers.gradleProperty('obbTests').isPresent()) {
+    neoForge.mods.named(mod_id) {
+        sourceSet(sourceSets.test)
+    }
+    neoForge.runs.named('gameTestServer') {
+        gameDirectory = file('build/obb-gametest-run')
+        systemProperty 'edenrealm.obbTests', 'true'
+        systemProperty 'edenrealm.testStructures', file('src/test/structures').absolutePath
+        programArguments.addAll '--universe', file('build/obb-gametest-world').absolutePath,
+                '--tests', 'eden_realm:obb_*', '--report', file('build/obb-gametest-results.xml').absolutePath
+    }
+    tasks.named('runGameTestServer') {
+        dependsOn testClasses
+    }
+}
+tasks.register('verifyOreModels', JavaExec) {
+    group = 'verification'
+    description = 'Checks authored ore glow layers with the native model parser.'
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.kltyton.eden_realm.data.model.block.OreModelCheck'
+}
+
+if (providers.gradleProperty('villagerTests').isPresent()) {
+    neoForge.mods.named(mod_id) { sourceSet(sourceSets.test) }
+    neoForge.runs.named('gameTestServer') {
+        gameDirectory = file('build/villager-gametest-run')
+        systemProperty 'edenrealm.villagerTests', 'true'
+        systemProperty 'edenrealm.testStructures', file('src/test/structures').absolutePath
+        programArguments.addAll '--universe', file('build/villager-gametest-world').absolutePath,
+                '--tests', 'eden_realm:villager_*', '--report', file('build/villager-gametest-results.xml').absolutePath
+    }
+    tasks.named('runGameTestServer') { dependsOn testClasses }
+}
+
 tasks.named('check') {
+    dependsOn tasks.named('verifyOreModels')
     dependsOn tasks.named('verifyAutomaticBlockShapes')
     dependsOn tasks.named('verifyPlantBehavior')
     dependsOn tasks.named('verifyMossStoneColossus')
@@ -216,6 +297,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
                              neo_version_range      : neo_version_range,
                              particle_storm_version : particle_storm_version,
                              geckolib_version       : geckolib_version,
+                             bonehitboxlib_version   : bonehitboxlib_version,
+                             kltytonui_version      : kltytonui_version,
                              loader_version_range   : loader_version_range,
                              mod_id                 : mod_id,
                              mod_name               : mod_name,

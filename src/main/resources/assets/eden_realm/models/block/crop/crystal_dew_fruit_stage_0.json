@@ -1,0 +1,95 @@
+{
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "from": [
+        4.5,
+        -1.0,
+        8.0
+      ],
+      "to": [
+        11.5,
+        9.0,
+        8.0
+      ],
+      "rotation": {
+        "origin": [
+          8.0,
+          -1.0,
+          8.0
+        ],
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0,
+        "rescale": false
+      },
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            11.0,
+            6.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            11.0,
+            6.0,
+            16.0
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        4.5,
+        -1.0,
+        8.0
+      ],
+      "to": [
+        11.5,
+        9.0,
+        8.0
+      ],
+      "rotation": {
+        "origin": [
+          8.0,
+          -1.0,
+          8.0
+        ],
+        "x": 0.0,
+        "y": -45.0,
+        "z": 0.0,
+        "rescale": false
+      },
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            11.0,
+            6.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "uv": [
+            2.5,
+            11.0,
+            6.0,
+            16.0
+          ]
+        }
+      }
+    }
+  ],
+  "textures": {
+    "0": "eden_realm:block/crop/crystal_dew_fruit_stage_0_0",
+    "particle": "#0"
+  }
+}

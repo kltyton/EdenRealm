@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "experience": 0.1,
+  "ingredient": "eden_realm:amber_sandstone",
+  "result": {
+    "id": "eden_realm:smooth_amber_sandstone"
+  }
+}

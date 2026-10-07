@@ -1,8 +1,10 @@
 package com.kltyton.eden_realm.registry;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.common.entity.boss.MossStoneColossus;
+import com.kltyton.eden_realm.common.entity.fruit.ERFallingFruitEntity;
+import com.kltyton.eden_realm.common.entity.passive.villager.PlainsVillager;
 import java.util.EnumMap;
 import java.util.List;
 import net.minecraft.world.entity.EntityType;
@@ -17,6 +19,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class EREntityTypes {
     private static final DeferredRegister.Entities ENTITY_TYPES = DeferredRegister.createEntities(ERConstants.MOD_ID);
     private static final EnumMap<ERWoodSet, WoodEntities> WOOD_ENTITIES = new EnumMap<>(ERWoodSet.class);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ERFallingFruitEntity>> FALLING_FRUIT =
+            ENTITY_TYPES.registerEntityType("falling_fruit", ERFallingFruitEntity::new, MobCategory.MISC,
+                    builder -> builder.sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(20));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PlainsVillager>> PLAINS_VILLAGER =
+            ENTITY_TYPES.registerEntityType("plains_villager", PlainsVillager::new, MobCategory.MISC,
+                    builder -> builder.sized(0.6F, 1.95F).eyeHeight(1.62F).clientTrackingRange(10));
 
     public static final DeferredHolder<EntityType<?>, EntityType<MossStoneColossus>> MOSS_STONE_COLOSSUS =
             ENTITY_TYPES.registerEntityType(
@@ -42,6 +52,7 @@ public final class EREntityTypes {
     }
 
     public static void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(PLAINS_VILLAGER.get(), PlainsVillager.createAttributes().build());
         event.put(MOSS_STONE_COLOSSUS.get(), MossStoneColossus.createAttributes().build());
     }
 

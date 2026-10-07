@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ice_crystal_pine_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:ice_crystal_pine_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:ice_crystal_pine_planks_from_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ice_crystal_pine_wood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:ice_crystal_pine_planks_from_wood"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "eden_realm:block/wood/sacred_light/sacred_light_door_bottom",
+    "top": "eden_realm:block/wood/sacred_light/sacred_light_door_top"
+  }
+}

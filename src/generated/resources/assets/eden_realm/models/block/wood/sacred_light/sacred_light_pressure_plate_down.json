@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "eden_realm:block/wood/sacred_light/sacred_light_planks"
+  }
+}

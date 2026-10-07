@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "eden_realm:block/wood/ridge_pine/ridge_pine_leaves"
+  }
+}

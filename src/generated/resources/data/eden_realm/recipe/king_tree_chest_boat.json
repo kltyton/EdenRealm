@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "eden_realm:king_tree_boat",
+    "minecraft:chest"
+  ],
+  "result": {
+    "id": "eden_realm:king_tree_chest_boat"
+  }
+}

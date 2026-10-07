@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "eden_realm:block/mushroom/small_parasol_mushroom_1"
+      },
+      {
+        "model": "eden_realm:block/mushroom/small_parasol_mushroom_2"
+      },
+      {
+        "model": "eden_realm:block/mushroom/small_parasol_mushroom_3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "R": "eden_realm:raw_rock_bricks"
+  },
+  "pattern": [
+    "R",
+    "R"
+  ],
+  "result": {
+    "id": "eden_realm:chiseled_raw_rock_bricks"
+  }
+}

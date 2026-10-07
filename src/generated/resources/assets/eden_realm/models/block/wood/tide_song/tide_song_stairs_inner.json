@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "eden_realm:block/wood/tide_song/tide_song_planks",
+    "side": "eden_realm:block/wood/tide_song/tide_song_planks",
+    "top": "eden_realm:block/wood/tide_song/tide_song_planks"
+  }
+}

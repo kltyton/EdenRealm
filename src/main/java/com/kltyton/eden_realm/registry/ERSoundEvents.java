@@ -22,6 +22,11 @@ public final class ERSoundEvents {
     private ERSoundEvents() {
     }
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> PLAINS_VILLAGER_REUNION =
+            register("entity.plains_villager.reunion");
+    public static final DeferredHolder<SoundEvent, SoundEvent> PLAINS_VILLAGER_RELIEF =
+            register("entity.plains_villager.relief");
+
     public static void register(IEventBus modEventBus) {
         SOUND_EVENTS.register(modEventBus);
     }

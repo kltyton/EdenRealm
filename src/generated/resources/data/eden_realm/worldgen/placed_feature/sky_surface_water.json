@@ -1,0 +1,8 @@
+{
+  "feature": "eden_realm:sky_surface_water",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

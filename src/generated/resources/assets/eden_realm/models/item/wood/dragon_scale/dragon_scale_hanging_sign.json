@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eden_realm:item/wood/dragon_scale/dragon_scale_hanging_sign"
+  }
+}

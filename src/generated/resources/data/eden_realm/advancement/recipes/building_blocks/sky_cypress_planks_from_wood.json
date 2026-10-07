@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sky_cypress_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:sky_cypress_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:sky_cypress_planks_from_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sky_cypress_wood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:sky_cypress_planks_from_wood"
+    ]
+  }
+}

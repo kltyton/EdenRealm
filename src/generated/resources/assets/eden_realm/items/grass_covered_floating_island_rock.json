@@ -1,0 +1,13 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "eden_realm:block/terrain/grass_covered_floating_island_rock",
+    "tints": [
+      {
+        "type": "eden_realm:grass",
+        "downfall": 1.0,
+        "temperature": 0.5
+      }
+    ]
+  }
+}

@@ -71,6 +71,11 @@ public final class ERSinkingCloudBlock extends HalfTransparentBlock {
             BlockGetter level,
             BlockPos pos,
             CollisionContext context) {
+        // Only a deliberately crouching player may sink through the stacked cloud foundation.
+        if (context instanceof EntityCollisionContext entityContext
+                && entityContext.getEntity() instanceof Player player && player.isShiftKeyDown()) {
+            return Shapes.empty();
+        }
         if (level.getBlockState(pos.above()).getBlock() instanceof ERSinkingCloudBlock) {
             return Shapes.block();
         }

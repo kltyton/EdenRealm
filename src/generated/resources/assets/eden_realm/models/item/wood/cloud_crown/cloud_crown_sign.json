@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eden_realm:item/wood/cloud_crown/cloud_crown_sign"
+  }
+}

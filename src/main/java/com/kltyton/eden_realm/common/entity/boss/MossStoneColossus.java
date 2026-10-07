@@ -8,10 +8,13 @@ import com.geckolib.animation.RawAnimation;
 import com.geckolib.animation.object.PlayState;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.util.GeckoLibUtil;
-import com.kltyton.eden_realm.common.skill.keyframe.KeyframeSkillContext;
-import com.kltyton.eden_realm.common.skill.keyframe.KeyframeSkillEntity;
+import com.kltyton.bonehitboxlib.api.geckolib.skill.context.GeoKeyframeSkillContext;
+import com.kltyton.bonehitboxlib.api.geckolib.skill.entity.GeoKeyframeSkillEntity;
 import com.kltyton.eden_realm.common.skill.keyframe.KeyframeSkillHooks;
-import com.kltyton.eden_realm.common.skill.keyframe.KeyframeSkillRegistrar;
+import com.kltyton.bonehitboxlib.api.geckolib.skill.registration.GeoKeyframeSkillRegistrar;
+import com.kltyton.bonehitboxlib.api.geckolib.state.GeoObbAnimationState;
+import com.kltyton.bonehitboxlib.api.registration.registrar.ObbBoneRegistrar;
+import net.minecraft.server.level.ServerPlayer;
 import com.kltyton.eden_realm.registry.ERSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -42,7 +45,7 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
-public final class MossStoneColossus extends Monster implements GeoEntity, KeyframeSkillEntity {
+public final class MossStoneColossus extends Monster implements GeoEntity, GeoKeyframeSkillEntity {
     public static final String CONTROLLER = "main";
     public static final String SPAWN_ANIMATION = "animation.moss_stone_colossus.spawn";
     public static final String DEATH_ANIMATION = "animation.moss_stone_colossus.death";
@@ -212,25 +215,38 @@ public final class MossStoneColossus extends Monster implements GeoEntity, Keyfr
     }
 
     @Override
-    public void registerKeyframeSkills(KeyframeSkillRegistrar registrar) {
-        registrar.point("spawn", CONTROLLER, SPAWN_ANIMATION, "spawn_complete", 4.45,
-                this::completeSpawnAnimation);
-        registrar.point("death", CONTROLLER, DEATH_ANIMATION, "death_complete", 6.04,
-                this::completeDeathAnimation);
+    public void bonehitboxlib$registerObbBones(ObbBoneRegistrar registrar) {
+        registrar.register(ObbBoneRegistrar.ALL);
     }
 
     @Override
-    public String activeKeyframeSkillId() {
-        return switch (phase()) {
-            case PHASE_SPAWNING -> "spawn";
-            case PHASE_DYING -> "death";
-            default -> "";
-        };
+    public void bonehitboxlib$registerGeoKeyframeSkills(GeoKeyframeSkillRegistrar registrar) {
+        registrar.point("spawn", "spawn_complete", this::completeSpawnAnimation);
+        registrar.point("death", "death_complete", this::completeDeathAnimation);
     }
 
     @Override
-    public long keyframeSkillStartGameTime() {
-        return skillStartGameTime;
+    public boolean bonehitboxlib$acceptGeoKeyframeSkill(ServerPlayer reporter, String marker,
+            GeoObbAnimationState animation, double markerTimeSeconds) {
+        String expectedAnimation;
+        String expectedMarker;
+        double expectedTime;
+        if (phase() == PHASE_SPAWNING) {
+            expectedAnimation = SPAWN_ANIMATION;
+            expectedMarker = "spawn_complete";
+            expectedTime = 4.45;
+        } else if (phase() == PHASE_DYING) {
+            expectedAnimation = DEATH_ANIMATION;
+            expectedMarker = "death_complete";
+            expectedTime = 6.04;
+        } else {
+            return false;
+        }
+        return CONTROLLER.equals(animation.controllerName())
+                && expectedAnimation.equals(animation.animationName())
+                && expectedMarker.equals(GeoKeyframeSkillRegistrar.normalizeMarker(marker))
+                && Math.abs(markerTimeSeconds - expectedTime) <= 0.075
+                && level().getGameTime() - skillStartGameTime >= (int) Math.floor(expectedTime * 20.0) - 4;
     }
 
     private PlayState selectAnimation(AnimationTest<MossStoneColossus> test) {
@@ -256,7 +272,7 @@ public final class MossStoneColossus extends Monster implements GeoEntity, Keyfr
         setNoAi(true);
     }
 
-    private void completeSpawnAnimation(@Nullable KeyframeSkillContext context) {
+    private void completeSpawnAnimation(@Nullable GeoKeyframeSkillContext context) {
         if (phase() != PHASE_SPAWNING) {
             return;
         }
@@ -265,7 +281,7 @@ public final class MossStoneColossus extends Monster implements GeoEntity, Keyfr
         setNoAi(false);
     }
 
-    private void completeDeathAnimation(@Nullable KeyframeSkillContext context) {
+    private void completeDeathAnimation(@Nullable GeoKeyframeSkillContext context) {
         if (phase() != PHASE_DYING || level().isClientSide() || isRemoved()) {
             return;
         }

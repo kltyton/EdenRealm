@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "count=1": {
+      "model": "eden_realm:block/fruit/sacred_light_fruit_ground_1"
+    },
+    "count=2": {
+      "model": "eden_realm:block/fruit/sacred_light_fruit_ground_2"
+    },
+    "count=3": {
+      "model": "eden_realm:block/fruit/sacred_light_fruit_ground_3"
+    },
+    "count=4": {
+      "model": "eden_realm:block/fruit/sacred_light_fruit_ground_4"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sacred_light_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:sacred_light_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:sacred_light_button"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sacred_light_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:sacred_light_button"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "eden_realm:block/coral/spherical_coral_block"
+  }
+}

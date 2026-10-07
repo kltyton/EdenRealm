@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/wood/amber/amber_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/wood/amber/amber_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/wood/amber/amber_slab_top"
+    }
+  }
+}

@@ -1,18 +1,17 @@
 package com.kltyton.eden_realm.registry;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERButtonBlock;
-import com.kltyton.eden_realm.common.block.ERPressurePlateBlock;
-import com.kltyton.eden_realm.common.block.ERStairBlock;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.building.ERButtonBlock;
+import com.kltyton.eden_realm.common.block.building.ERPressurePlateBlock;
+import com.kltyton.eden_realm.common.block.building.ERStairBlock;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.common.block.tree.ERParticleLeavesBlock;
-import com.kltyton.eden_realm.common.block.tree.ERFruitLogBlock;
-import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
-import com.kltyton.eden_realm.registry.content.ERBlockEntry;
-import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
-import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
-import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
-import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERHarvestBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERBlockEntry;
+import com.kltyton.eden_realm.registry.content.block.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERSkyBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERTerrainBlocks;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
@@ -26,6 +25,7 @@ import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import com.kltyton.eden_realm.common.block.tree.ERIceCrystalPineSaplingBlock;
 import net.minecraft.world.level.block.ShelfBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -96,8 +96,7 @@ public final class ERBlocks {
     private static WoodBlocks registerWoodBlocks(ERWoodSet wood) {
         DeferredBlock<RotatedPillarBlock> log = BLOCKS.registerBlock(
                 wood.logName(),
-                properties -> wood == ERWoodSet.TWILIGHT_POMEGRANATE
-                        ? new ERFruitLogBlock(properties.randomTicks()) : new RotatedPillarBlock(properties),
+                RotatedPillarBlock::new,
                 properties -> properties
                         .mapColor(state -> state.getValue(RotatedPillarBlock.AXIS) == net.minecraft.core.Direction.Axis.Y
                                 ? MapColor.WOOD
@@ -193,7 +192,9 @@ public final class ERBlocks {
                         .ignitedByLava());
         DeferredBlock<SaplingBlock> sapling = BLOCKS.registerBlock(
                 wood.saplingName(),
-                properties -> new SaplingBlock(new TreeGrower(wood.registryName(), Optional.empty(), Optional.empty(), Optional.empty()), properties),
+                properties -> wood == ERWoodSet.ICE_CRYSTAL_PINE
+                        ? new ERIceCrystalPineSaplingBlock(properties)
+                        : new SaplingBlock(new TreeGrower(wood.registryName(), Optional.empty(), Optional.empty(), Optional.empty()), properties),
                 properties -> properties
                         .mapColor(MapColor.PLANT)
                         .noCollision()

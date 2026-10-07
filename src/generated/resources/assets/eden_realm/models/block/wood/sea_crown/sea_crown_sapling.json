@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/wood/sea_crown/sea_crown_sapling"
+  }
+}

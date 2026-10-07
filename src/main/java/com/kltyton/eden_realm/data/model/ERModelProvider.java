@@ -1,7 +1,13 @@
 package com.kltyton.eden_realm.data.model;
 
+import com.kltyton.eden_realm.data.model.block.ERContentModelGenerators;
+import com.kltyton.eden_realm.data.model.block.ERHarvestModelGenerator;
+
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.data.model.output.ERCategorizedModelOutput;
+import java.util.concurrent.CompletableFuture;
+import net.minecraft.data.CachedOutput;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.ERItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -16,8 +22,16 @@ import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
 
 public final class ERModelProvider extends ModelProvider {
+    private final PackOutput output;
+
     public ERModelProvider(PackOutput output) {
         super(output, ERConstants.MOD_ID);
+        this.output = output;
+    }
+
+    @Override
+    public CompletableFuture<?> run(@NonNull CachedOutput cache) {
+        return super.run(new ERCategorizedModelOutput(output, cache));
     }
 
     @Override
@@ -53,9 +67,13 @@ public final class ERModelProvider extends ModelProvider {
         }
 
         itemModels.generateFlatItem(ERItems.MOSS_STONE_COLOSSUS_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ERItems.PLAINS_VILLAGER_SPAWN_EGG.get(), net.minecraft.world.item.Items.VILLAGER_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
 
         ERContentModelGenerators.generate(blockModels);
         ERHarvestModelGenerator.generate(blockModels, itemModels);
+        for (var entry : com.kltyton.eden_realm.registry.content.item.ERToolItems.entries()) {
+            itemModels.generateFlatItem(entry.item().get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        }
     }
 
     private static void createCubeWithItem(BlockModelGenerators blockModels, Block block, TexturedModel.Provider modelProvider) {

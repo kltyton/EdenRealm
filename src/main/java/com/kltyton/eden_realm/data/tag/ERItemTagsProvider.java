@@ -1,13 +1,13 @@
 package com.kltyton.eden_realm.data.tag;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERItems;
-import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
-import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
-import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
-import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
-import com.kltyton.eden_realm.util.ERTags;
+import com.kltyton.eden_realm.registry.content.block.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERHarvestBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERSkyBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERTerrainBlocks;
+import com.kltyton.eden_realm.registry.tag.ERTags;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
@@ -30,9 +30,18 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider registries) {
-        tag(Tags.Items.SEEDS).add(ERItems.DEWSPIKE_GRAIN_SEEDS.getKey());
+        tag(com.kltyton.eden_realm.registry.content.item.ERToolItems.ROCK_STEEL_REPAIR);
+        tag(com.kltyton.eden_realm.registry.content.item.ERToolItems.SINKING_STAR_REPAIR);
+        for (var tool : com.kltyton.eden_realm.registry.content.item.ERToolItems.entries()) {
+            tag(tool.tag()).add(tool.item().getKey());
+        }
+        tag(Tags.Items.SEEDS).add(ERItems.DEWSPIKE_GRAIN_SEEDS.getKey())
+                .add(ERItems.MOON_CLOVER_SEEDS.getKey()).add(ERItems.CRYSTAL_DEW_FRUIT_SEEDS.getKey())
+                .add(ERItems.VINE_BEAN_SEEDS.getKey());
         for (var harvest : ERItems.harvestEntries()) {
-            tag(Tags.Items.CROPS).add(harvest.getKey());
+            if (!harvest.getId().getPath().endsWith("_seeds")) {
+                tag(Tags.Items.CROPS).add(harvest.getKey());
+            }
         }
         for (var leaves : ERHarvestBlocks.floweringLeaves()) {
             var item = ERItems.contentItem(leaves.getId().getPath());
@@ -108,7 +117,9 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
                 .add(ERItems.contentItem("eden_dirt").getKey())
                 .add(ERItems.contentItem("thin_cloud_soil").getKey())
                 .add(ERItems.contentItem("wet_swamp_soil").getKey());
-        dirt.add(ERItems.contentItem("eden_grass_block").getKey());
+        dirt.add(ERItems.contentItem("eden_grass_block").getKey())
+                .add(ERItems.contentItem("grass_covered_raw_rock").getKey())
+                .add(ERItems.contentItem("grass_covered_floating_island_rock").getKey());
         tag(ItemTags.SAND)
                 .add(ERItems.contentItem("coast_sand").getKey())
                 .add(ERItems.contentItem("amber_sand").getKey())

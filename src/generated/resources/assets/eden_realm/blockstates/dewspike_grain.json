@@ -1,0 +1,62 @@
+{
+  "variants": {
+    "age=0,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_0"
+    },
+    "age=0,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_0_upper"
+    },
+    "age=1,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_1"
+    },
+    "age=1,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_1_upper"
+    },
+    "age=2,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_2"
+    },
+    "age=2,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_2_upper"
+    },
+    "age=3,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_3"
+    },
+    "age=3,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_3_upper"
+    },
+    "age=4,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_4"
+    },
+    "age=4,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_4_upper"
+    },
+    "age=5,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_5"
+    },
+    "age=5,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_5_upper"
+    },
+    "age=6,half=lower": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_6"
+    },
+    "age=6,half=upper": {
+      "model": "eden_realm:block/crop/dewspike_grain_stage_6_upper"
+    },
+    "age=7,half=lower": [
+      {
+        "model": "eden_realm:block/crop/dewspike_grain_stage_7"
+      },
+      {
+        "model": "eden_realm:block/crop/dewspike_grain_stage_7_tall"
+      }
+    ],
+    "age=7,half=upper": [
+      {
+        "model": "eden_realm:block/crop/dewspike_grain_stage_7_upper"
+      },
+      {
+        "model": "eden_realm:block/crop/dewspike_grain_stage_7_tall_upper"
+      }
+    ]
+  }
+}

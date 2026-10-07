@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_sign",
+  "textures": {
+    "all": "eden_realm:block/wood/king_tree/king_tree_sign",
+    "particle": "eden_realm:block/wood/king_tree/king_tree_planks"
+  }
+}

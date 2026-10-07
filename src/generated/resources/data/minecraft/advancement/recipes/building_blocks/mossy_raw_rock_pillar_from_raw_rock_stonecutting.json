@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_rock": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:raw_rock"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:mossy_raw_rock_pillar_from_raw_rock_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_rock"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:mossy_raw_rock_pillar_from_raw_rock_stonecutting"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "eden_realm:block/wood/morning_dew/morning_dew_planks"
+  }
+}

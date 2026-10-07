@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "eden_realm:block/mushroom/blue_glow_mushroom_1"
+      },
+      {
+        "model": "eden_realm:block/mushroom/blue_glow_mushroom_2"
+      },
+      {
+        "model": "eden_realm:block/mushroom/blue_glow_mushroom_3"
+      }
+    ]
+  }
+}

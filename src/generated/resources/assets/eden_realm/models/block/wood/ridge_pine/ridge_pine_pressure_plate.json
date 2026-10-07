@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_up",
+  "textures": {
+    "texture": "eden_realm:block/wood/ridge_pine/ridge_pine_planks"
+  }
+}

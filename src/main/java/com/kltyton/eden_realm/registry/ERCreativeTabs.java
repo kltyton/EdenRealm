@@ -1,7 +1,7 @@
 package com.kltyton.eden_realm.registry;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -44,8 +44,10 @@ public final class ERCreativeTabs {
                         }
                         ERItems.contentEntries().forEach(item -> output.accept(item.get()));
                         ERItems.harvestEntries().forEach(item -> output.accept(item.get()));
+                        com.kltyton.eden_realm.registry.content.item.ERToolItems.entries().forEach(entry -> output.accept(entry.item().get()));
                         output.accept(ERItems.DEWSPIKE_GRAIN_SEEDS.get());
                         output.accept(ERItems.MOSS_STONE_COLOSSUS_SPAWN_EGG.get());
+                        output.accept(ERItems.PLAINS_VILLAGER_SPAWN_EGG.get());
                     })
                     .build());
 

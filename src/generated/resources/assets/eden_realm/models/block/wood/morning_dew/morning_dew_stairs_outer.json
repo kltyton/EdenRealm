@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "eden_realm:block/wood/morning_dew/morning_dew_planks",
+    "side": "eden_realm:block/wood/morning_dew/morning_dew_planks",
+    "top": "eden_realm:block/wood/morning_dew/morning_dew_planks"
+  }
+}

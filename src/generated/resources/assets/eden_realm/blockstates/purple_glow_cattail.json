@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "eden_realm:block/plant/aquatic/purple_glow_cattail_bottom"
+    },
+    "half=upper": {
+      "model": "eden_realm:block/plant/aquatic/purple_glow_cattail_top"
+    }
+  }
+}

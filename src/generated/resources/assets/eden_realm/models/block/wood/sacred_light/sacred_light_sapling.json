@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/wood/sacred_light/sacred_light_sapling"
+  }
+}

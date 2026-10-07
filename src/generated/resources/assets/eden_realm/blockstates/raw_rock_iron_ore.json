@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "eden_realm:block/ore/raw_rock_iron_ore"
+    }
+  }
+}

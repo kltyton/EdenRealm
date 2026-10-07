@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "half=lower": [
+      {
+        "model": "eden_realm:block/plant/aquatic/gray_spike_reed_1_bottom"
+      },
+      {
+        "model": "eden_realm:block/plant/aquatic/gray_spike_reed_2_bottom"
+      },
+      {
+        "model": "eden_realm:block/plant/aquatic/gray_spike_reed_3_bottom"
+      }
+    ],
+    "half=upper": [
+      {
+        "model": "eden_realm:block/plant/aquatic/gray_spike_reed_1_top"
+      },
+      {
+        "model": "eden_realm:block/plant/aquatic/gray_spike_reed_2_top"
+      },
+      {
+        "model": "eden_realm:block/plant/aquatic/gray_spike_reed_3_top"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "feature": "eden_realm:icy_shore_freeze",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

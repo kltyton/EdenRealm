@@ -87,3 +87,20 @@ side = "BOTH"
 # stop your mod loading on the server for example.
 #[features."${mod_id}"]
 #openGLVersion="[3.2,)"
+
+[[mixins]]
+config = "eden_realm.mixins.json"
+
+[[dependencies."${mod_id}"]]
+modId = "bonehitboxlib"
+type = "required"
+versionRange = "[${bonehitboxlib_version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "kltytonui"
+type = "required"
+versionRange = "[${kltytonui_version},)"
+ordering = "AFTER"
+side = "CLIENT"

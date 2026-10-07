@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "eden_realm:block/wood/sky_cypress/sky_cypress_leaves"
+  }
+}

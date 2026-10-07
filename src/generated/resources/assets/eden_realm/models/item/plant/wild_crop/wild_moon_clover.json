@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eden_realm:item/plant/wild_crop/wild_moon_clover"
+  }
+}

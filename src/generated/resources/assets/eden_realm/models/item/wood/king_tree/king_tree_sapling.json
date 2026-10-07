@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eden_realm:block/wood/king_tree/king_tree_sapling"
+  }
+}

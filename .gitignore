@@ -10,6 +10,15 @@ build
 # Python tool caches
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Local Eclipse and Java output
+.classpath
+.project
+.settings/
+.eclipse/
+bin/
 
 # Datagen incremental cache (generated resources themselves remain tracked)
 src/generated/resources/.cache/

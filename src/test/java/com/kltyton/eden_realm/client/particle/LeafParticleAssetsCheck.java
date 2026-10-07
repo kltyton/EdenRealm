@@ -73,7 +73,7 @@ public final class LeafParticleAssetsCheck {
         Path description = DESCRIPTION_ROOT.resolve(woodId + "_leaves.json");
         String json = Files.readString(description);
         for (int index = 0; index < 8; index++) {
-            String texture = "eden_realm:particle/leaves/" + woodId + "/" + index;
+            String texture = "eden_realm:leaves/" + woodId + "/" + index;
             if (!json.contains("\"" + texture + "\"")) {
                 throw new IllegalStateException("Missing particle texture reference: " + texture);
             }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/wood/mist_vine/mist_vine_sapling"
+  }
+}

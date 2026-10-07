@@ -3,7 +3,7 @@ package com.kltyton.eden_realm.data.particle;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -25,7 +25,7 @@ public final class ERParticleDescriptionProvider implements DataProvider {
         for (ERWoodSet wood : ERWoodSet.values()) {
             JsonArray textures = new JsonArray();
             for (int index = 0; index < VARIANT_COUNT; index++) {
-                textures.add(ERConstants.id("particle/leaves/" + wood.id() + "/" + index).toString());
+                textures.add(ERConstants.id("leaves/" + wood.id() + "/" + index).toString());
             }
             JsonObject definition = new JsonObject();
             definition.add("textures", textures);
