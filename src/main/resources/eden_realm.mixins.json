@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "com.kltyton.eden_realm.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": ["PistonFruitMixin", "WorldDimensionsMixin"],
+  "mixins": ["PistonFruitMixin", "WorldDimensionsMixin", "CloudWaterFlowMixin"],
   "client": ["client.CommandSuggestionsMixin", "client.ChatComponentMixin", "client.CreateWorldScreenMixin", "client.ParticleStormDebugDefaultsMixin", "client.SkyFogMixin"],
   "injectors": {"defaultRequire": 1}
 }
