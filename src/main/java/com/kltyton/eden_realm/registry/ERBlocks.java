@@ -182,7 +182,10 @@ public final class ERBlocks {
                         .ignitedByLava());
         DeferredBlock<ERParticleLeavesBlock> leaves = BLOCKS.registerBlock(
                 wood.leavesName(),
-                properties -> new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()), properties),
+                properties -> wood == ERWoodSet.HONEY_MAPLE
+                        ? new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()),
+                                Optional.of(ERConstants.id("honey_maple_red_leaves")), properties)
+                        : new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()), properties),
                 properties -> properties
                         .mapColor(MapColor.PLANT)
                         .strength(0.2F)

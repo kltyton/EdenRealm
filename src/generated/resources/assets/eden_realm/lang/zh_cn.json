@@ -756,6 +756,8 @@
   "item.eden_realm.wind_chime_pine_shelf": "风铃松木架",
   "itemGroup.eden_realm.eden_realm": "伊甸之境",
   "pack.eden_realm.terrain": "伊甸之境地形参数",
+  "particle.eden_realm.honey_maple_leaves": "橙色蜜枫落叶",
+  "particle.eden_realm.honey_maple_red_leaves": "红色蜜枫落叶",
   "screen.eden_realm.terrain.back": "取消并退出",
   "screen.eden_realm.terrain.biome": "选择群系",
   "screen.eden_realm.terrain.biomeSizePercent": "群系大小",

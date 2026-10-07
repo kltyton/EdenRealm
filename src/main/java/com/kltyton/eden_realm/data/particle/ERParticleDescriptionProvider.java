@@ -23,15 +23,20 @@ public final class ERParticleDescriptionProvider implements DataProvider {
     public CompletableFuture<?> run(CachedOutput output) {
         List<CompletableFuture<?>> writes = new ArrayList<>();
         for (ERWoodSet wood : ERWoodSet.values()) {
-            JsonArray textures = new JsonArray();
-            for (int index = 0; index < VARIANT_COUNT; index++) {
-                textures.add(ERConstants.id("leaves/" + wood.id() + "/" + index).toString());
-            }
-            JsonObject definition = new JsonObject();
-            definition.add("textures", textures);
-            writes.add(DataProvider.saveStable(output, definition, paths.json(ERConstants.id(wood.leavesName()))));
+            writes.add(writeDescription(output, wood.leavesName(), wood.id()));
         }
+        writes.add(writeDescription(output, "honey_maple_red_leaves", "honey_maple_red"));
         return CompletableFuture.allOf(writes.toArray(CompletableFuture[]::new));
+    }
+
+    private CompletableFuture<?> writeDescription(CachedOutput output, String particleId, String textureSet) {
+        JsonArray textures = new JsonArray();
+        for (int index = 0; index < VARIANT_COUNT; index++) {
+            textures.add(ERConstants.id("leaves/" + textureSet + "/" + index).toString());
+        }
+        JsonObject definition = new JsonObject();
+        definition.add("textures", textures);
+        return DataProvider.saveStable(output, definition, paths.json(ERConstants.id(particleId)));
     }
 
     @Override

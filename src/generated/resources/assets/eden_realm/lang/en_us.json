@@ -756,6 +756,8 @@
   "item.eden_realm.wind_chime_pine_shelf": "Wind Chime Pine Shelf",
   "itemGroup.eden_realm.eden_realm": "Eden Realm",
   "pack.eden_realm.terrain": "Eden Realm terrain parameters",
+  "particle.eden_realm.honey_maple_leaves": "Orange Honey Maple Falling Leaves",
+  "particle.eden_realm.honey_maple_red_leaves": "Red Honey Maple Falling Leaves",
   "screen.eden_realm.terrain.back": "Cancel and exit",
   "screen.eden_realm.terrain.biome": "Select biome",
   "screen.eden_realm.terrain.biomeSizePercent": "Biome size",

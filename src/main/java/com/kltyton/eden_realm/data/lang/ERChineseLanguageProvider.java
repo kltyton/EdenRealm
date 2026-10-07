@@ -15,6 +15,8 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        add("particle.eden_realm.honey_maple_leaves", "橙色蜜枫落叶");
+        add("particle.eden_realm.honey_maple_red_leaves", "红色蜜枫落叶");
         add("itemGroup.eden_realm.eden_realm", "伊甸之境");
         add("screen.eden_realm.terrain.title", "伊甸地形工作台");
         add("screen.eden_realm.terrain.biome", "选择群系");

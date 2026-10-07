@@ -16,6 +16,8 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.eden_realm.eden_realm", "Eden Realm");
+        add("particle.eden_realm.honey_maple_leaves", "Orange Honey Maple Falling Leaves");
+        add("particle.eden_realm.honey_maple_red_leaves", "Red Honey Maple Falling Leaves");
         add("screen.eden_realm.terrain.title", "Eden Terrain Workbench");
         add("screen.eden_realm.terrain.biome", "Select biome");
         add("screen.eden_realm.terrain.preview", "Terrain preview");
