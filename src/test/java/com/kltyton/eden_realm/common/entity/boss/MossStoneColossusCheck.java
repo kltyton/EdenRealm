@@ -59,7 +59,7 @@ public final class MossStoneColossusCheck {
 
     private static void verifyAnimationContract(List<String> failures) throws IOException {
         String animation = Files.readString(Path.of(
-                "src/main/resources/assets/eden_realm/geckolib/animations/entity/moss_stone_colossus.animation.json"));
+                "src/main/resources/assets/eden_realm/geckolib/animations/entity/boss/moss_stone_colossus.animation.json"));
         if (animation.contains("\"sound_effects\"")) {
             failures.add("Walking sounds must not be driven by GeckoLib sound keyframes");
         }

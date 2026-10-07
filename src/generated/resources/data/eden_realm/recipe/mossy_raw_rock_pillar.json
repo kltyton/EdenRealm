@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "R": "eden_realm:raw_rock_bricks"
+  },
+  "pattern": [
+    "R",
+    "R"
+  ],
+  "result": {
+    "count": 2,
+    "id": "eden_realm:mossy_raw_rock_pillar"
+  }
+}

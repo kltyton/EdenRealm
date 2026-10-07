@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "eden_realm:item/tool/sinking_star_shovel"
+  }
+}

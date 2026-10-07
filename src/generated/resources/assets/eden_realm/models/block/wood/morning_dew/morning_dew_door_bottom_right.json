@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "eden_realm:block/wood/morning_dew/morning_dew_door_bottom",
+    "top": "eden_realm:block/wood/morning_dew/morning_dew_door_top"
+  }
+}

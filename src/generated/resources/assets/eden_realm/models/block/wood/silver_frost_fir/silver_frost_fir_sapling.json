@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/wood/silver_frost_fir/silver_frost_fir_sapling"
+  }
+}

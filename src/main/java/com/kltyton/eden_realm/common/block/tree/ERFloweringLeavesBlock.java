@@ -1,6 +1,6 @@
 package com.kltyton.eden_realm.common.block.tree;
 
-import com.kltyton.eden_realm.common.block.plant.ERHangingFruitBlock;
+import com.kltyton.eden_realm.common.block.fruit.ERHangingFruitBlock;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -60,5 +60,22 @@ public final class ERFloweringLeavesBlock extends ERParticleLeavesBlock implemen
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         ERHangingFruitBlock.growBelow(level, pos, fruit);
+    }
+
+    @Override
+    protected void attack(BlockState state, Level level, BlockPos pos, net.minecraft.world.entity.player.Player player) {
+        detachFruit(level, pos);
+    }
+
+    @Override
+    protected void onProjectileHit(Level level, BlockState state, net.minecraft.world.phys.BlockHitResult hit,
+            net.minecraft.world.entity.projectile.Projectile projectile) {
+        detachFruit(level, hit.getBlockPos());
+    }
+
+    private void detachFruit(Level level, BlockPos pos) {
+        if (level instanceof ServerLevel server && level.getBlockState(pos.below()).getBlock() instanceof ERHangingFruitBlock hanging) {
+            hanging.detachRipe(server, pos.below());
+        }
     }
 }

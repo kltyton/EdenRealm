@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "eden_realm:block/wood/ice_crystal_pine/ice_crystal_pine_sapling"
+  }
+}

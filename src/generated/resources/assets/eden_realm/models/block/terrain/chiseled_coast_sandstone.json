@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "eden_realm:block/terrain/smooth_coast_sandstone",
+    "side": "eden_realm:block/terrain/chiseled_coast_sandstone",
+    "top": "eden_realm:block/terrain/smooth_coast_sandstone"
+  }
+}

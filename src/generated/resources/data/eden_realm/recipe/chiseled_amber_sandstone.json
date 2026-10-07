@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": "eden_realm:cut_amber_sandstone"
+  },
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "result": {
+    "id": "eden_realm:chiseled_amber_sandstone"
+  }
+}

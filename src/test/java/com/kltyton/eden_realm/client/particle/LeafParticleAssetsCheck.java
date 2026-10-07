@@ -32,7 +32,8 @@ public final class LeafParticleAssetsCheck {
         woods.put("炽羽木", "blazing_feather");
         woods.put("琥珀树", "amber");
         woods.put("苍穹树", "firmament");
-        woods.put("蜜枫树", "honey_maple");
+        woods.put("../蜜枫树/蜜枫树_橙", "honey_maple");
+        woods.put("../蜜枫树/蜜枫树_红", "honey_maple_red");
         woods.put("金叶榉树", "golden_beech");
         woods.put("银霜松", "silver_frost_fir");
         woods.put("雾藤木", "mist_vine");
@@ -40,14 +41,14 @@ public final class LeafParticleAssetsCheck {
         woods.put("龙鳞树", "dragon_scale");
         woods.put("王树", "king_tree");
 
-        if (woods.size() != 23) {
-            throw new IllegalStateException("Expected 23 wood particle mappings");
+        if (woods.size() != 24) {
+            throw new IllegalStateException("Expected 24 leaf particle mappings");
         }
         for (Map.Entry<String, String> entry : woods.entrySet()) {
             verifyWood(entry.getKey(), entry.getValue());
         }
         verifyBindings();
-        System.out.println("Leaf particle asset checks passed: 23 species, 184 textures");
+        System.out.println("Leaf particle asset checks passed: 23 species, 24 particle sets, 192 textures");
     }
 
     private static void verifyWood(String sourceName, String woodId) throws IOException {
@@ -73,7 +74,7 @@ public final class LeafParticleAssetsCheck {
         Path description = DESCRIPTION_ROOT.resolve(woodId + "_leaves.json");
         String json = Files.readString(description);
         for (int index = 0; index < 8; index++) {
-            String texture = "eden_realm:particle/leaves/" + woodId + "/" + index;
+            String texture = "eden_realm:leaves/" + woodId + "/" + index;
             if (!json.contains("\"" + texture + "\"")) {
                 throw new IllegalStateException("Missing particle texture reference: " + texture);
             }

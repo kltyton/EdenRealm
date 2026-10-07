@@ -1,0 +1,21 @@
+{
+  "values": [
+    "eden_realm:eden_dirt",
+    "eden_realm:eden_dirt_path",
+    "eden_realm:eden_farmland",
+    "eden_realm:thin_cloud_soil",
+    "eden_realm:sedimentary_silt",
+    "eden_realm:peat_block",
+    "eden_realm:wet_swamp_soil",
+    "eden_realm:coast_sand",
+    "eden_realm:amber_sand",
+    "eden_realm:oasis_sand",
+    "eden_realm:cloud",
+    "eden_realm:dense_cloud",
+    "eden_realm:rosy_cloud",
+    "eden_realm:dense_rosy_cloud",
+    "eden_realm:eden_grass_block",
+    "eden_realm:grass_covered_raw_rock",
+    "eden_realm:grass_covered_floating_island_rock"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "eden_realm:block/wood/morning_dew/morning_dew_planks"
+  }
+}

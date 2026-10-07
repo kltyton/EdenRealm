@@ -39,6 +39,6 @@ public final class ERDataGenerators {
         event.createProvider(ERLootTableProvider::new);
         event.createBlockAndItemTags(ERBlockTagsProvider::new, ERItemTagsProvider::new);
         event.createProvider(EREntityTypeTagsProvider::new);
-        event.createProvider(ERWorldgenProvider::new);
+        event.createDatapackRegistryObjects(ERWorldgenProvider.REGISTRIES);
     }
 }

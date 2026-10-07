@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "eden_realm:block/wood/sky_cypress/sky_cypress_planks"
+  }
+}

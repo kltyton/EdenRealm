@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "eden_realm:block/wood/honey_maple/honey_maple_leaves"
+      },
+      {
+        "model": "eden_realm:block/wood/honey_maple/honey_maple_leaves_red"
+      }
+    ]
+  }
+}

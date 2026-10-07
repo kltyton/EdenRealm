@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "eden_realm:block/wood/golden_beech/golden_beech_planks"
+  }
+}

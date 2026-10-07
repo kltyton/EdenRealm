@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "eden_realm:block/mushroom/crumbly_mushroom_1"
+      },
+      {
+        "model": "eden_realm:block/mushroom/crumbly_mushroom_2"
+      },
+      {
+        "model": "eden_realm:block/mushroom/crumbly_mushroom_3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "eden_realm:block/wood/king_tree/king_tree_slab"
+    },
+    "type=double": {
+      "model": "eden_realm:block/wood/king_tree/king_tree_planks"
+    },
+    "type=top": {
+      "model": "eden_realm:block/wood/king_tree/king_tree_slab_top"
+    }
+  }
+}

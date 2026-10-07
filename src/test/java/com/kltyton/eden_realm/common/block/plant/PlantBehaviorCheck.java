@@ -25,11 +25,11 @@ public final class PlantBehaviorCheck {
 
     private static void verifyAquaticPlantItemModels(List<String> failures) {
         for (String id : List.of("water_scallion", "umbrella_hygrophila")) {
-            String model = resource("assets/eden_realm/models/item/" + id + ".json");
-            if (!model.contains("eden_realm:item/" + id)) {
+            String model = resource("assets/eden_realm/models/item/plant/aquatic/" + id + ".json");
+            if (!model.contains("eden_realm:item/plant/aquatic/" + id)) {
                 failures.add(id + " must use its dedicated item texture instead of a block texture");
             }
-            resource("assets/eden_realm/textures/item/" + id + ".png");
+            resource("assets/eden_realm/textures/item/plant/aquatic/" + id + ".png");
         }
     }
 
@@ -54,7 +54,7 @@ public final class PlantBehaviorCheck {
                 failures.add(id + " must use position-seeded weighted models without a persisted variant property");
             }
             for (int variant = 1; variant <= 3; variant++) {
-                if (!blockState.contains("eden_realm:block/" + id + "_" + variant)) {
+                if (!blockState.contains("eden_realm:block/mushroom/" + id + "_" + variant)) {
                     failures.add(id + " blockstate is missing weighted model " + variant);
                 }
             }

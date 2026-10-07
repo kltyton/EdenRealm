@@ -1,14 +1,14 @@
 package com.kltyton.eden_realm.data.tag;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
-import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
-import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
-import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
-import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
-import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
-import com.kltyton.eden_realm.util.ERTags;
+import com.kltyton.eden_realm.registry.content.block.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERHarvestBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERSkyBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERTerrainBlocks;
+import com.kltyton.eden_realm.registry.tag.ERTags;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
@@ -30,7 +30,7 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
         }
         tag(BlockTags.CROPS).add(ERHarvestBlocks.DEWSPIKE_GRAIN.getKey());
         for (var fruit : ERHarvestBlocks.fruits()) {
-            tag(BlockTags.CROPS).add(fruit.getKey());
+            tag(ERTags.Blocks.EDEN_REALM_TREE_FRUITS).add(fruit.getKey());
         }
         for (ERWoodSet wood : ERWoodSet.values()) {
             ERBlocks.WoodBlocks blocks = ERBlocks.woodBlocks(wood);
@@ -150,6 +150,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                         ERTerrainBlocks.RAW_ROCK_BRICKS,
                         ERTerrainBlocks.RAW_ROCK_COAL_ORE,
                         ERTerrainBlocks.RAW_ROCK_IRON_ORE,
+                        ERTerrainBlocks.PRIMAL_RADIANCE_ORE,
+                        ERTerrainBlocks.ROCK_STEEL_ORE,
+                        ERTerrainBlocks.SINKING_STAR_ORE,
                         ERTerrainBlocks.FLOATING_ISLAND_ROCK,
                         ERTerrainBlocks.SKY_PLATFORM_STONE,
                         ERTerrainBlocks.ICE_CRYSTAL_ROCK,
@@ -185,12 +188,21 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                 .add(ERSkyBlocks.DENSE_CLOUD.getKey())
                 .add(ERSkyBlocks.ROSY_CLOUD.getKey())
                 .add(ERSkyBlocks.DENSE_ROSY_CLOUD.getKey());
-        shovel.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
+        shovel.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey())
+                .add(ERTerrainBlocks.GRASS_COVERED_RAW_ROCK.getKey())
+                .add(ERTerrainBlocks.GRASS_COVERED_FLOATING_ISLAND_ROCK.getKey());
 
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.getKey());
         tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(ERTerrainBlocks.RAW_ROCK_IRON_ORE.getKey());
+                .add(ERTerrainBlocks.PRIMAL_RADIANCE_ORE.getKey());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(ERTerrainBlocks.RAW_ROCK_IRON_ORE.getKey())
+                .add(ERTerrainBlocks.RAW_ROCK_COAL_ORE.getKey())
+                .add(ERTerrainBlocks.ROCK_STEEL_ORE.getKey()).add(ERTerrainBlocks.SINKING_STAR_ORE.getKey());
+        tag(BlockTags.CROPS).add(ERHarvestBlocks.STAR_PATTERN_YAM.getKey());
+        for (var crop : ERHarvestBlocks.gardenCrops()) {
+            tag(BlockTags.CROPS).add(crop.getKey());
+        }
         tag(BlockTags.IRON_ORES)
                 .add(ERTerrainBlocks.RAW_ROCK_IRON_ORE.getKey());
 
@@ -203,8 +215,12 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                 .add(ERTerrainBlocks.THIN_CLOUD_SOIL.getKey())
                 .add(ERTerrainBlocks.WET_SWAMP_SOIL.getKey())
                 .add(ERTerrainBlocks.EDEN_FARMLAND.getKey());
-        dirt.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
-        vegetationSupport.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey());
+        dirt.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey())
+                .add(ERTerrainBlocks.GRASS_COVERED_RAW_ROCK.getKey())
+                .add(ERTerrainBlocks.GRASS_COVERED_FLOATING_ISLAND_ROCK.getKey());
+        vegetationSupport.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.getKey())
+                .add(ERTerrainBlocks.GRASS_COVERED_RAW_ROCK.getKey())
+                .add(ERTerrainBlocks.GRASS_COVERED_FLOATING_ISLAND_ROCK.getKey());
         tag(BlockTags.SUPPORTS_CROPS)
                 .add(ERTerrainBlocks.EDEN_FARMLAND.getKey());
         tag(BlockTags.SAND)

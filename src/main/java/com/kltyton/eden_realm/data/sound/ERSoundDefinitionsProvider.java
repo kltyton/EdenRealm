@@ -15,6 +15,12 @@ public final class ERSoundDefinitionsProvider extends SoundDefinitionsProvider {
 
     @Override
     public void registerSounds() {
+        add(ERSoundEvents.PLAINS_VILLAGER_REUNION, definition()
+                .subtitle("dialogue.eden_realm.plains_villager.reunion")
+                .with(sound(ERConstants.id("entity/plains_villager/reunion"))));
+        add(ERSoundEvents.PLAINS_VILLAGER_RELIEF, definition()
+                .subtitle("dialogue.eden_realm.plains_villager.relief")
+                .with(sound(ERConstants.id("entity/plains_villager/relief"))));
         add(ERSoundEvents.MOSS_STONE_COLOSSUS_STEP, definition()
                 .subtitle(SUBTITLE_PREFIX + "step")
                 .with(

@@ -13,6 +13,7 @@ public final class EREntityLootSubProvider implements LootTableSubProvider {
 
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(EREntityTypes.PLAINS_VILLAGER.get().getDefaultLootTable().orElseThrow(), LootTable.lootTable());
         output.accept(
                 EREntityTypes.MOSS_STONE_COLOSSUS.get().getDefaultLootTable().orElseThrow(),
                 LootTable.lootTable());

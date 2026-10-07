@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "eden_realm:block/plant/aquatic/umbrella_hygrophila_bottom"
+    },
+    "half=upper": {
+      "model": "eden_realm:block/plant/aquatic/umbrella_hygrophila_top"
+    }
+  }
+}

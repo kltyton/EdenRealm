@@ -1,16 +1,19 @@
 package com.kltyton.eden_realm.data.loot;
 
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.ERItems;
-import com.kltyton.eden_realm.common.block.plant.ERHangingFruitBlock;
-import com.kltyton.eden_realm.common.block.plant.ERDewspikeGrainBlock;
-import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
-import com.kltyton.eden_realm.registry.content.ERBlockEntry;
-import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
-import com.kltyton.eden_realm.registry.content.ERPlantBlocks;
-import com.kltyton.eden_realm.registry.content.ERSkyBlocks;
-import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
+import com.kltyton.eden_realm.common.block.fruit.ERHangingFruitBlock;
+import com.kltyton.eden_realm.common.block.fruit.ERFruitBlock;
+import com.kltyton.eden_realm.common.block.crop.ERDewspikeGrainBlock;
+import com.kltyton.eden_realm.common.block.crop.ERDoubleCropBlock;
+import net.minecraft.world.level.block.CropBlock;
+import com.kltyton.eden_realm.registry.content.block.ERHarvestBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERBlockEntry;
+import com.kltyton.eden_realm.registry.content.block.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERPlantBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERSkyBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERTerrainBlocks;
 import java.util.HashSet;
 import java.util.Set;
 import net.minecraft.core.HolderLookup;
@@ -68,6 +71,8 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         specialized.add(ERTerrainBlocks.EDEN_DIRT_PATH.get());
         specialized.add(ERTerrainBlocks.EDEN_FARMLAND.get());
         specialized.add(ERTerrainBlocks.EDEN_GRASS_BLOCK.get());
+        specialized.add(ERTerrainBlocks.GRASS_COVERED_RAW_ROCK.get());
+        specialized.add(ERTerrainBlocks.GRASS_COVERED_FLOATING_ISLAND_ROCK.get());
         specialized.add(ERPlantBlocks.BUBBLE_GRASS.get());
         specialized.add(ERPlantBlocks.BLUE_COURT_SEAGRASS.get());
         specialized.add(ERPlantBlocks.TALL_BLUE_COURT_SEAGRASS.get());
@@ -109,6 +114,10 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
                 ERTerrainBlocks.EDEN_GRASS_BLOCK.get(),
                 createSingleItemTableWithSilkTouch(
                         ERTerrainBlocks.EDEN_GRASS_BLOCK.get(), ERTerrainBlocks.EDEN_DIRT.get()));
+        add(ERTerrainBlocks.GRASS_COVERED_RAW_ROCK.get(), createSingleItemTableWithSilkTouch(
+                ERTerrainBlocks.GRASS_COVERED_RAW_ROCK.get(), ERTerrainBlocks.RAW_ROCK.get()));
+        add(ERTerrainBlocks.GRASS_COVERED_FLOATING_ISLAND_ROCK.get(), createSingleItemTableWithSilkTouch(
+                ERTerrainBlocks.GRASS_COVERED_FLOATING_ISLAND_ROCK.get(), ERTerrainBlocks.FLOATING_ISLAND_ROCK.get()));
         dropOther(ERTerrainBlocks.EDEN_DIRT_PATH.get(), ERTerrainBlocks.EDEN_DIRT.get());
         dropOther(ERTerrainBlocks.EDEN_FARMLAND.get(), ERTerrainBlocks.EDEN_DIRT.get());
         add(ERPlantBlocks.BUBBLE_GRASS.get(), createShearsOnlyDrop(ERPlantBlocks.BUBBLE_GRASS.get()));
@@ -156,6 +165,19 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
     }
 
     private void generateHarvestDrops() {
+        for (var holder : ERHarvestBlocks.groundFruits()) {
+            Block fruit = holder.get();
+            var drop = LootItem.lootTableItem(fruit);
+            if (fruit.defaultBlockState().hasProperty(ERFruitBlock.COUNT)) {
+                for (int count = 2; count <= 4; count++) {
+                    drop.apply(net.minecraft.world.level.storage.loot.functions.SetItemCountFunction
+                            .setCount(net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly(count))
+                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(fruit)
+                                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ERFruitBlock.COUNT, count))));
+                }
+            }
+            add(fruit, LootTable.lootTable().withPool(LootPool.lootPool().add(applyExplosionDecay(fruit, drop))));
+        }
         for (var fruit : ERHarvestBlocks.fruits()) {
             String id = fruit.getId().getPath().replace("_hanging", "");
             add(fruit.get(), LootTable.lootTable().withPool(applyExplosionCondition(fruit.get(), LootPool.lootPool()
@@ -177,9 +199,30 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
         add(grain, applyExplosionDecay(grain, LootTable.lootTable()
                 .withPool(LootPool.lootPool().when(lower).add(LootItem.lootTableItem(ERItems.DEWSPIKE_GRAIN_SEEDS.get())))
                 .withPool(LootPool.lootPool().when(lower).when(mature).add(LootItem.lootTableItem(ERItems.DEWSPIKE_GRAIN.get())))));
-        dropSelf(ERHarvestBlocks.WILD_STAR_PATTERN_YAM.get());
+        Block yam = ERHarvestBlocks.STAR_PATTERN_YAM.get();
+        var ripeYam = LootItemBlockStatePropertyCondition.hasBlockStateProperties(yam)
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
+        add(yam, createCropDrops(yam, ERItems.STAR_PATTERN_YAM.get(), ERItems.STAR_PATTERN_YAM.get(), ripeYam));
+        for (var holder : ERHarvestBlocks.gardenCrops()) {
+            Block crop = holder.get();
+            String name = holder.getId().getPath();
+            var cropLower = LootItemBlockStatePropertyCondition.hasBlockStateProperties(crop)
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+            var ripe = LootItemBlockStatePropertyCondition.hasBlockStateProperties(crop)
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ERDoubleCropBlock.AGE, 7));
+            add(crop, applyExplosionDecay(crop, LootTable.lootTable()
+                    .withPool(LootPool.lootPool().when(cropLower).add(LootItem.lootTableItem(ERItems.harvestItem(name + "_seeds").get())))
+                    .withPool(LootPool.lootPool().when(cropLower).when(ripe).add(LootItem.lootTableItem(ERItems.harvestItem(name).get())))));
+        }
+        add(ERHarvestBlocks.WILD_STAR_PATTERN_YAM.get(), createSingleItemTableWithSilkTouch(
+                ERHarvestBlocks.WILD_STAR_PATTERN_YAM.get(), ERItems.STAR_PATTERN_YAM.get()));
         for (var plant : ERHarvestBlocks.tallWildPlants()) {
-            add(plant.get(), createSinglePropConditionTable(plant.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+            String seed = plant.getId().getPath().replace("wild_", "") + "_seeds";
+            add(plant.get(), LootTable.lootTable().withPool(LootPool.lootPool()
+                    .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(plant.get())
+                            .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)))
+                    .add(LootItem.lootTableItem(plant.get()).when(hasSilkTouch())
+                            .otherwise(applyExplosionCondition(plant.get(), LootItem.lootTableItem(ERItems.harvestItem(seed).get()))))));
         }
     }
 

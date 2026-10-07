@@ -1,10 +1,10 @@
 package com.kltyton.eden_realm.data.recipe;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.registry.ERBlocks;
 import com.kltyton.eden_realm.registry.ERItems;
-import com.kltyton.eden_realm.registry.content.ERTerrainBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERTerrainBlocks;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "eden_realm:block/terrain/frost_pattern_stone"
+  }
+}

@@ -1,0 +1,6 @@
+The detached terrain preview implementation is maintained by kltyton and was
+adapted from the procedural rendering code in XaeroWorldMapEarth (8690468).
+This implementation was previously part of the modified ApricityUI library.
+It retains LGPL-2.1 licensing; the full license is included with KltytonUI.
+Source: https://github.com/kltyton/XaeroWorldMapEarth/tree/8690468af44bf2894bfedd672d8a6f693d2aca25
+KltytonUI supplies the separate UI and basic chunk mesh drawing library.

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "eden_realm:block/plant/aquatic/water_scallion_bottom"
+    },
+    "half=upper": {
+      "model": "eden_realm:block/plant/aquatic/water_scallion_top"
+    }
+  }
+}

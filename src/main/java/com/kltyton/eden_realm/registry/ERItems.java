@@ -1,11 +1,11 @@
 package com.kltyton.eden_realm.registry;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
-import com.kltyton.eden_realm.common.item.ERBoatItem;
-import com.kltyton.eden_realm.registry.content.ERBlockEntry;
-import com.kltyton.eden_realm.registry.content.ERCoralBlocks;
-import com.kltyton.eden_realm.registry.content.ERHarvestBlocks;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
+import com.kltyton.eden_realm.common.item.vehicle.ERBoatItem;
+import com.kltyton.eden_realm.registry.content.block.ERBlockEntry;
+import com.kltyton.eden_realm.registry.content.block.ERCoralBlocks;
+import com.kltyton.eden_realm.registry.content.block.ERHarvestBlocks;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -34,11 +34,18 @@ public final class ERItems {
     private static final EnumMap<ERWoodSet, WoodItems> WOOD_ITEMS = new EnumMap<>(ERWoodSet.class);
     private static final Map<String, DeferredItem<BlockItem>> CONTENT_ITEMS = new LinkedHashMap<>();
     private static final Map<String, DeferredItem<Item>> HARVEST_ITEMS = new LinkedHashMap<>();
-    public static final DeferredItem<Item> TIDE_SONG_COCONUT = harvest("tide_song_coconut");
-    public static final DeferredItem<Item> SACRED_LIGHT_FRUIT = harvest("sacred_light_fruit");
-    public static final DeferredItem<Item> CLOUD_CROWN_FRUIT = harvest("cloud_crown_fruit");
-    public static final DeferredItem<Item> TWILIGHT_POMEGRANATE = harvest("twilight_pomegranate");
+    public static final DeferredItem<Item> TIDE_SONG_COCONUT = fruit("tide_song_coconut", ERHarvestBlocks.TIDE_SONG_COCONUT_GROUND);
+    public static final DeferredItem<Item> SACRED_LIGHT_FRUIT = fruit("sacred_light_fruit", ERHarvestBlocks.SACRED_LIGHT_FRUIT_GROUND);
+    public static final DeferredItem<Item> CLOUD_CROWN_FRUIT = fruit("cloud_crown_fruit", ERHarvestBlocks.CLOUD_CROWN_FRUIT_GROUND);
+    public static final DeferredItem<Item> TWILIGHT_POMEGRANATE = fruit("twilight_pomegranate", ERHarvestBlocks.TWILIGHT_POMEGRANATE_GROUND);
     public static final DeferredItem<Item> DEWSPIKE_GRAIN = harvest("dewspike_grain");
+    public static final DeferredItem<Item> STAR_PATTERN_YAM = fruit("star_pattern_yam", ERHarvestBlocks.STAR_PATTERN_YAM);
+    public static final DeferredItem<Item> MOON_CLOVER = harvest("moon_clover");
+    public static final DeferredItem<Item> CRYSTAL_DEW_FRUIT = harvest("crystal_dew_fruit");
+    public static final DeferredItem<Item> VINE_BEAN = harvest("vine_bean");
+    public static final DeferredItem<Item> MOON_CLOVER_SEEDS = seeds("moon_clover_seeds", ERHarvestBlocks.MOON_CLOVER);
+    public static final DeferredItem<Item> CRYSTAL_DEW_FRUIT_SEEDS = seeds("crystal_dew_fruit_seeds", ERHarvestBlocks.CRYSTAL_DEW_FRUIT);
+    public static final DeferredItem<Item> VINE_BEAN_SEEDS = seeds("vine_bean_seeds", ERHarvestBlocks.VINE_BEAN);
     public static final DeferredItem<BlockItem> DEWSPIKE_GRAIN_SEEDS = ITEMS.registerItem(
             "dewspike_grain_seeds", properties -> new DoubleHighBlockItem(ERHarvestBlocks.DEWSPIKE_GRAIN.get(), properties));
 
@@ -46,6 +53,10 @@ public final class ERItems {
             "moss_stone_colossus_spawn_egg",
             SpawnEggItem::new,
             properties -> properties.spawnEgg(EREntityTypes.MOSS_STONE_COLOSSUS.get()));
+
+    public static final DeferredItem<SpawnEggItem> PLAINS_VILLAGER_SPAWN_EGG = ITEMS.registerItem(
+            "plains_villager_spawn_egg", SpawnEggItem::new,
+            properties -> properties.spawnEgg(EREntityTypes.PLAINS_VILLAGER.get()));
 
     static {
         for (ERWoodSet wood : ERWoodSet.values()) {
@@ -63,6 +74,7 @@ public final class ERItems {
 
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
+        com.kltyton.eden_realm.registry.content.item.ERToolItems.register(modEventBus);
     }
 
     public static WoodItems woodItems(ERWoodSet wood) {
@@ -103,6 +115,18 @@ public final class ERItems {
 
     private static DeferredItem<Item> harvest(String id) {
         DeferredItem<Item> item = ITEMS.registerSimpleItem(id);
+        HARVEST_ITEMS.put(id, item);
+        return item;
+    }
+
+    private static DeferredItem<Item> fruit(String id, Supplier<? extends Block> block) {
+        DeferredItem<Item> item = ITEMS.registerItem(id, properties -> new BlockItem(block.get(), properties));
+        HARVEST_ITEMS.put(id, item);
+        return item;
+    }
+
+    private static DeferredItem<Item> seeds(String id, Supplier<? extends Block> block) {
+        DeferredItem<Item> item = ITEMS.registerItem(id, properties -> new DoubleHighBlockItem(block.get(), properties));
         HARVEST_ITEMS.put(id, item);
         return item;
     }

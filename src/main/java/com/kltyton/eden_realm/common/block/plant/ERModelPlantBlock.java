@@ -1,6 +1,6 @@
 package com.kltyton.eden_realm.common.block.plant;
 
-import com.kltyton.eden_realm.common.block.shape.ModelShapeProvider;
+import com.kltyton.bonehitboxlib.api.block.shape.ModelShapeProvider;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.List;

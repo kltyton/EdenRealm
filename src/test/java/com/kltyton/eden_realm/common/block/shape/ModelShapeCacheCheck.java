@@ -1,12 +1,18 @@
 package com.kltyton.eden_realm.common.block.shape;
 
+import com.kltyton.bonehitboxlib.api.block.shape.ModelShapeProvider;
+
+import com.kltyton.bonehitboxlib.api.block.shape.ModelShapeCache;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import java.util.List;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public final class ModelShapeCacheCheck {
@@ -99,6 +105,33 @@ public final class ModelShapeCacheCheck {
         require(sameBounds(firstSelection.bounds(), repeatedSelection.bounds()),
                 "position-seeded fungus shape must remain stable");
 
+        JsonArray diagonalBar = JsonParser.parseString("""
+                [{"from":[0,0,7.5],"to":[16,8,8.5],
+                  "rotation":{"origin":[8,0,8],"axis":"y","angle":45}}]
+                """).getAsJsonArray();
+        VoxelShape diagonal = ModelShapeCache.buildForElements(diagonalBar, Direction.NORTH).wholeShape();
+        require(diagonal.clip(new Vec3(0.52, 2, 0.54), new Vec3(0.52, -1, 0.54), BlockPos.ZERO) == null,
+                "ray outside the true diagonal bar must miss its old inflated voxel fringe");
+        var centerHit = diagonal.clip(new Vec3(0.5, 2, 0.5), new Vec3(0.5, -1, 0.5), BlockPos.ZERO);
+        require(centerHit != null && same(centerHit.getLocation().y(), 0.5),
+                "center ray must hit the authored top at y=0.5");
+        AABB clearCorner = new AABB(0.515, 1, 0.535, 0.525, 1.02, 0.545);
+        require(same(diagonal.collide(Direction.Axis.Y, clearCorner, -1), -1),
+                "movement through the diagonal bar's empty corner must remain unobstructed");
+        int[] edges = {0, 0};
+        diagonal.forAllEdges((x1, y1, z1, x2, y2, z2) -> {
+            edges[0]++;
+            if (!same(x1, x2) && !same(z1, z2)) {
+                edges[1]++;
+            }
+        });
+        require(edges[0] == 12 && edges[1] == 8,
+                "one oriented box must render twelve original edges including eight diagonal edges");
+        require(diagonal.move(10, 20, 30).clip(new Vec3(10.52, 22, 30.54),
+                new Vec3(10.52, 19, 30.54), BlockPos.ZERO) == null,
+                "translating an oriented shape must preserve its exact ray geometry");
+
+        OrientedGeometryCheck.run();
         System.out.println("Automatic block shape checks passed");
     }
 
@@ -136,7 +169,7 @@ public final class ModelShapeCacheCheck {
     }
 
     private static Identifier model(String name) {
-        return Identifier.fromNamespaceAndPath("eden_realm", "block/" + name);
+        return Identifier.fromNamespaceAndPath("eden_realm", "block/mushroom/" + name);
     }
 
     private static void require(boolean condition, String message) {

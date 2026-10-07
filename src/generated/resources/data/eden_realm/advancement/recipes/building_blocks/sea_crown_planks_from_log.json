@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sea_crown_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:sea_crown_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:sea_crown_planks_from_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sea_crown_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:sea_crown_planks_from_log"
+    ]
+  }
+}

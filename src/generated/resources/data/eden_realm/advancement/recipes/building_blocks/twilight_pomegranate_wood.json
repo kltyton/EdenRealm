@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:twilight_pomegranate_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twilight_pomegranate_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:twilight_pomegranate_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_twilight_pomegranate_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:twilight_pomegranate_wood"
+    ]
+  }
+}

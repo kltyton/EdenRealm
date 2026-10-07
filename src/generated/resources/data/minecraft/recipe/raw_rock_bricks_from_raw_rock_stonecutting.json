@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "eden_realm:raw_rock",
+  "result": {
+    "id": "eden_realm:raw_rock_bricks"
+  }
+}

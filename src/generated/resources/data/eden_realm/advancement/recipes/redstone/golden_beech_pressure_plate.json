@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_golden_beech_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "eden_realm:golden_beech_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "eden_realm:golden_beech_pressure_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_golden_beech_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "eden_realm:golden_beech_pressure_plate"
+    ]
+  }
+}

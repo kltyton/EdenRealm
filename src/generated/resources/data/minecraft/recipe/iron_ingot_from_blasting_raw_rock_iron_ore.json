@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "eden_realm_iron",
+  "ingredient": "eden_realm:raw_rock_iron_ore",
+  "result": {
+    "id": "minecraft:iron_ingot"
+  }
+}

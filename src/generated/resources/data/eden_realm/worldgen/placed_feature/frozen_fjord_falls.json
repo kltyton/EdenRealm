@@ -1,0 +1,8 @@
+{
+  "feature": "eden_realm:frozen_fjord_falls",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

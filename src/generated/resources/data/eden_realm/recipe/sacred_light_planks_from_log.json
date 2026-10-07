@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "eden_realm:sacred_light_log"
+  ],
+  "result": {
+    "count": 4,
+    "id": "eden_realm:sacred_light_planks"
+  }
+}

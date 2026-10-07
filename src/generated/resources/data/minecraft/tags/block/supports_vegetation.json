@@ -1,0 +1,11 @@
+{
+  "values": [
+    "eden_realm:eden_dirt",
+    "eden_realm:thin_cloud_soil",
+    "eden_realm:wet_swamp_soil",
+    "eden_realm:eden_farmland",
+    "eden_realm:eden_grass_block",
+    "eden_realm:grass_covered_raw_rock",
+    "eden_realm:grass_covered_floating_island_rock"
+  ]
+}

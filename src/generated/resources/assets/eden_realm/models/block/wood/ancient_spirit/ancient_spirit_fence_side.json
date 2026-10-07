@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "eden_realm:block/wood/ancient_spirit/ancient_spirit_planks"
+  }
+}

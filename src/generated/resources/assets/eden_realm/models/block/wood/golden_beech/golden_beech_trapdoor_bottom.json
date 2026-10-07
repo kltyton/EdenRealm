@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_orientable_trapdoor_bottom",
+  "textures": {
+    "texture": "eden_realm:block/wood/golden_beech/golden_beech_trapdoor"
+  }
+}

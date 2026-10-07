@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "eden_realm:block/wood/moon_tide/moon_tide_leaves"
+  }
+}

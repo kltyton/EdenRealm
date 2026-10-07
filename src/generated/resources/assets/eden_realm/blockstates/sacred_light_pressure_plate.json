@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "eden_realm:block/wood/sacred_light/sacred_light_pressure_plate"
+    },
+    "powered=true": {
+      "model": "eden_realm:block/wood/sacred_light/sacred_light_pressure_plate_down"
+    }
+  }
+}

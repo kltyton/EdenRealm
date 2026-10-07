@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "eden_realm:amber_sandstone",
+  "result": {
+    "id": "eden_realm:chiseled_amber_sandstone"
+  }
+}

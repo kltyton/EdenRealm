@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "eden_realm:block/fruit/twilight_pomegranate_stage_0"
+    },
+    "age=1": {
+      "model": "eden_realm:block/fruit/twilight_pomegranate_stage_1"
+    },
+    "age=2": {
+      "model": "eden_realm:block/fruit/twilight_pomegranate_stage_2"
+    },
+    "age=3": {
+      "model": "eden_realm:block/fruit/twilight_pomegranate_stage_3"
+    },
+    "age=4": {
+      "model": "eden_realm:block/fruit/twilight_pomegranate_stage_4"
+    }
+  }
+}

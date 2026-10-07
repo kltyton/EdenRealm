@@ -1,0 +1,43 @@
+{
+  "entity.moss_stone_colossus.ambient": {
+    "sounds": [
+      "eden_realm:entity/moss_stone_colossus/ambient"
+    ],
+    "subtitle": "subtitles.eden_realm.entity.moss_stone_colossus.ambient"
+  },
+  "entity.moss_stone_colossus.death": {
+    "sounds": [
+      "eden_realm:entity/moss_stone_colossus/death"
+    ],
+    "subtitle": "subtitles.eden_realm.entity.moss_stone_colossus.death"
+  },
+  "entity.moss_stone_colossus.hurt": {
+    "sounds": [
+      "eden_realm:entity/moss_stone_colossus/hurt"
+    ],
+    "subtitle": "subtitles.eden_realm.entity.moss_stone_colossus.hurt"
+  },
+  "entity.moss_stone_colossus.step": {
+    "sounds": [
+      "eden_realm:entity/moss_stone_colossus/step_1",
+      "eden_realm:entity/moss_stone_colossus/step_2",
+      "eden_realm:entity/moss_stone_colossus/step_3",
+      "eden_realm:entity/moss_stone_colossus/step_4",
+      "eden_realm:entity/moss_stone_colossus/step_5",
+      "eden_realm:entity/moss_stone_colossus/step_6"
+    ],
+    "subtitle": "subtitles.eden_realm.entity.moss_stone_colossus.step"
+  },
+  "entity.plains_villager.relief": {
+    "sounds": [
+      "eden_realm:entity/plains_villager/relief"
+    ],
+    "subtitle": "dialogue.eden_realm.plains_villager.relief"
+  },
+  "entity.plains_villager.reunion": {
+    "sounds": [
+      "eden_realm:entity/plains_villager/reunion"
+    ],
+    "subtitle": "dialogue.eden_realm.plains_villager.reunion"
+  }
+}

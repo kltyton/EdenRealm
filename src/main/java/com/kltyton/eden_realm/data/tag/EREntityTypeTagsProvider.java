@@ -1,9 +1,9 @@
 package com.kltyton.eden_realm.data.tag;
 
 import com.kltyton.eden_realm.ERConstants;
-import com.kltyton.eden_realm.common.block.ERWoodSet;
+import com.kltyton.eden_realm.common.block.tree.ERWoodSet;
 import com.kltyton.eden_realm.registry.EREntityTypes;
-import com.kltyton.eden_realm.util.ERTags;
+import com.kltyton.eden_realm.registry.tag.ERTags;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
