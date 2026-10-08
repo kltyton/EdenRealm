@@ -35,7 +35,7 @@ public final class LeafParticleAssetsCheck {
         woods.put("../蜜枫树/蜜枫树_橙", "honey_maple");
         woods.put("../蜜枫树/蜜枫树_红", "honey_maple_red");
         woods.put("金叶榉树", "golden_beech");
-        woods.put("银霜松", "silver_frost_fir");
+        woods.put("../银霜松/树叶粒子", "silver_frost_fir");
         woods.put("雾藤木", "mist_vine");
         woods.put("风铃松", "wind_chime_pine");
         woods.put("龙鳞树", "dragon_scale");
