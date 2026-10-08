@@ -45,6 +45,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ERBlocks {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ERConstants.MOD_ID);
     private static final EnumMap<ERWoodSet, WoodBlocks> WOOD_BLOCKS = new EnumMap<>(ERWoodSet.class);
+    public static final DeferredBlock<ERParticleLeavesBlock> HONEY_MAPLE_RED_LEAVES = BLOCKS.registerBlock(
+            "honey_maple_leaves_red",
+            properties -> new ERParticleLeavesBlock(0.01F, ERConstants.id("honey_maple_red_leaves"), properties),
+            properties -> properties.mapColor(MapColor.PLANT).strength(0.2F).randomTicks()
+                    .sound(SoundType.GRASS).noOcclusion().ignitedByLava());
 
     static {
         for (ERWoodSet wood : ERWoodSet.values()) {
@@ -182,10 +187,7 @@ public final class ERBlocks {
                         .ignitedByLava());
         DeferredBlock<ERParticleLeavesBlock> leaves = BLOCKS.registerBlock(
                 wood.leavesName(),
-                properties -> wood == ERWoodSet.HONEY_MAPLE
-                        ? new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()),
-                                Optional.of(ERConstants.id("honey_maple_red_leaves")), properties)
-                        : new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()), properties),
+                properties -> new ERParticleLeavesBlock(0.01F, ERConstants.id(wood.leavesName()), properties),
                 properties -> properties
                         .mapColor(MapColor.PLANT)
                         .strength(0.2F)

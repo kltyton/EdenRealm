@@ -137,7 +137,7 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
             addBlock(blocks.pressurePlate(), name + " Pressure Plate");
             addBlock(blocks.shelf(), name + " Shelf");
             addItem(items.shelf(), name + " Shelf");
-            addBlock(blocks.leaves(), name + " Leaves");
+            addBlock(blocks.leaves(), (wood == ERWoodSet.HONEY_MAPLE ? "Orange " : "") + name + " Leaves");
             addBlock(blocks.sapling(), name + " Sapling");
             addBlock(blocks.door(), name + " Door");
             addBlock(blocks.trapdoor(), name + " Trapdoor");
@@ -149,6 +149,7 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
             addItem(items.chestBoat(), name + " Chest Boat");
         }
 
+        addBlock(ERBlocks.HONEY_MAPLE_RED_LEAVES, "Red Honey Maple Leaves");
         for (ERBlockEntry entry : ERBlocks.contentEntries()) {
             addBlock(entry.block(), entry.englishName());
         }

@@ -75,8 +75,9 @@ public final class ERContentModelGenerators {
             blockModels.registerSimpleItemModel(block, model);
         }
 
-        blockModels.woodProvider(ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR.get())
-                .log(ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR.get());
+        List.of(ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR, ERTerrainBlocks.SEA_VALLEY_STONE_PILLAR,
+                ERTerrainBlocks.TEMPLE_STONE_PILLAR, ERTerrainBlocks.MOSSY_TEMPLE_STONE_PILLAR)
+                .forEach(holder -> ERConnectedPillarModelGenerator.generate(blockModels, holder.get()));
 
         ERGrassModelGenerator.generate(blockModels);
         generateDirtPath(blockModels);
@@ -103,8 +104,7 @@ public final class ERContentModelGenerators {
                         ERSkyBlocks.DENSE_ROSY_CLOUD)
                 .forEach(holder -> createCubeWithItem(blockModels, holder.get()));
 
-        blockModels.woodProvider(ERSkyBlocks.CLOUD_COURT_STONE_PILLAR.get())
-                .log(ERSkyBlocks.CLOUD_COURT_STONE_PILLAR.get());
+        ERConnectedPillarModelGenerator.generate(blockModels, ERSkyBlocks.CLOUD_COURT_STONE_PILLAR.get());
 
         List.of(
                         ERSkyBlocks.CLOUD_EDGE_GRASS,

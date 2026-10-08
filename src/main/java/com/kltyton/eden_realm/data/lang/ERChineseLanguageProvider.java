@@ -124,7 +124,7 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
             ERItems.WoodItems items = ERItems.woodItems(wood);
             String name = wood.chineseName();
             String materialName = woodMaterialName(name);
-            String leafName = treePartName(name, "树叶");
+            String leafName = wood == ERWoodSet.HONEY_MAPLE ? "橙色蜜枫树叶" : treePartName(name, "树叶");
             String saplingName = treePartName(name, "树苗");
 
             addBlock(blocks.log(), name + "原木");
@@ -152,6 +152,7 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
             addItem(items.chestBoat(), name + "运输船");
         }
 
+        addBlock(ERBlocks.HONEY_MAPLE_RED_LEAVES, "红色蜜枫树叶");
         for (ERBlockEntry entry : ERBlocks.contentEntries()) {
             addBlock(entry.block(), entry.chineseName());
         }

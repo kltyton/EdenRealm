@@ -62,6 +62,8 @@ public final class ERBlockLootSubProvider extends BlockLootSubProvider {
             dropOther(blocks.wallHangingSign().get(), blocks.hangingSign().get());
         }
 
+        add(ERBlocks.HONEY_MAPLE_RED_LEAVES.get(), createLeavesDrops(ERBlocks.HONEY_MAPLE_RED_LEAVES.get(),
+                ERBlocks.woodBlocks(ERWoodSet.HONEY_MAPLE).sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
         Set<Block> specialized = new HashSet<>();
         specialized.addAll(ERHarvestBlocks.blocks());
         specialized.add(ERTerrainBlocks.BOUNDARY_ROCK.get());

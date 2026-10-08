@@ -1,6 +1,7 @@
 package com.kltyton.eden_realm.registry.content.block;
 
 import com.kltyton.eden_realm.ERConstants;
+import com.kltyton.eden_realm.common.block.building.ERConnectedPillarBlock;
 import com.kltyton.eden_realm.common.block.plant.ERGrowableGrassBlock;
 import com.kltyton.eden_realm.common.block.plant.ERHangingPlantBlock;
 import com.kltyton.eden_realm.common.block.plant.ERShapedBushBlock;
@@ -12,7 +13,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
@@ -25,11 +25,11 @@ public final class ERSkyBlocks {
 
     public static final DeferredBlock<Block> CLOUD_COURT_STONE = simple(
             "cloud_court_stone", "Cloud Court Stone", "云庭石板", Blocks.SMOOTH_STONE);
-    public static final DeferredBlock<RotatedPillarBlock> CLOUD_COURT_STONE_PILLAR = register(
+    public static final DeferredBlock<ERConnectedPillarBlock> CLOUD_COURT_STONE_PILLAR = register(
             "cloud_court_stone_pillar",
             "Cloud Court Stone Pillar",
             "云庭石柱",
-            RotatedPillarBlock::new,
+            ERConnectedPillarBlock::new,
             copyOf(Blocks.QUARTZ_PILLAR));
     public static final DeferredBlock<ERSinkingCloudBlock> CLOUD = register(
             "cloud",
