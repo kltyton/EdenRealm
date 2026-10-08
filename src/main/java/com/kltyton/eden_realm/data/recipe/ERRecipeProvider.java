@@ -173,6 +173,10 @@ public final class ERRecipeProvider extends RecipeProvider {
                 ERTerrainBlocks.RAW_ROCK.get());
         stonecutterResultFromBase(
                 RecipeCategory.BUILDING_BLOCKS,
+                ERTerrainBlocks.RAW_ROCK_PILLAR.get(),
+                ERTerrainBlocks.RAW_ROCK.get());
+        stonecutterResultFromBase(
+                RecipeCategory.BUILDING_BLOCKS,
                 ERTerrainBlocks.RAW_ROCK_BRICKS.get(),
                 ERTerrainBlocks.RAW_ROCK.get());
 

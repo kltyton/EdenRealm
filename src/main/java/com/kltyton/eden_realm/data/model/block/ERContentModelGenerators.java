@@ -1,6 +1,7 @@
 package com.kltyton.eden_realm.data.model.block;
 
 import com.kltyton.eden_realm.ERConstants;
+import com.kltyton.eden_realm.common.block.plant.ERHangingPlantBlock;
 import com.kltyton.eden_realm.registry.content.block.ERCoralBlocks;
 import com.kltyton.eden_realm.registry.content.block.ERPlantBlocks;
 import com.kltyton.eden_realm.registry.content.block.ERSkyBlocks;
@@ -10,6 +11,7 @@ import java.util.Optional;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
@@ -75,7 +77,7 @@ public final class ERContentModelGenerators {
             blockModels.registerSimpleItemModel(block, model);
         }
 
-        List.of(ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR, ERTerrainBlocks.SEA_VALLEY_STONE_PILLAR,
+        List.of(ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR, ERTerrainBlocks.RAW_ROCK_PILLAR, ERTerrainBlocks.SEA_VALLEY_STONE_PILLAR,
                 ERTerrainBlocks.TEMPLE_STONE_PILLAR, ERTerrainBlocks.MOSSY_TEMPLE_STONE_PILLAR)
                 .forEach(holder -> ERConnectedPillarModelGenerator.generate(blockModels, holder.get()));
 
@@ -109,10 +111,14 @@ public final class ERContentModelGenerators {
         List.of(
                         ERSkyBlocks.CLOUD_EDGE_GRASS,
                         ERSkyBlocks.SKY_WIND_GRASS,
-                        ERSkyBlocks.CLOUD_CROWN_FLOWER,
-                        ERSkyBlocks.CLOUD_FLEECE_VINE)
+                        ERSkyBlocks.CLOUD_CROWN_FLOWER)
                 .forEach(holder -> blockModels.createCrossBlockWithDefaultItem(
                         holder.get(), BlockModelGenerators.PlantType.NOT_TINTED));
+        Identifier cloudVine = ModelTemplates.CROSS.create(ERSkyBlocks.CLOUD_FLEECE_VINE.get(),
+                TextureMapping.cross(material("cloud_fleece_vine")), blockModels.modelOutput);
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(
+                ERSkyBlocks.CLOUD_FLEECE_VINE.get(), BlockModelGenerators.plainVariant(cloudVine)));
+        generateVineItem(blockModels, ERSkyBlocks.CLOUD_FLEECE_VINE.get(), "cloud_fleece_vine");
         generateTallSkyWindGrass(blockModels);
     }
 
@@ -208,6 +214,8 @@ public final class ERContentModelGenerators {
     }
 
     private static void generatePlants(BlockModelGenerators blockModels) {
+        generateTreeVine(blockModels, ERPlantBlocks.ANCIENT_SPIRIT_VINE.get(), "ancient_spirit_vine");
+        generateTreeVine(blockModels, ERPlantBlocks.MISTWOOD_VINE.get(), "mistwood_vine");
         List.of(
                         ERPlantBlocks.FROST_CRYSTAL_GRASS,
                         ERPlantBlocks.FROST_DOWN_FLOWER,
@@ -238,6 +246,23 @@ public final class ERContentModelGenerators {
                 ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get(),
                 ModelLocationUtils.getModelLocation(ERPlantBlocks.ROTTING_WOOD_FUNGUS_MAT.get()));
         ERPlantModelGenerator.generate(blockModels);
+    }
+
+    private static void generateTreeVine(BlockModelGenerators models, ERHangingPlantBlock block, String texture) {
+        Identifier body = ModelTemplates.CROSS.create(block, TextureMapping.cross(material(texture)), models.modelOutput);
+        Identifier tip = ModelTemplates.CROSS.create(ModelLocationUtils.getModelLocation(block, "_tip"),
+                TextureMapping.cross(material(texture + "_tip")), models.modelOutput);
+        models.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(
+                PropertyDispatch.initial(ERHangingPlantBlock.TIP)
+                        .select(false, BlockModelGenerators.plainVariant(body))
+                        .select(true, BlockModelGenerators.plainVariant(tip))));
+        generateVineItem(models, block, texture + "_tip");
+    }
+
+    private static void generateVineItem(BlockModelGenerators models, Block block, String texture) {
+        Identifier itemModel = ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(block.asItem()),
+                TextureMapping.layer0(material(texture)), models.modelOutput);
+        models.registerSimpleItemModel(block, itemModel);
     }
 
     private static void generateBlueCourtSeagrass(BlockModelGenerators blockModels) {

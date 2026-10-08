@@ -26,6 +26,7 @@ public final class ERParticleDescriptionProvider implements DataProvider {
             writes.add(writeDescription(output, wood.leavesName(), wood.id()));
         }
         writes.add(writeDescription(output, "honey_maple_red_leaves", "honey_maple_red"));
+        writes.add(writeDescription(output, "honey_maple_orange_leaves", "honey_maple_orange"));
         return CompletableFuture.allOf(writes.toArray(CompletableFuture[]::new));
     }
 

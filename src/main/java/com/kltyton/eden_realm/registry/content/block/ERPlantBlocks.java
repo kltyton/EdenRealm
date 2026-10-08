@@ -1,6 +1,7 @@
 package com.kltyton.eden_realm.registry.content.block;
 
 import com.kltyton.eden_realm.ERConstants;
+import com.kltyton.eden_realm.common.block.plant.ERHangingPlantBlock;
 import com.kltyton.eden_realm.common.block.plant.aquatic.ERSeagrassBlock;
 import com.kltyton.eden_realm.common.block.plant.ERShapedBushBlock;
 import com.kltyton.eden_realm.common.block.plant.ERShapedDryVegetationBlock;
@@ -33,6 +34,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ERPlantBlocks {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ERConstants.MOD_ID);
     private static final List<ERBlockEntry> ENTRIES = new ArrayList<>();
+    public static final DeferredBlock<ERHangingPlantBlock> ANCIENT_SPIRIT_VINE = register(
+            "ancient_spirit_vine", "Ancient Spirit Vine", "古灵树藤",
+            properties -> new ERHangingPlantBlock(14.0, 0.0, 16.0, 12.0, 2.0, 16.0, properties),
+            copyOf(Blocks.HANGING_ROOTS));
+    public static final DeferredBlock<ERHangingPlantBlock> MISTWOOD_VINE = register(
+            "mistwood_vine", "Mistwood Vine", "雾藤树藤",
+            properties -> new ERHangingPlantBlock(14.0, 0.0, 16.0, 14.0, 2.0, 16.0, properties),
+            copyOf(Blocks.HANGING_ROOTS));
 
     public static final DeferredBlock<ERShapedBushBlock> FROST_CRYSTAL_GRASS = register(
             "frost_crystal_grass",

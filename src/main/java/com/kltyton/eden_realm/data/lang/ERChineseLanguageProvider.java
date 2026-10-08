@@ -15,7 +15,8 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("particle.eden_realm.honey_maple_leaves", "橙色蜜枫落叶");
+        add("particle.eden_realm.honey_maple_leaves", "黄色蜜枫落叶");
+        add("particle.eden_realm.honey_maple_orange_leaves", "橙色蜜枫落叶");
         add("particle.eden_realm.honey_maple_red_leaves", "红色蜜枫落叶");
         add("itemGroup.eden_realm.eden_realm", "伊甸之境");
         add("screen.eden_realm.terrain.title", "伊甸地形工作台");
@@ -124,7 +125,7 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
             ERItems.WoodItems items = ERItems.woodItems(wood);
             String name = wood.chineseName();
             String materialName = woodMaterialName(name);
-            String leafName = wood == ERWoodSet.HONEY_MAPLE ? "橙色蜜枫树叶" : treePartName(name, "树叶");
+            String leafName = wood == ERWoodSet.HONEY_MAPLE ? "黄色蜜枫树叶" : treePartName(name, "树叶");
             String saplingName = treePartName(name, "树苗");
 
             addBlock(blocks.log(), name + "原木");
@@ -153,6 +154,7 @@ public final class ERChineseLanguageProvider extends LanguageProvider {
         }
 
         addBlock(ERBlocks.HONEY_MAPLE_RED_LEAVES, "红色蜜枫树叶");
+        addBlock(ERBlocks.HONEY_MAPLE_ORANGE_LEAVES, "橙色蜜枫树叶");
         for (ERBlockEntry entry : ERBlocks.contentEntries()) {
             addBlock(entry.block(), entry.chineseName());
         }
