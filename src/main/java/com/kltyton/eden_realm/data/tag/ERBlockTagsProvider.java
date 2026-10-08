@@ -24,6 +24,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider registries) {
+        tag(BlockTags.LEAVES).add(ERBlocks.HONEY_MAPLE_RED_LEAVES.getKey());
+        tag(ERTags.Blocks.EDEN_REALM_LEAVES).add(ERBlocks.HONEY_MAPLE_RED_LEAVES.getKey());
+        tag(BlockTags.MINEABLE_WITH_HOE).add(ERBlocks.HONEY_MAPLE_RED_LEAVES.getKey());
         for (var leaves : ERHarvestBlocks.floweringLeaves()) {
             tag(BlockTags.LEAVES).add(leaves.getKey());
             tag(ERTags.Blocks.EDEN_REALM_LEAVES).add(leaves.getKey());
@@ -146,6 +149,9 @@ public final class ERBlockTagsProvider extends BlockTagsProvider {
                         ERTerrainBlocks.RAW_ROCK,
                         ERTerrainBlocks.CHISELED_RAW_ROCK_BRICKS,
                         ERTerrainBlocks.MOSSY_RAW_ROCK_PILLAR,
+                        ERTerrainBlocks.SEA_VALLEY_STONE_PILLAR,
+                        ERTerrainBlocks.TEMPLE_STONE_PILLAR,
+                        ERTerrainBlocks.MOSSY_TEMPLE_STONE_PILLAR,
                         ERTerrainBlocks.MOSSY_RAW_ROCK_BRICKS,
                         ERTerrainBlocks.RAW_ROCK_BRICKS,
                         ERTerrainBlocks.RAW_ROCK_COAL_ORE,

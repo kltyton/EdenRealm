@@ -1,6 +1,7 @@
 package com.kltyton.eden_realm.registry.content.block;
 
 import com.kltyton.eden_realm.ERConstants;
+import com.kltyton.eden_realm.common.block.building.ERConnectedPillarBlock;
 import com.kltyton.eden_realm.common.block.terrain.ERDirtPathBlock;
 import com.kltyton.eden_realm.common.block.terrain.ERFarmlandBlock;
 import com.kltyton.eden_realm.common.block.terrain.ERGrassBlock;
@@ -12,7 +13,6 @@ import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ColoredFallingBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -31,12 +31,21 @@ public final class ERTerrainBlocks {
     public static final DeferredBlock<Block> RAW_ROCK = simple("raw_rock", "Raw Rock", "原岩", Blocks.STONE);
     public static final DeferredBlock<Block> CHISELED_RAW_ROCK_BRICKS = simple(
             "chiseled_raw_rock_bricks", "Chiseled Raw Rock Bricks", "雕纹原岩砖", Blocks.CHISELED_STONE_BRICKS);
-    public static final DeferredBlock<RotatedPillarBlock> MOSSY_RAW_ROCK_PILLAR = register(
+    public static final DeferredBlock<ERConnectedPillarBlock> MOSSY_RAW_ROCK_PILLAR = register(
             "mossy_raw_rock_pillar",
             "Mossy Raw Rock Pillar",
             "原岩苔石柱",
-            RotatedPillarBlock::new,
+            ERConnectedPillarBlock::new,
             copyOf(Blocks.QUARTZ_PILLAR));
+    public static final DeferredBlock<ERConnectedPillarBlock> SEA_VALLEY_STONE_PILLAR = register(
+            "sea_valley_stone_pillar", "Sea Valley Stone Pillar", "海谷石柱",
+            ERConnectedPillarBlock::new, copyOf(Blocks.QUARTZ_PILLAR));
+    public static final DeferredBlock<ERConnectedPillarBlock> TEMPLE_STONE_PILLAR = register(
+            "temple_stone_pillar", "Temple Stone Pillar", "神庙石柱",
+            ERConnectedPillarBlock::new, copyOf(Blocks.QUARTZ_PILLAR));
+    public static final DeferredBlock<ERConnectedPillarBlock> MOSSY_TEMPLE_STONE_PILLAR = register(
+            "mossy_temple_stone_pillar", "Mossy Temple Stone Pillar", "苔神庙石柱",
+            ERConnectedPillarBlock::new, copyOf(Blocks.QUARTZ_PILLAR));
     public static final DeferredBlock<Block> MOSSY_RAW_ROCK_BRICKS = simple(
             "mossy_raw_rock_bricks", "Mossy Raw Rock Bricks", "原岩苔砖", Blocks.MOSSY_STONE_BRICKS);
     public static final DeferredBlock<Block> RAW_ROCK_BRICKS = simple(

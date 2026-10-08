@@ -186,6 +186,8 @@ public final class ERCategorizedModelOutput implements CachedOutput {
         if (name.contains("mushroom") || name.contains("fungus")) return "mushroom";
         if (name.contains("coral")) return "coral";
         if (name.contains("_ore")) return "ore";
+        if (begins(name, List.of("sea_valley_stone_pillar", "temple_stone_pillar", "mossy_temple_stone_pillar")))
+            return "building/pillar";
         if (begins(name, TERRAIN) || name.contains("sandstone")) return "terrain";
         if (SKY.contains(name) || begins(name, List.of("cloud_court_stone", "sky_pool_stone"))) return "sky";
         if (name.endsWith("_spawn_egg")) return "spawn_egg";

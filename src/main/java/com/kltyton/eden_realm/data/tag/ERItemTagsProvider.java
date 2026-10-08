@@ -30,6 +30,8 @@ public final class ERItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider registries) {
+        tag(ItemTags.LEAVES).add(ERItems.HONEY_MAPLE_RED_LEAVES.getKey());
+        tag(ERTags.Items.EDEN_REALM_LEAVES).add(ERItems.HONEY_MAPLE_RED_LEAVES.getKey());
         tag(com.kltyton.eden_realm.registry.content.item.ERToolItems.ROCK_STEEL_REPAIR);
         tag(com.kltyton.eden_realm.registry.content.item.ERToolItems.SINKING_STAR_REPAIR);
         for (var tool : com.kltyton.eden_realm.registry.content.item.ERToolItems.entries()) {
