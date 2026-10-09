@@ -34,6 +34,8 @@ public final class ERItems {
     private static final EnumMap<ERWoodSet, WoodItems> WOOD_ITEMS = new EnumMap<>(ERWoodSet.class);
     private static final Map<String, DeferredItem<BlockItem>> CONTENT_ITEMS = new LinkedHashMap<>();
     private static final Map<String, DeferredItem<Item>> HARVEST_ITEMS = new LinkedHashMap<>();
+    public static final DeferredItem<BlockItem> HONEY_MAPLE_ORANGE_LEAVES =
+            registerBlockItem("honey_maple_leaves_orange", ERBlocks.HONEY_MAPLE_ORANGE_LEAVES);
     public static final DeferredItem<BlockItem> HONEY_MAPLE_RED_LEAVES =
             registerBlockItem("honey_maple_leaves_red", ERBlocks.HONEY_MAPLE_RED_LEAVES);
     public static final DeferredItem<Item> TIDE_SONG_COCONUT = fruit("tide_song_coconut", ERHarvestBlocks.TIDE_SONG_COCONUT_GROUND);

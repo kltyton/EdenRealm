@@ -37,6 +37,9 @@ public final class ERTerrainBlocks {
             "原岩苔石柱",
             ERConnectedPillarBlock::new,
             copyOf(Blocks.QUARTZ_PILLAR));
+    public static final DeferredBlock<ERConnectedPillarBlock> RAW_ROCK_PILLAR = register(
+            "raw_rock_pillar", "Raw Rock Pillar", "原岩石柱",
+            ERConnectedPillarBlock::new, copyOf(Blocks.QUARTZ_PILLAR));
     public static final DeferredBlock<ERConnectedPillarBlock> SEA_VALLEY_STONE_PILLAR = register(
             "sea_valley_stone_pillar", "Sea Valley Stone Pillar", "海谷石柱",
             ERConnectedPillarBlock::new, copyOf(Blocks.QUARTZ_PILLAR));

@@ -34,7 +34,10 @@ public final class ERCreativeTabs {
                             output.accept(items.pressurePlate().get());
                             output.accept(items.shelf().get());
                             output.accept(items.leaves().get());
-                            if (wood == ERWoodSet.HONEY_MAPLE) output.accept(ERItems.HONEY_MAPLE_RED_LEAVES.get());
+                            if (wood == ERWoodSet.HONEY_MAPLE) {
+                                output.accept(ERItems.HONEY_MAPLE_ORANGE_LEAVES.get());
+                                output.accept(ERItems.HONEY_MAPLE_RED_LEAVES.get());
+                            }
                             output.accept(items.sapling().get());
                             output.accept(items.door().get());
                             output.accept(items.trapdoor().get());

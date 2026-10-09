@@ -16,7 +16,8 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.eden_realm.eden_realm", "Eden Realm");
-        add("particle.eden_realm.honey_maple_leaves", "Orange Honey Maple Falling Leaves");
+        add("particle.eden_realm.honey_maple_leaves", "Yellow Honey Maple Falling Leaves");
+        add("particle.eden_realm.honey_maple_orange_leaves", "Orange Honey Maple Falling Leaves");
         add("particle.eden_realm.honey_maple_red_leaves", "Red Honey Maple Falling Leaves");
         add("screen.eden_realm.terrain.title", "Eden Terrain Workbench");
         add("screen.eden_realm.terrain.biome", "Select biome");
@@ -137,7 +138,7 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
             addBlock(blocks.pressurePlate(), name + " Pressure Plate");
             addBlock(blocks.shelf(), name + " Shelf");
             addItem(items.shelf(), name + " Shelf");
-            addBlock(blocks.leaves(), (wood == ERWoodSet.HONEY_MAPLE ? "Orange " : "") + name + " Leaves");
+            addBlock(blocks.leaves(), (wood == ERWoodSet.HONEY_MAPLE ? "Yellow " : "") + name + " Leaves");
             addBlock(blocks.sapling(), name + " Sapling");
             addBlock(blocks.door(), name + " Door");
             addBlock(blocks.trapdoor(), name + " Trapdoor");
@@ -150,6 +151,7 @@ public final class EREnglishLanguageProvider extends LanguageProvider {
         }
 
         addBlock(ERBlocks.HONEY_MAPLE_RED_LEAVES, "Red Honey Maple Leaves");
+        addBlock(ERBlocks.HONEY_MAPLE_ORANGE_LEAVES, "Orange Honey Maple Leaves");
         for (ERBlockEntry entry : ERBlocks.contentEntries()) {
             addBlock(entry.block(), entry.englishName());
         }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "eden_realm:block/terrain/raw_rock_pillar_end",
+    "side": "eden_realm:block/terrain/raw_rock_pillar_top"
+  }
+}

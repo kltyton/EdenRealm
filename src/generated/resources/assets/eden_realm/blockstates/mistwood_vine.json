@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "tip=false": {
+      "model": "eden_realm:block/plant/vine/mistwood_vine"
+    },
+    "tip=true": {
+      "model": "eden_realm:block/plant/vine/mistwood_vine_tip"
+    }
+  }
+}

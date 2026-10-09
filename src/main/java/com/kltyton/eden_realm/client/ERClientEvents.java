@@ -44,6 +44,7 @@ public final class ERClientEvents {
             event.registerSpriteSet(ERParticleTypes.fallingLeaves(wood).get(), ERFallingLeavesParticle.Provider::new);
         }
         event.registerSpriteSet(ERParticleTypes.HONEY_MAPLE_RED_LEAVES.get(), ERFallingLeavesParticle.Provider::new);
+        event.registerSpriteSet(ERParticleTypes.HONEY_MAPLE_ORANGE_LEAVES.get(), ERFallingLeavesParticle.Provider::new);
     }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

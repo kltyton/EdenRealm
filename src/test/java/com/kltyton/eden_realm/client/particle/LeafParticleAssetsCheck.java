@@ -32,7 +32,8 @@ public final class LeafParticleAssetsCheck {
         woods.put("炽羽木", "blazing_feather");
         woods.put("琥珀树", "amber");
         woods.put("苍穹树", "firmament");
-        woods.put("../蜜枫树/蜜枫树_橙", "honey_maple");
+        woods.put("蜜枫树", "honey_maple");
+        woods.put("../蜜枫树/蜜枫树_橙", "honey_maple_orange");
         woods.put("../蜜枫树/蜜枫树_红", "honey_maple_red");
         woods.put("金叶榉树", "golden_beech");
         woods.put("../银霜松/树叶粒子", "silver_frost_fir");
@@ -41,14 +42,14 @@ public final class LeafParticleAssetsCheck {
         woods.put("龙鳞树", "dragon_scale");
         woods.put("王树", "king_tree");
 
-        if (woods.size() != 24) {
-            throw new IllegalStateException("Expected 24 leaf particle mappings");
+        if (woods.size() != 25) {
+            throw new IllegalStateException("Expected 25 leaf particle mappings");
         }
         for (Map.Entry<String, String> entry : woods.entrySet()) {
             verifyWood(entry.getKey(), entry.getValue());
         }
         verifyBindings();
-        System.out.println("Leaf particle asset checks passed: 23 species, 24 particle sets, 192 textures");
+        System.out.println("Leaf particle asset checks passed: 23 species, 25 particle sets, 200 textures");
     }
 
     private static void verifyWood(String sourceName, String woodId) throws IOException {

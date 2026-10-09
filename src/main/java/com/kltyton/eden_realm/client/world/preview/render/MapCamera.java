@@ -17,6 +17,19 @@ public record MapCamera(double x, double y, double z, double pixelsPerBlock,
         return projectionMatrix().mul(viewMatrix());
     }
 
+    /** Keeps orthographic zoom from moving the near plane through the scene. */
+    public MapCamera withSceneBounds(double minX, double minY, double minZ,
+                                     double maxX, double maxY, double maxZ) {
+        if (mode.equals("street")) return this;
+        double dx = Math.max(Math.abs(minX - x), Math.abs(maxX - x));
+        double dy = Math.max(Math.abs(minY - y), Math.abs(maxY - y));
+        double dz = Math.max(Math.abs(minZ - z), Math.abs(maxZ - z));
+        // eyeOffset is at least 300*unit away; the near plane is unit away.
+        double depthUnit = Math.max(unit, Math.hypot(Math.hypot(dx, dz), dy) / 299.0);
+        return new MapCamera(x, y, z, pixelsPerBlock, yaw, angle, mode, width, height,
+                depthUnit, fieldOfView);
+    }
+
     public Vector3f eyeOffset() {
         float halfHeight = (float) (height / (2 * pixelsPerBlock));
         float cameraAngle = mode.equals("top") ? 0.0001f : (float) Math.max(0.0001, Math.min(angle, Math.PI - 0.0001));

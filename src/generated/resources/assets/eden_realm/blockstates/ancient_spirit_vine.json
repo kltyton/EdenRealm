@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "tip=false": {
+      "model": "eden_realm:block/plant/vine/ancient_spirit_vine"
+    },
+    "tip=true": {
+      "model": "eden_realm:block/plant/vine/ancient_spirit_vine_tip"
+    }
+  }
+}

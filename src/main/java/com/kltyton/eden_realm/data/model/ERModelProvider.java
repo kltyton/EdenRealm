@@ -67,6 +67,7 @@ public final class ERModelProvider extends ModelProvider {
         }
 
         createCubeWithItem(blockModels, ERBlocks.HONEY_MAPLE_RED_LEAVES.get(), TexturedModel.LEAVES);
+        createCubeWithItem(blockModels, ERBlocks.HONEY_MAPLE_ORANGE_LEAVES.get(), TexturedModel.LEAVES);
         itemModels.generateFlatItem(ERItems.MOSS_STONE_COLOSSUS_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ERItems.PLAINS_VILLAGER_SPAWN_EGG.get(), net.minecraft.world.item.Items.VILLAGER_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
 

@@ -182,6 +182,7 @@ public final class ERCategorizedModelOutput implements CachedOutput {
         }
         if (begins(name, FRUITS)) return "fruit";
         if (begins(name, CROPS)) return "crop";
+        if (begins(name, List.of("ancient_spirit_vine", "mistwood_vine"))) return "plant/vine";
         if (name.startsWith("wild_")) return "plant/wild_crop";
         if (name.contains("mushroom") || name.contains("fungus")) return "mushroom";
         if (name.contains("coral")) return "coral";
