@@ -62,6 +62,8 @@ public final class TerrainEditorScreen extends KltytonScreen {
     private record TooltipRegion(double x, double y, double width, double height) { }
     private List<TooltipRegion> tooltipRegions = List.of();
     private double cameraX, cameraY, cameraZ, pixelsPerBlock = 1, yaw = 0.75, angle = 0.7;
+    private NativeTerrainScene.Surface cameraSurface;
+    private int cameraSurfaceMinY, cameraSurfaceMaxY;
     private boolean resetView = true, closed;
     private long nativeFrames, publishedNativeFrames = -1, displayedSceneKey = -1;
     private long pendingInputAt;
@@ -407,6 +409,14 @@ public final class TerrainEditorScreen extends KltytonScreen {
         if (blockRenderer == null) blockRenderer = new BlockSurfaceRenderer();
         if (realtimeRenderer == null) realtimeRenderer = new TerrainRealtimeRenderer();
         var surface = frame.surface();
+        if (surface != cameraSurface) {
+            cameraSurfaceMinY = cameraSurfaceMaxY = controller.previewSeaLevel();
+            for (int value : surface.heights()) {
+                cameraSurfaceMinY = Math.min(cameraSurfaceMinY, value);
+                cameraSurfaceMaxY = Math.max(cameraSurfaceMaxY, value);
+            }
+            cameraSurface = surface;
+        }
         if (resetView && frame.sceneKey() == controller.generation()) {
             double spanX = surface.width() * (double) surface.step();
             double spanZ = surface.depth() * (double) surface.step();
@@ -426,8 +436,26 @@ public final class TerrainEditorScreen extends KltytonScreen {
         double visibleSpan = Math.max(viewWidth / pixelsPerBlock,
                 viewHeight / (pixelsPerBlock * Math.cos(angle)));
         double unit = Math.max(1, Math.min(surface.width() * (double) surface.step(), visibleSpan) / 256.0);
+        double minY = cameraSurfaceMinY, maxY = cameraSurfaceMaxY;
+        if (frame.tiles() != null) {
+            minY = Math.min(minY, frame.tiles().minY());
+            maxY = Math.max(maxY, frame.tiles().maxY());
+        }
+        if (whole != null) for (var tile : whole.tiles()) {
+            if (Float.isFinite(tile.minY())) minY = Math.min(minY, tile.minY());
+            if (Float.isFinite(tile.maxY())) maxY = Math.max(maxY, tile.maxY());
+        }
+        double minX = whole == null ? surface.x() : Math.min(surface.x(), whole.x());
+        double minZ = whole == null ? surface.z() : Math.min(surface.z(), whole.z());
+        double maxX = surface.x() + surface.width() * (double) surface.step();
+        double maxZ = surface.z() + surface.depth() * (double) surface.step();
+        if (whole != null) {
+            maxX = Math.max(maxX, whole.x() + (double) whole.width());
+            maxZ = Math.max(maxZ, whole.z() + (double) whole.depth());
+        }
         var camera = new MapCamera(cameraX, cameraY, cameraZ, pixelsPerBlock, yaw, angle,
-                "isometric", viewWidth, viewHeight, unit, 75);
+                "isometric", viewWidth, viewHeight, unit, 75)
+                .withSceneBounds(minX, minY, minZ, maxX, maxY, maxZ);
         controller.view(frame.sceneKey(), cameraX, cameraZ, visibleSpan);
         var renderer = nativeRenderer;
         var blocks = blockRenderer;
