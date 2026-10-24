@@ -10,6 +10,15 @@ group = mod_group_id
 
 repositories {
     exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Sighs BoneHitboxLib'
+                url = uri('https://maven.sighs.cc/repository/maven-public/')
+            }
+        }
+        filter { includeModule('com.kltyton', 'bonehitboxlib-neoforge-26.2') }
+    }
+    exclusiveContent {
         forRepository { flatDir { dirs 'libs/kui' } }
         filter { includeGroup('io.github.kltyton.kltytonui') }
     }
